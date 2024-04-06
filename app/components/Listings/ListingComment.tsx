@@ -80,7 +80,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
 
     return (
         <div>
-{/*             <h2 style={{ fontWeight: '600', paddingBottom: '10px' }}>Commentaires</h2>
+            <h2 style={{ fontWeight: '600', paddingBottom: '10px' }}>Commentaires</h2>
             {comments.length === 0 ? (
                 <p>Aucun commentaire pour le moment.</p>
             ) : (
@@ -99,7 +99,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
                     ))}
                 </div>
             )}
- */}            <textarea
+            <textarea
                 value={commentContent}
                 onChange={(e) => setCommentContent(e.target.value)}
                 placeholder="Ajouter un commentaire..."
