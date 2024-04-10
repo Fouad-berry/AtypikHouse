@@ -3,8 +3,9 @@ import prisma from "@/app/libs/prismadb";
 
 export async function GET(request: Request) {
     try {
-        // Extraire le paramètre 'listingId' du chemin de l'URL
-        const listingId = request.url.split('/').pop();
+        // Extraire le paramètre 'listingId' de la requête
+        const params = new URLSearchParams(request.url.split('?')[1]);
+        const listingId = params.get('listingId');
 
         // Vérifier si le paramètre listingId est présent
         if (!listingId) {

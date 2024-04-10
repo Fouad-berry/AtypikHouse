@@ -18,6 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Atypik house ",
   description: "Site de locations de logements alternatif",
+  manifest: "/manifest.webmanifest"
 };
 
 export default async function RootLayout({
