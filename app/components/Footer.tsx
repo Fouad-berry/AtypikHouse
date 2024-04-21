@@ -28,7 +28,7 @@ const Footer = () => {
             <p
               onClick={() => router.push('/trips')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Infos sur l'entreprise
+            > Infos sur lentreprise
             </p>&emsp;
           </div>
           {/* Colonne à droite avec deux éléments */}
