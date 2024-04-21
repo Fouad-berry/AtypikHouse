@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto  } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar/NavBar";
 import ClientOnly from "./components/ClientOnly";
@@ -11,12 +11,9 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModals from "./components/Modals/RentModals";
 import SearchModal from "./components/Modals/SearchModal";
 
-//Pour avoir la police d'ecriture de la page
-const roboto = Roboto({
-  style: ['normal'],
-  weight: '400',
-  subsets: ['latin'],
-})
+//Pour avoir la police d'ecrityre de la page
+const inter = Inter({ subsets: ["latin"] });
+
 //Pour donner une description a la fenetre du site dans tout navigateur
 export const metadata: Metadata = {
   title: "Atypik house ",
@@ -36,7 +33,7 @@ export default async function RootLayout({
   return (
     
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
           <SearchModal />

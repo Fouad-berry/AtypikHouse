@@ -55,7 +55,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
                     items-center
                     gap-2
                 ">
-                    <div>Louer par {user?.name} </div>
+                    <div>Louer par {user?.name}</div>
                     <Avatar src={user?.image}/>
                 </div>
                 <div className="
@@ -106,6 +106,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
                 {description}
             </div>
             <hr />
+            <div className="text-lg font-bold text-normal-300">
+                Ou se trouve notre logement Athipique
+            </div>
             <Map center={coordinates}/>
         </div>
     );

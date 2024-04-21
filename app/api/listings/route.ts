@@ -44,7 +44,7 @@ export async function POST(
             equipment: {set : equipment },
             locationvalue: location.value,
             price: parseInt(price, 10),
-            userId: currentUser.id
+            userId: currentUser.id,
         }
     });
 

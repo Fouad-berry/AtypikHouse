@@ -53,7 +53,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         transition
                         cursor-pointer
                 ">
-                    Loue ta maison
+                    Devenir Hote
                 </div>
                 <div
                     onClick={toogleOpen}
