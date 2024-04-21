@@ -24,7 +24,7 @@ const MobileNavbar = () => {
   }, [ searchModal]);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-around items-center sm:hidden">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-around items-center sm:hidden pb-8">
       {/* Icône Accueil */}
       <div>
         <a onClick={onSearch} className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer">
