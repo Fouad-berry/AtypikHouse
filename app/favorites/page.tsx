@@ -4,6 +4,7 @@ import ClientOnly from "../components/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
 import getFavoriteListings from "../actions/getFavoriteListings";
 import FavoritesClient from "./FavoritesClient";
+import MobileNavbar from "../components/MobileNavbar";
 
 const ListingPage = async () => {
     const listings = await getFavoriteListings();
@@ -16,6 +17,7 @@ const ListingPage = async () => {
                     title="Aucun favoris n'a été trouvé"
                     subtitle="C'est comme si vous n'avez pas de locations favorites"
                 />
+                <MobileNavbar />
             </ClientOnly>
         )
     }
@@ -26,6 +28,7 @@ const ListingPage = async () => {
                 listings={listings}
                 currentUser={currentUser}
             />
+            <MobileNavbar />
         </ClientOnly>
     )
 }

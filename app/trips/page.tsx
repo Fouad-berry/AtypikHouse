@@ -4,6 +4,7 @@ import ClientOnly from "../components/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservation";
 import TripsClient from "./TripsClient";
+import MobileNavbar from "../components/MobileNavbar";
 
 const TripsPage = async () => {
     const currentUser = await getCurrentUser();
@@ -40,6 +41,7 @@ const TripsPage = async () => {
                 reservations={reservations}
                 currentUser={currentUser}
             />
+            <MobileNavbar />
         </ClientOnly>
     )
 }

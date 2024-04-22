@@ -12,6 +12,7 @@ import CountrySelect, { CountrySelectValue } from "../Inputs/CountrySelect";
 import Heading from "../Heading";
 import Calendar from "../Inputs/Calendar";
 import Counter from "../Inputs/Counter";
+import MobileNavbar from "../MobileNavbar";
 
 enum STEPS {
     LOCATION = 0,
@@ -176,6 +177,7 @@ const SearchModal = () => {
     }
 
     return ( 
+        <>
         <Modals
             isOpen={searchModal.isOpen}
             onClose={searchModal.onClose}
@@ -186,6 +188,8 @@ const SearchModal = () => {
             secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
             body={bodyContent}
         />
+        <MobileNavbar />
+        </>
      );
 }
  
