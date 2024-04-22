@@ -4,6 +4,8 @@ import ClientOnly from "../components/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservation";
 import ReservationsClient from "./ReservationsClient";
+import MobileNavbar from "../components/MobileNavbar";
+import Footer from "../components/Footer";
 
 const  ReservationPage = async () => {
     const currentUser = await getCurrentUser();
@@ -25,22 +27,30 @@ const  ReservationPage = async () => {
 
     if (reservations.length === 0) {
         return (
+            <>
             <ClientOnly>
                 <EmptyState
                     title="Pas de reservation trouvé"
                     subtitle="Regardez si vous n'avez pas de reservation dans vos propriétés"
                 />
             </ClientOnly>
+            <Footer />
+            <MobileNavbar />
+            </>
         )
     }
 
     return (
+        <>
         <ClientOnly>
             <ReservationsClient
                 reservations={reservations}
                 currentUser={currentUser}
             />
         </ClientOnly>
+        <Footer />
+        <MobileNavbar />
+        </>
     )
 };
 

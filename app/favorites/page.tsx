@@ -5,6 +5,7 @@ import getCurrentUser from "../actions/getCurrentUser";
 import getFavoriteListings from "../actions/getFavoriteListings";
 import FavoritesClient from "./FavoritesClient";
 import MobileNavbar from "../components/MobileNavbar";
+import Footer from "../components/Footer";
 
 const ListingPage = async () => {
     const listings = await getFavoriteListings();
@@ -12,24 +13,30 @@ const ListingPage = async () => {
 
     if (listings.length === 0){
         return (
+            <>
             <ClientOnly>
                 <EmptyState
                     title="Aucun favoris n'a été trouvé"
                     subtitle="C'est comme si vous n'avez pas de locations favorites"
                 />
-                <MobileNavbar />
             </ClientOnly>
+            <Footer />
+            <MobileNavbar />
+            </>
         )
     }
 
     return(
+        <>
         <ClientOnly>
             <FavoritesClient
                 listings={listings}
                 currentUser={currentUser}
             />
-            <MobileNavbar />
         </ClientOnly>
+        <Footer />
+        <MobileNavbar />
+        </>
     )
 }
 

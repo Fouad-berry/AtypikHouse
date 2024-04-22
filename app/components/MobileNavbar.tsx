@@ -50,7 +50,7 @@ const MobileNavbar = () => {
       </div>
 
       <div>
-        <a href="#" className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer">
+        <a onClick={() => router.push('/profile')} className="flex flex-col items-center text-gray-600 hover:text-yellow-500 cursor-pointer">
           <BsPerson  size={27} />
           <span className="text-xs">Profil</span>
         </a>

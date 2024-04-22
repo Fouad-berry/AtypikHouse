@@ -5,6 +5,7 @@ import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservation";
 import TripsClient from "./TripsClient";
 import MobileNavbar from "../components/MobileNavbar";
+import Footer from "../components/Footer";
 
 const TripsPage = async () => {
     const currentUser = await getCurrentUser();
@@ -26,23 +27,29 @@ const TripsPage = async () => {
 
     if (reservations.length === 0) {
         return (
+            <>
             <ClientOnly>
                 <EmptyState
                     title="Pas de voyages trouvé"
                     subtitle="Regardez vous n'avez reservé aucun voyage"
                 />
             </ClientOnly>
+            <MobileNavbar />
+            </>
         )
     }
 
     return (
+        <>
         <ClientOnly>
             <TripsClient
                 reservations={reservations}
                 currentUser={currentUser}
             />
-            <MobileNavbar />
         </ClientOnly>
+        <Footer />
+        <MobileNavbar />
+        </>
     )
 }
 
