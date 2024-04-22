@@ -3,7 +3,7 @@ import ClientOnly from "../components/ClientOnly";
 
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservation";
-import TripsClient from "./ProfileClient";
+import ProfileClient from "./ProfileClient";
 import MobileNavbar from "../components/MobileNavbar";
 import Footer from "../components/Footer";
 
@@ -40,7 +40,7 @@ const TripsPage = async () => {
     return (
         <>
         <ClientOnly>
-            <TripsClient
+            <ProfileClient
                 currentUser={currentUser}
             />
         </ClientOnly>
