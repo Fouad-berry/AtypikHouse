@@ -28,16 +28,15 @@ const Input: React.FC<InputProps> = ({
     // Validation function to check if input meets criteria
     const validateInput = (value: string) => {
         if (type === "email") {
-            // Check if value contains "@" and "."
             return value.includes("@") && value.includes(".");
-        } else if (type === "text" || type === "password") {
-            // Regex pattern for maximum 8 characters with at least one digit, one letter, and one special character
+            // Validation pour d'autres types si nécessaire
+        } else if (type === "password") {
+            // Regex pattern pour maximum 8 caractères avec au moins un chiffre, une lettre, et un caractère spécial
             const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z]).{1,8}$/;
             return passwordPattern.test(value);
         }
-        return true; // Return true for other types
+        return true; // Retourne true pour d'autres types
     };
-
     // Conditionally apply validation only for string, password, and email types
     const shouldValidate = type === "text" || type === "password" || type === "email";
 
@@ -100,9 +99,12 @@ const Input: React.FC<InputProps> = ({
             </label>
             {errors[id] && errors[id]?.type === "validate" && (
                 <span className="text-red-500 text-sm">
-                    {type === "email" ? "Le champ doit contenir un email valide." : "Le champ doit avoir maximum 8 caractères avec des caractères spéciaux."}
+                    {type === "email" ? "Le champ doit contenir un email valide." : 
+                        type === "password" ? "Le champ doit avoir maximum 8 caractères avec des caractères spéciaux, une lettre et un chiffre." :
+                            ""
+                    }
                 </span>
-            )}
+            )}        
         </div>
     );
 };
