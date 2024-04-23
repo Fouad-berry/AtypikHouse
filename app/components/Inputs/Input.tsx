@@ -17,13 +17,30 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
     id,
     label,
-    type="text",
+    type = "text",
     disabled,
     formatPrice,
     register,
     required,
-    errors
+    errors,
 }) => {
+
+    // Validation function to check if input meets criteria
+    const validateInput = (value: string) => {
+        if (type === "email") {
+            // Check if value contains "@" and "."
+            return value.includes("@") && value.includes(".");
+        } else if (type === "text" || type === "password") {
+            // Regex pattern for maximum 8 characters with at least one digit, one letter, and one special character
+            const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z]).{1,8}$/;
+            return passwordPattern.test(value);
+        }
+        return true; // Return true for other types
+    };
+
+    // Conditionally apply validation only for string, password, and email types
+    const shouldValidate = type === "text" || type === "password" || type === "email";
+
     return (
         <div className="w-full relative">
             {formatPrice && (
@@ -40,7 +57,7 @@ const Input: React.FC<InputProps> = ({
             <input 
                 id={id}
                 disabled={disabled}
-                { ... register(id, { required })}
+                {...register(id, { required, ...(shouldValidate && { validate: validateInput }) })}
                 placeholder=""
                 type={type}
                 className={`
@@ -81,6 +98,11 @@ const Input: React.FC<InputProps> = ({
             >
                 {label}
             </label>
+            {errors[id] && errors[id]?.type === "validate" && (
+                <span className="text-red-500 text-sm">
+                    {type === "email" ? "Le champ doit contenir un email valide." : "Le champ doit avoir maximum 8 caractères avec des caractères spéciaux."}
+                </span>
+            )}
         </div>
     );
 };
