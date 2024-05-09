@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-const prisma = require('@/app/libs/prismadb').default;
+import prisma from "@/app/libs/prismadb";
 
-
-export async function GET(request: Request) {
+export async function GET({ query }: { query: { listingId?: string } }) {
     try {
-        // Extraire le paramètre 'listingId' de la requête
-        const url = new URL(request.url);
-        const listingId = url.searchParams.get('listingId');
+        const { listingId } = query;
 
         // Vérifier si le paramètre listingId est présent
         if (!listingId) {
