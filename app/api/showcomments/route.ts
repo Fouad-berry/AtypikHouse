@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
-import prisma from "@/app/libs/prismadb";
+const prisma = require('@/app/libs/prismadb').default;
+
 
 export async function GET(request: Request) {
     try {
         // Extraire le paramètre 'listingId' de la requête
         const url = new URL(request.url);
         const listingId = url.searchParams.get('listingId');
-        
+
         // Vérifier si le paramètre listingId est présent
         if (!listingId) {
             return NextResponse.error();
