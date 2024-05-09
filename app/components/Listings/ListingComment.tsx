@@ -32,7 +32,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
                         ];
 
     // Fonction pour récupérer les commentaires associés à la location
-/*     const fetchComments = async () => {
+     const fetchComments = async () => {
         try {
             const response = await axios.get(`/api/showcomments?listingId=${listingId}`);
             setComments(response.data.comments);
@@ -47,7 +47,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
     useEffect(() => {
         fetchComments();
     }, [listingId]);
- */
+
     // Soumettre un nouveau commentaire
     const handleCommentSubmit = async () => {
         try {
@@ -67,9 +67,8 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
             });
             setCommentContent('');
             setErrorMessage('');
-            // Rafraîchir les commentaires après soumission
-/*             fetchComments();
- */        } catch (error) {
+                fetchComments();
+         } catch (error) {
             console.error('Erreur lors de la soumission du commentaire :', error);
         }
     };
@@ -80,7 +79,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
 
     return (
         <div>
-{/*             <h2 style={{ fontWeight: '600', paddingBottom: '10px' }}>Commentaires</h2>
+            <h2 style={{ fontWeight: '600', paddingBottom: '10px' }}>Commentaires</h2>
             {comments.length === 0 ? (
                 <p>Aucun commentaire pour le moment.</p>
             ) : (
@@ -99,7 +98,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
                     ))}
                 </div>
             )}
- */}            <textarea
+                <textarea
                 value={commentContent}
                 onChange={(e) => setCommentContent(e.target.value)}
                 placeholder="Ajouter un commentaire..."
