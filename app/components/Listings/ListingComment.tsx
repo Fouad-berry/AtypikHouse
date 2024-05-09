@@ -21,7 +21,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`/api/comments?listingId=${listingId}`);
+                const response = await axios.get(`/api/showcomments?listingId=${listingId}`);
                 setComments(response.data.comments);
                 setLoading(false);
             } catch (error) {
