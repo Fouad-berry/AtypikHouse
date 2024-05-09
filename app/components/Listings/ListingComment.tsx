@@ -2,39 +2,64 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '../Button';
 
-interface Comment {
-    id: string;
-    content: string;
-    user: {
-        id: string;
-        name: string;
-    };
-    createdAt: string; // Ajoutez cette ligne pour déclarer le type de createdAt
-}
-
 const ListingComment = ({ listingId }: { listingId: string }) => {
-    const [comments, setComments] = useState<Comment[]>([]); // Utilisez l'interface Comment pour annoter le type des éléments dans le tableau
+    const [comments, setComments] = useState([]);
     const [commentContent, setCommentContent] = useState('');
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
 
+    // Liste des mots interdits
+    const forbiddenWords = ['offensant',
+            'inapproprié', 
+            'négatif', 
+            'danger',
+            'con',
+            'malade',
+            'mort',
+            'viol',
+            'agression',
+            'violence',
+            'desastreux',
+            'idiot',
+            'imbécile',
+            'con',
+            'putain',
+            'nègre',
+            'merde',
+            'enculé',
+            'Je vais faire en sorte que tout le monde sache comment vous traitez vos locataires',
+            'représaille',
+                        ];
+
+    // Fonction pour récupérer les commentaires associés à la location
+    const fetchComments = async () => {
+        try {
+            const response = await axios.get(`/api/showcomments?listingId=${listingId}`);
+            setComments(response.data.comments);
+            setLoading(false);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des commentaires :', error);
+            setLoading(false);
+        }
+    };
+
+    // Charger les commentaires associés à la location lorsque le composant est monté
     useEffect(() => {
-        const fetchComments = async () => {
-            try {
-                const response = await axios.get(`/api/showcomments?listingId=${listingId}`);
-                setComments(response.data.comments);
-                setLoading(false);
-            } catch (error) {
-                console.error('Erreur lors de la récupération des commentaires :', error);
-                setLoading(false);
-            }
-        };
         fetchComments();
     }, [listingId]);
 
+    // Soumettre un nouveau commentaire
     const handleCommentSubmit = async () => {
         try {
-            // Code de vérification des mots interdits
+            // Vérifier si le commentaire contient des mots interdits
+            const containsForbiddenWords = forbiddenWords.some(word =>
+                commentContent.toLowerCase().includes(word)
+            );
+
+            if (containsForbiddenWords) {
+                setErrorMessage('Votre commentaire contient des termes inappropriés.veuillez les supprimez s\’il vous plaît.');
+                return;
+            }
 
             await axios.post('/api/comments', {
                 content: commentContent,
@@ -42,7 +67,8 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
             });
             setCommentContent('');
             setErrorMessage('');
-            // Recharger les commentaires après avoir soumis un nouveau commentaire
+            // Rafraîchir les commentaires après soumission
+            fetchComments();
         } catch (error) {
             console.error('Erreur lors de la soumission du commentaire :', error);
         }
@@ -54,27 +80,35 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
 
     return (
         <div>
-            <h2>Commentaires</h2>
+            <h2 style={{ fontWeight: '600', paddingBottom: '10px' }}>Commentaires</h2>
             {comments.length === 0 ? (
                 <p>Aucun commentaire pour le moment.</p>
             ) : (
-                <ul>
-                    {comments.map((comment, index) => (
-                        <li key={index}>
-                            <p>{comment.content}</p>
-                            <p>Par: {comment.user.name}</p>
-                            <p>Date: {new Date(comment.createdAt).toLocaleString()}</p>
-                        </li>
+                <div className="comment-columns">
+                    {comments.map((comment: any, index: number) => (
+                        <div key={index} className="comment-item">
+                            <div>
+                                <strong>Utilisateur:</strong> {comment.user.name}
+                            </div>
+                            <div>
+                                <strong>Date:</strong>{' '}
+                                {new Date(comment.createdAt).toLocaleString()}
+                            </div>
+                            <div>{comment.content}</div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
             <textarea
                 value={commentContent}
                 onChange={(e) => setCommentContent(e.target.value)}
                 placeholder="Ajouter un commentaire..."
+                style={{ marginTop: '5px' }}
             />
-            <div style={{ color: 'red' }}>{errorMessage}</div>
-            <Button label="Commenter" onClick={handleCommentSubmit} />
+            <div style={{ color: 'red', marginTop: '5px' }}>{errorMessage}</div>
+            <div style={{ maxWidth: '200px', marginTop: '10px' }}>
+                <Button label="Commenter" onClick={handleCommentSubmit} />
+            </div>
         </div>
     );
 };
