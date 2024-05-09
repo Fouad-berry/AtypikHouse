@@ -1,9 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
+import { parse } from "url";
 
-export async function GET({ query }: { query: { listingId?: string } }) {
+export async function GET(req: NextRequest) {
     try {
-        const { listingId } = query;
+        const { query } = parse(req.url, true);
+        const listingId = query.listingId;
 
         // Vérifier si le paramètre listingId est présent
         if (!listingId) {
