@@ -1,26 +1,15 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import useCountries from "@/app/hooks/useCountries";
+import { SafeUser } from "@/app/types";
+import { IconType } from "react-icons";
+import Avatar from "../Avatar";
+import ListingCategory from "./ListingCategory";
+import ListingEquipement from "./ListingEquipement";
+import dynamic from "next/dynamic";
 
-import Container from "../components/Container";
-import Heading from "../components/Heading";
-import { SafeReservation, SafeUser } from "../types";
-import { useCallback, useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
-import ListingCard from "../components/Listings/ListingCard";
 
-interface RecapClientProps {
-    reservations: SafeReservation[];
-    currentUser?: SafeUser | null;
-}
-
-const RecapClient: React.FC<RecapClientProps> = ({
-    reservations,
-    currentUser
-}) => {
-    const totalPrice = sessionStorage.getItem('totalPrice');
-    const router = useRouter();
+const ListingInfo= ({}) => {
 
     return (
         <div className="col-span-4 flex flex-col gap-8">
@@ -44,10 +33,10 @@ const RecapClient: React.FC<RecapClientProps> = ({
                     text-neutral-500
                 ">
                     <div>
-                        <p>Prix total: {totalPrice}</p>
+                         visiteurs
                     </div>
                     <div>
-                        <p>Date de reservation: {totalPrice}</p>
+                         chambres
                     </div>
                     <div>
                          salle de bains
@@ -74,4 +63,4 @@ const RecapClient: React.FC<RecapClientProps> = ({
     );
 };
 
-export default RecapClient;
+export default ListingInfo;
