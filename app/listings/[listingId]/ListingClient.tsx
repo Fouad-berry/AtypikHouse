@@ -18,7 +18,6 @@ import ListingReservation from "@/app/components/Listings/ListingReservation";
 import { Range } from "react-date-range";
 import ListingContact from "@/app/components/Listings/ListingContact";
 import PayPalButton from "@/app/components/PaypalButton";
-import SummaryPage from "@/app/summary/page";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -77,7 +76,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
         .then(() => {
             toast.success('Votre  réservation a bien été enregistrée');
             setDateRange(initialDateRange);
-            router.push(`/summary?totalPrice=${totalPrice}`);
+            sessionStorage.setItem('totalPrice', totalPrice.toString());
+            router.push(`/summary`);
             })
         .catch(() =>{
             toast.error('Quelque chose s`est mal passé');

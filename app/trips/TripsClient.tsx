@@ -19,6 +19,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
     reservations,
     currentUser
 }) => {
+    const totalPrice = sessionStorage.getItem('totalPrice');
     const router = useRouter();
     const [deletingId, setDeletingId] = useState('');
 

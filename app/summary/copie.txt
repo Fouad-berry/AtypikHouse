@@ -1,0 +1,31 @@
+'use client';
+import { useRouter } from 'next/navigation';
+import PayPalButton from '@/app/components/PaypalButton';
+import ClientOnly from '@/app/components/ClientOnly';
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import { useParams } from 'react-router-dom';
+
+const SummaryPage = async () => {
+  const currentUser = await getCurrentUser();
+
+  const { totalPrice } = useParams();
+
+  const handlePaymentSuccess = () => {
+    // Vous pouvez enregistrer la réservation dans la base de données ici
+    console.log('Réservation enregistrée avec succès');
+
+
+
+  return (
+      <ClientOnly>
+          <div>
+            <h1>Récapitulatif de la commande</h1>
+            <p>Total à payer: {totalPrice} $</p>
+            <PayPalButton totalPrice={Number(totalPrice)} onSuccess={handlePaymentSuccess} />
+          </div>
+      </ClientOnly>
+  )
+
+};
+}
+export default SummaryPage;
