@@ -115,7 +115,7 @@ const RecapClient: React.FC<RecapClientProps> = ({
             </div>
             <hr />
                 <div>
-                    <h2 className="text-xl font-semibold text-normal-700">Conditions d'annulation</h2> <br></br>
+                    <h2 className="text-xl font-semibold text-normal-700">Conditions d&apos;annulation</h2> <br></br>
                     <p>
                     Annulation gratuite pendant 48 heures. Si vous annulez avant le 25 mai, <p></p> 
                     vous aurez droit à un remboursement partiel. En savoir plus                    </p>
@@ -128,7 +128,7 @@ const RecapClient: React.FC<RecapClientProps> = ({
                         Nous demandons à tous les voyageurs de se souvenir de quelques règles simples <p></p> 
                         qui contribueront à rendre leur séjour agréable, pour eux comme pour les hôtes.
                     <li>Respectez le règlement intérieur.</li>
-                    <li>Traitez le logement de votre hôte comme si c'était le vôtre.</li>
+                    <li>Traitez le logement de votre hôte comme si c&apos;était le vôtre.</li>
                     </p>
                 </div>
             <hr />
