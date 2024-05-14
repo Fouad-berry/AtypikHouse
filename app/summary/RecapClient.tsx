@@ -74,7 +74,7 @@ const RecapClient: React.FC<RecapClientProps> = ({
             toast.success('Votre payement a été accepté et votre reservation confirmé');
             router.push(`/trips`);
         } catch (error) {
-            console.error("Erreur lors de l'enregistrement du paiement :", error);
+            console.error("Erreur lors de lenregistrement du paiement :", error);
             toast.error('Quelque chose s`est mal passé');
         }
     }, [currentUser, totalPrice, router]);
