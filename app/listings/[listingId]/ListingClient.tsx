@@ -74,9 +74,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
             listingId: listing?.id
         })
         .then(() => {
-            toast.success('Votre  réservation a bien été enregistrée');
-            setDateRange(initialDateRange);
+/*             toast.success('Votre  réservation a bien été enregistrée');
+ */         setDateRange(initialDateRange);
             sessionStorage.setItem('totalPrice', totalPrice.toString());
+            sessionStorage.setItem('startDate', initialDateRange.startDate.toISOString());
+            sessionStorage.setItem('endDate', initialDateRange.endDate.toISOString());
             router.push(`/summary`);
             })
         .catch(() =>{
@@ -93,6 +95,21 @@ const ListingClient: React.FC<ListingClientProps> = ({
         currentUser,
         loginModal
     ]);
+
+    /* The double */
+    const onSend = useCallback(() => {
+        if (!currentUser) {
+            return loginModal.onOpen();
+        }
+    
+        sessionStorage.setItem('totalPrice', totalPrice.toString());
+        sessionStorage.setItem('startDate', initialDateRange.startDate.toISOString());
+        sessionStorage.setItem('endDate', initialDateRange.endDate.toISOString());
+        
+        router.push(`/summary`);
+    }, [totalPrice, initialDateRange, currentUser, loginModal, router]);
+    
+    /* The double end */
 
     useEffect(() => {
         if (dateRange.startDate && dateRange.endDate) {
@@ -164,8 +181,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
                                         disabled={isLoading}
                                         disabledDates={disabledDates}
                                     />
-                                        <PayPalButton totalPrice={totalPrice} onSuccess={onCreateReservation} />
-                            </div>
+{/*                                         <PayPalButton totalPrice={totalPrice} onSuccess={onCreateReservation} />
+ */}                            </div>
                         </div>
                     </div>
                     <div>

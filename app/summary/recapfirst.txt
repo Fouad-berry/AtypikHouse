@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import Container from "../components/Container";
 import Heading from "../components/Heading";
-import { SafeListing, SafeReservation, SafeUser } from "../types";
+import { SafeReservation, SafeUser } from "../types";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -14,16 +14,11 @@ import PayPalButton from "../components/PaypalButton";
 interface RecapClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser;
-/*     listing: SafeListing & {
-        user:SafeUser
-    };
- */
 }
 
 const RecapClient: React.FC<RecapClientProps> = ({
     reservations,
-/*     listing,
- */    currentUser
+    currentUser,
 }) => {
     const totalPriceString = sessionStorage.getItem('totalPrice');
     const totalPrice = totalPriceString ? parseInt(totalPriceString) : 0;
@@ -58,26 +53,9 @@ const RecapClient: React.FC<RecapClientProps> = ({
             
     const router = useRouter();
     
-    const onFinal = useCallback(async () => {
-        // Récupérer l'ID de l'utilisateur actuel et l'ID du listing depuis le sessionStorage
-        const userId = currentUser?.id;
-/*         const listingId = listing?.id
- */
-/*         const listingId = sessionStorage.getItem('listingId');
- */
-        // Envoyer une requête POST à votre backend pour enregistrer le paiement
-        try {
-            await axios.post('/api/payment', {
-                userId,
-                totalPrice
-            });
-            toast.success('Votre payement a été accepté et votre reservation confirmé');
-            router.push(`/trips`);
-        } catch (error) {
-            console.error("Erreur lors de l'enregistrement du paiement :", error);
-            toast.error('Quelque chose s`est mal passé');
-        }
-    }, [currentUser, totalPrice, router]);
+    const onFinal= useCallback(async () => {
+    }, []);
+
         
     return (
         <Container>
