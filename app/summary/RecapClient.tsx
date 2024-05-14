@@ -74,8 +74,8 @@ const RecapClient: React.FC<RecapClientProps> = ({
             toast.success('Votre payement a été accepté et votre reservation confirmé');
             router.push(`/trips`);
         } catch (error) {
-            console.error("Erreur lors de lenregistrement du paiement :", error);
-            toast.error('Quelque chose s`est mal passé');
+            console.error("Erreur lors de l'enregistrement du paiement :", error);
+            toast.error("Quelque chose s`est mal passé");
         }
     }, [currentUser, totalPrice, router]);
         
@@ -112,8 +112,15 @@ const RecapClient: React.FC<RecapClientProps> = ({
                             {totalPrice}
                     </div>
                 </div>
-                <PayPalButton totalPrice={totalPrice} onSuccess={onFinal} />
             </div>
+            <hr />
+                <div>
+                    <h2 className="text-xl font-semibold text-normal-700">Conditions d'annulation</h2> <br></br>
+                    <p>
+                    Annulation gratuite pendant 48 heures. Si vous annulez avant le 25 mai, <p></p> 
+                    vous aurez droit à un remboursement partiel. En savoir plus                    </p>
+                </div>
+
             <hr />
                 <div>
                     <h2 className="text-xl font-semibold text-normal-700">Règles de base</h2> <br></br>
@@ -125,14 +132,11 @@ const RecapClient: React.FC<RecapClientProps> = ({
                     </p>
                 </div>
             <hr />
-            <div className="text-lg font-light text-neutral-500">
-
-            </div>
-            <hr />
+            <PayPalButton totalPrice={totalPrice} onSuccess={onFinal} />
+{/*             <hr />
             <div className="text-lg font-bold text-normal-300">
-                Ou se trouve notre logement Athipique
             </div>
-        </div>
+ */}        </div>
         </Container>
     );
 };
