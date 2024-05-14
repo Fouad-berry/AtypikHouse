@@ -115,10 +115,14 @@ const RecapClient: React.FC<RecapClientProps> = ({
                 <PayPalButton totalPrice={totalPrice} onSuccess={onFinal} />
             </div>
             <hr />
-            <hr />
-            <hr />
                 <div>
-                    <h2 className="text-xl font-semibold text-neutral-700">Les équipements que propose ce logement</h2> <br></br>
+                    <h2 className="text-xl font-semibold text-normal-700">Règles de base</h2> <br></br>
+                    <p>
+                        Nous demandons à tous les voyageurs de se souvenir de quelques règles simples <p></p> 
+                        qui contribueront à rendre leur séjour agréable, pour eux comme pour les hôtes.
+                    <li>Respectez le règlement intérieur.</li>
+                    <li>Traitez le logement de votre hôte comme si c'était le vôtre.</li>
+                    </p>
                 </div>
             <hr />
             <div className="text-lg font-light text-neutral-500">
