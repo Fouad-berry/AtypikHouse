@@ -109,7 +109,7 @@ const RecapClient: React.FC<RecapClientProps> = ({
                     </div>
                     <div>
                         <p style={{fontWeight:"bold"}}>Prix total:</p>
-                            {totalPrice}
+                            {totalPrice} €
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ const RecapClient: React.FC<RecapClientProps> = ({
                     <h2 className="text-xl font-semibold text-normal-700">Conditions d&apos;annulation</h2> <br></br>
                     <p>
                     Annulation gratuite pendant 48 heures. Si vous annulez avant le 25 mai, <p></p> 
-                    vous aurez droit à un remboursement partiel. En savoir plus                    </p>
+                    vous aurez droit à un remboursement partiel. En savoir plus</p>
                 </div>
 
             <hr />
