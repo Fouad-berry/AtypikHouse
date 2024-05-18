@@ -1,0 +1,55 @@
+import { NextResponse } from "next/server";
+
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import prisma from "@/app/libs/prismadb";
+
+interface IParams {
+    listingId?: string;
+}
+
+
+export async function PUT(
+    request: Request,
+    { params }: { params: IParams }
+) {
+    const currentUser = await getCurrentUser();
+
+    if (!currentUser) {
+        return NextResponse.error();
+    }
+
+    const { listingId } = params;
+
+    if (!listingId || typeof listingId !== 'string') {
+        throw new Error('Id invalide');
+    }
+
+    const data = await request.json();
+
+    try {
+        const updatedListing = await prisma.listing.updateMany({
+            where: {
+                id: listingId,
+                userId: currentUser.id,
+            },
+            data: {
+                category: data.category,
+                locationvalue: data.location,
+                guestCount: data.guestCount,
+                roomCount: data.roomCount,
+                bathroomCount: data.bathroomCount,
+                imageSrc: data.imageSrc,
+                price: data.price,
+                title: data.title,
+                description: data.description,
+                equipment: data.equipment,
+            },
+        });
+
+        return NextResponse.json(updatedListing);
+    } catch (error) {
+        console.error("je ne peux pas mettre la liste a jour:", error);
+        return NextResponse.error();
+    }
+}
+

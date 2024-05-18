@@ -1,6 +1,7 @@
 'use client';
 
-import { Reservation } from "@prisma/client";
+import { Reservation} from "@prisma/client";
+
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import useCountries from "@/app/hooks/useCountries";
@@ -9,14 +10,13 @@ import { format } from "date-fns";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+import getUserById from "@/app/actions/getUserById";
 
-interface ListingCardProps {
+interface ListingCardProps{
     data: SafeListing;
     reservation?: SafeReservation;
-    secondaryAction?: () => void;
-    secondaryActionLabel?: string;
-    onAction?: (id: string) => void;
-    onEdit?: (id: string) => void;
+    onEdit: (listing: SafeListing) => void; 
+    onAction?:(id:string) => void;
     disabled?: boolean;
     actionLabel?: string;
     editLabel?: string;
@@ -27,10 +27,8 @@ interface ListingCardProps {
 const ListingCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
-    secondaryAction,
-    secondaryActionLabel,
-    onAction,
     onEdit,
+    onAction,
     disabled,
     actionLabel,
     editLabel,
@@ -38,7 +36,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     currentUser
 }) => {
     const router = useRouter();
-    const { getByValue } = useCountries();
+    const {getByValue} = useCountries();
 
     const location = getByValue(data.locationvalue);
 
@@ -50,46 +48,34 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 return;
             }
 
-            onAction?.(actionId);
+            onAction?.(actionId)
         }, [onAction, actionId, disabled]);
 
-    const handleEdit = useCallback(
-        (e: React.MouseEvent<HTMLButtonElement>) => {
-            e.stopPropagation();
-
-            if (disabled) {
-                return;
+        const price = useMemo(() => {
+            if (reservation) {
+                return reservation.totalPrice;
             }
 
-            onEdit?.(actionId);
-        }, [onEdit, actionId, disabled]);
+            return data.price;
+        }, [reservation, data.price]);
 
-    const price = useMemo(() => {
-        if (reservation) {
-            return reservation.totalPrice;
-        }
+        const reservationDate = useMemo(() => {
+            if (!reservation) {
+                return null;
+            }
 
-        return data.price;
-    }, [reservation, data.price]);
-
-    const reservationDate = useMemo(() => {
-        if (!reservation) {
-            return null;
-        }
-
-        const start = new Date(reservation.startDate);
-        const end = new Date(reservation.endDate);
-        
-        return `${format(start, 'PP')} - ${format(end, 'PP')}`;
-    }, [reservation]);
+            const start = new Date(reservation.startDate);
+            const end = new Date(reservation.endDate);
+            
+            return  `${format(start, 'PP')} - ${format(end, 'PP')}`;
+        }, [reservation]);
 
     return (
         <div
             onClick={() => router.push(`/listings/${data.id}`)}
             className="
                 col-span-1 cursor-pointer group
-            "
-        >
+        ">
             <div className="flex flex-col gap-2 w-full">
                 <div className="
                     aspect-square
@@ -99,11 +85,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
                     rounded-xl
                 ">
                     <Image 
-                        fill
-                        alt="Listing"
+                    fill
+                        alt="Liste"
                         src={data.imageSrc}
                         className="
-                            object-cover
+                            obbject-cover
                             h-full
                             w-full
                             group-hover:scale-110
@@ -139,19 +125,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
                         onClick={handleCancel}
                     />
                 )}
-                {onEdit && editLabel && (
-                    <Button
-                        disabled={disabled}
-                        small
-                        label={editLabel}
-                        onClick={handleEdit}
-                    />
-                )}
-                {secondaryAction && secondaryActionLabel && (
-                    <button onClick={secondaryAction}>
-                        {secondaryActionLabel}
-                    </button>
-                )}
+                {editLabel && (
+                <button onClick={() => onEdit(data)} disabled={disabled}>
+                    {editLabel}
+                </button>
+            )}
             </div>
         </div>
     );

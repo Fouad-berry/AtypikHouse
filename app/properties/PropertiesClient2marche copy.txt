@@ -1,0 +1,95 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+import { useState, useCallback } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+
+import Container from "../components/Container";
+import Heading from "../components/Heading";
+import { SafeListing, SafeUser } from "../types";
+import ListingCard from "../components/Listings/ListingCard";
+import RentModalsupdate from "../components/Modals/RentModalsupdate"; // Import the RentModals component
+
+interface PropertiesClientProps {
+    listings: SafeListing[];
+    currentUser?: SafeUser | null;
+}
+
+const PropertiesClient: React.FC<PropertiesClientProps> = ({
+    listings,
+    currentUser
+}) => {
+    const router = useRouter();
+    const [deletingId, setDeletingId] = useState('');
+    const [editingListing, setEditingListing] = useState<SafeListing | null>(null); // State to manage the listing being edited
+
+    const onCancel = useCallback((id: string) => {
+        setDeletingId(id);
+
+        axios.delete(`/api/listings/${id}`)
+            .then(() => {
+                toast.success("La propriété a été supprimée");
+                router.refresh();
+            })
+            .catch((error) => {
+                toast.error(error?.response?.data?.error);
+            })
+            .finally(() => {
+                setDeletingId('');
+            });
+    }, [router]);
+
+    const onEdit = (listing: SafeListing) => {
+        setEditingListing(listing);
+    };
+
+    return (
+        <>
+            <Container>
+                <Heading 
+                    title="Propriétés"
+                    subtitle="Liste de vos propriétés"
+                />
+                <div className="
+                    mt-10
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    md:grid-cols-3
+                    lg:grid-cols-4
+                    xl:grid-cols-5
+                    2xl:grid-cols-6
+                    gap-8
+                ">
+                    {listings.map((listing) => (
+                        <ListingCard
+                            key={listing.id}
+                            data={listing}
+                            actionId={listing.id}
+                            onAction={onCancel}
+                            onEdit={onEdit} // Add onEdit handler
+                            disabled={deletingId === listing.id}
+                            actionLabel="Supprimer la propriété"
+                            editLabel="Modifier la propriété" // Add edit label
+                            currentUser={currentUser}
+                        />
+                    ))}
+                </div>
+            </Container>
+            {editingListing && (
+                <RentModalsupdate
+                    isOpen={!!editingListing}
+                    onClose={() => setEditingListing(null)}
+                    listing={editingListing} // Pass the listing to the modal
+                    onSuccess={() => {
+                        setEditingListing(null);
+                        router.refresh();
+                    }}
+                />
+            )}
+        </>
+    );
+};
+
+export default PropertiesClient;
