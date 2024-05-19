@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
@@ -53,7 +55,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         transition
                         cursor-pointer
                 ">
-                    Devenir Hote
+                    {currentUser?.role === 'admin' ? 'Ajouter un habitat' : 'Devenir Hote'}
                 </div>
                 <div
                     onClick={toogleOpen}
@@ -64,7 +66,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         border-neutral-200
                         flex
                         flex-row
-                        items-cneter
+                        items-center
                         gap-3
                         rounded-full
                         cursor-pointer
@@ -95,7 +97,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                             {currentUser ? (
                             <>
                                 <MenuItem
-                                    onClick={() => router.push('/trips')}
+                                    onClick={() => router.push('/admin')}
                                     label="Mes voyages"
                                 />
                                 <MenuItem

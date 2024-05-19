@@ -20,6 +20,7 @@ model User {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   favoriteIds String[] @db.ObjectId
+  role String @default("user")
 
   accounts Account[]
   listings Listing[]
