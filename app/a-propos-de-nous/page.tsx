@@ -42,17 +42,17 @@ const  ConditionsGenerales = async () => {
             AtypikHouse Ireland UC agit en qualité d’intermédiaire technique et n’intervient pas dans le choix des contenus mis en ligne par ses utilisateurs. Plus d’informations dans nos Conditions de service
             </p><br />
             <p style={{ fontWeight: "bold" }}>
-            Prestataire technique(hébergeur du site web) : <span style={{ fontWeight: "normal" }}>AtypikHouse utilise les services cloud de Vercel pour héberger son site web. Le siège social d’Amazon Web Services est situé à l'adresse suivante : San Francisco, États-Unis</span>
+            Prestataire technique(hébergeur du site web) : <span style={{ fontWeight: "normal" }}>AtypikHouse utilise les services cloud de Vercel pour héberger son site web. Le siège social d’Amazon Web Services est situé à l&apos;adresse suivante : San Francisco, États-Unis</span>
             </p><br />
             <p style={{ fontWeight: "bold" }}>
-            Propriété intelectuelle: <span style={{ fontWeight: "normal" }}>L'ensemble du site, y compris sa structure et son contenu (textes, tableaux, graphiques,
-            images, photographies, vidéos, sons, bases de données, applications et logiciels), est protégé par le droit d'auteur et de propriété intellectuelle de AtypikHouse ou de ses fournisseurs et prestataires.
+            Propriété intelectuelle: <span style={{ fontWeight: "normal" }}>L&apos;ensemble du site, y compris sa structure et son contenu (textes, tableaux, graphiques,
+            images, photographies, vidéos, sons, bases de données, applications et logiciels), est protégé par le droit d&apos;auteur et de propriété intellectuelle de AtypikHouse ou de ses fournisseurs et prestataires.
             Toute représentation, reproduction, adaptation, modification ou exploitation non autorisée
             est interdite et susceptible de constituer une contrefaçon au sens des articles L. 335-2 et suivants du Code de la propriété intellectuelle.
             </span>
             </p><br />
             <p style={{ fontWeight: "bold" }}>
-            Données personnelles : <span style={{ fontWeight: "normal" }}>AtypikHouse s'engage à mettre en œuvre un traitement de vos données personnelles res-
+            Données personnelles : <span style={{ fontWeight: "normal" }}>AtypikHouse s&apos;engage à mettre en œuvre un traitement de vos données personnelles res-
             pectueux de votre vie privée et conforme à la législation française et européenne en vigueur.
             </span>
             </p><br />

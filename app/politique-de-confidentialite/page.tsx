@@ -46,7 +46,7 @@ const  ConditionsGenerales = async () => {
 
             Nous utilisons vos informations pour :
 
-                - Fournir et gérer les services de location d'hébergement alternatif. <br />
+                - Fournir et gérer les services de location d&apos;hébergement alternatif. <br />
                 - Traiter les réservations et les paiements. <br />
                 - Vous envoyer des confirmations de réservation et des mises à jour. <br />
                 - Améliorer notre Site et nos services. <br />
@@ -61,13 +61,13 @@ const  ConditionsGenerales = async () => {
 
                 - Avec les propriétaires ou gestionnaires des hébergements pour lesquels vous avez fait une réservation. <br />
                 - Avec des prestataires de services tiers qui nous aident à exploiter notre Site et à fournir nos services (paiement, hébergement du Site, etc.). <br />
-                - Si la loi l'exige ou pour répondre à une procédure judiciaire. <br />
-                - Pour protéger nos droits, notre propriété et notre sécurité ainsi que ceux de nos utilisateurs ou d'autres personnes. <br />
+                - Si la loi l&apos;exige ou pour répondre à une procédure judiciaire. <br />
+                - Pour protéger nos droits, notre propriété et notre sécurité ainsi que ceux de nos utilisateurs ou d&apos;autres personnes. <br />
             </p><br />
             <p>
             <strong>5. Sécurité de Vos Informations</strong><br />
 
-            Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles contre l'accès non autorisé, la modification, la divulgation ou la destruction. Toutefois, aucune méthode de transmission sur Internet ou de stockage électronique n'est totalement sécurisée, et nous ne pouvons garantir une sécurité absolue.
+            Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles contre l&apos;accès non autorisé, la modification, la divulgation ou la destruction. Toutefois, aucune méthode de transmission sur Internet ou de stockage électronique n&apos;est totalement sécurisée, et nous ne pouvons garantir une sécurité absolue.
             </p><br />
             <p>
             <strong>6. Vos Droits</strong> <br />
@@ -83,7 +83,7 @@ const  ConditionsGenerales = async () => {
             <p>
             <strong>7. Cookies</strong> <br />
 
-Notre Site utilise des cookies pour vous distinguer des autres utilisateurs et pour améliorer votre expérience de navigation. Pour plus d'informations sur l'utilisation des cookies.
+Notre Site utilise des cookies pour vous distinguer des autres utilisateurs et pour améliorer votre expérience de navigation. Pour plus d&apos;informations sur l&apos;utilisation des cookies.
             </p> <br />
             <p>
             <strong>8. Modifications de cette Politique</strong> <br />
