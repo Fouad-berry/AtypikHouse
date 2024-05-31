@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="col-span-1 flex flex-wrap justify-center sm:justify-center">
             <p className="mb-2 sm:mb-0"> @ 2024 AtipikHouse, Inc.</p>&emsp;
             <p
-              onClick={() => router.push('/trips')}
+              onClick={() => router.push('/conditions-generales')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
             > Conditions générales
             </p>&emsp;
