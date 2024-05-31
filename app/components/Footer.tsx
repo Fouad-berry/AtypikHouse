@@ -18,15 +18,15 @@ const Footer = () => {
             <p
               onClick={() => router.push('/conditions-generales')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Conditions générales
+            > CUGV
             </p>&emsp;
             <p
-              onClick={() => router.push('/trips')}
+              onClick={() => router.push('/politique-de-confidentialite')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Mentions Légales
+            > Politique de confidentialité
             </p>&emsp;
             <p
-              onClick={() => router.push('/trips')}
+              onClick={() => router.push('/a-propos-de-nous')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
             > Infos sur lentreprise
             </p>&emsp;
