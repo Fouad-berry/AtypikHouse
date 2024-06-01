@@ -4,6 +4,10 @@ import ClientOnly from "../components/ClientOnly";
 
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservation";
+import Container from '../components/Container';
+import Heading from '../components/Heading';
+import Footer from '../components/Footer';
+import MobileNavbar from '../components/MobileNavbar';
 
 const TripsPage = async () => {
     const currentUser = await getCurrentUser();
@@ -22,10 +26,14 @@ const TripsPage = async () => {
     }
 
     return (
-        <ClientOnly>
-            <div>Bonjour</div>
-        </ClientOnly>
-    );
-}
+        <Container>
+            <Heading
+                title="Panneau d'administration"
+            /> 
+            <Footer />
+            <MobileNavbar />
+        </Container>
+    )
+};
 
 export default TripsPage;
