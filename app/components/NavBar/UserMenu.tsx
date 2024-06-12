@@ -53,7 +53,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                             cursor-pointer
                         "
                     >
-                        Panneau d'administration
+                        Panneau d&apos;administration
                     </div>
                 )}
                 <div
