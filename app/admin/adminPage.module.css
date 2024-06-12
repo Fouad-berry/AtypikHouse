@@ -1,0 +1,34 @@
+.usersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.usersTable th, .usersTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.usersTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.usersTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.usersTable tr:hover {
+    background-color: #ddd;
+}
+
+.usersTable td button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.usersTable td button:hover {
+    background-color: #d32f2f;
+}
