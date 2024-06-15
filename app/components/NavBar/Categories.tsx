@@ -84,7 +84,7 @@ export const categories = [
     {
         label: 'Lux',
         icon: IoDiamond,
-        description:'La propriété est moderne'
+        description:'La propriété est vraiment moderne'
     },
 
 
