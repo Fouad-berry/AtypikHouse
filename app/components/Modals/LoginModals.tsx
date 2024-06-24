@@ -3,64 +3,56 @@ import { signIn } from 'next-auth/react';
 import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { useCallback, useState} from 'react'
-import{
-    Field,
-    FieldValues,
-    SubmitHandler,
-    useForm
-} from 'react-hook-form'
+import { useCallback, useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import useForgotPasswordModal from '@/app/hooks/useForgotPasswordModal';
 import Modals from './Modals';
 import Heading from '../Heading';
 import Input from '../Inputs/Input';
 import toast from 'react-hot-toast';
 import Button from '../Button';
 import { useRouter } from 'next/navigation';
-import useForgotPasswordModal from '@/app/hooks/useForgotPasswordModal';
 
 const LoginModals = () => {
     const router = useRouter();
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
-    const forgotPasswordModal = useForgotPasswordModal();
+    const { onOpen } = useForgotPasswordModal(); // Nous n'avons besoin que de `onOpen` ici
     const [isLoading, setIsLoading] = useState(false);
 
-    const{
+    const {
         register,
         handleSubmit,
-        formState: {
-            errors,
-        }
+        formState: { errors },
     } = useForm<FieldValues>({
         defaultValues: {
             email: '',
-            password:''
+            password: ''
         }
     });
 
-    const onSubmit: SubmitHandler<FieldValues>  = (data) => {
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-            
-            signIn('credentials',{
-                ...data,
-                redirect: false,
-            })
-            .then((callback) => {
-                setIsLoading(false);
+        signIn('credentials', {
+            ...data,
+            redirect: false,
+        })
+        .then((callback) => {
+            setIsLoading(false);
 
-                if (callback?.ok) {
-                    toast.success('Vous etes connecté');
-                    router.refresh();
-                    loginModal.onClose();
-                }
+            if (callback?.ok) {
+                toast.success('Vous êtes connecté');
+                router.refresh();
+                loginModal.onClose();
+            }
 
-                if (callback?.error){
-                    toast.error(callback.error);
-                }
-            })
+            if (callback?.error) {
+                toast.error(callback.error);
+            }
+        })
     }
 
     const toggle = useCallback(() => {
@@ -70,15 +62,14 @@ const LoginModals = () => {
 
     const forgot = useCallback(() => {
         loginModal.onClose();
-        forgotPasswordModal.onOpen();
-    }, [loginModal, forgotPasswordModal]);
-
+        onOpen();
+    }, [loginModal, onOpen]);
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading 
                 title='Bienvenue sur AtypikHouse'
-                subtitle='Connectez vous a votre compte'
+                subtitle='Connectez-vous à votre compte'
             />
             <Input 
                 id='email'
@@ -116,28 +107,16 @@ const LoginModals = () => {
                 icon={AiFillGithub}
                 onClick={() => signIn('github')}
             />
-            <div
-                className='
-                    text-neutral-500
-                    text-center
-                    mt-4
-                    font-light
-                '
-            >                                        
-
+            <div className='text-neutral-500 text-center mt-4 font-light'>                                        
                 <div className='justify-center flex flex-row items-center gap-2'>
                     <div>
-                        Vous etes nouveau sur notre site ?
+                        Vous êtes nouveau sur notre site ?
                     </div>
                     <div 
-                    onClick={toggle}
-                        className='
-                            text-neutral-800
-                            cursor-pointer
-                            hover:underline
-                        '
+                        onClick={toggle}
+                        className='text-neutral-800 cursor-pointer hover:underline'
                     >
-                        Creez un compte !
+                        Créez un compte !
                     </div>
                 </div>
 
@@ -146,20 +125,15 @@ const LoginModals = () => {
                         Mot de passe oublié ?
                     </div>
                     <div 
-                    onClick={forgot}
-                        className='
-                            text-neutral-800
-                            cursor-pointer
-                            hover:underline
-                        '
+                        onClick={forgot}
+                        className='text-neutral-800 cursor-pointer hover:underline'
                     >
                         Changez de mot de passe
                     </div>
                 </div>
-
             </div>
         </div>
-    )
+    );
 
     return (
         <Modals

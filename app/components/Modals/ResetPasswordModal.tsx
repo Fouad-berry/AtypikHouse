@@ -1,4 +1,3 @@
-// ResetPasswordModal.js
 'use client';
 import { FC, PropsWithChildren } from 'react';
 import { useState } from 'react';
@@ -15,9 +14,11 @@ import Button from '../Button';
 interface ResetPasswordModalProps {
     isOpen: boolean;
     onClose: () => void;
+    email: string;
+    code: string;
 }
 
-const ResetPasswordModal: FC<PropsWithChildren<ResetPasswordModalProps>> = ({ isOpen, onClose }) => {
+const ResetPasswordModal: FC<PropsWithChildren<ResetPasswordModalProps>> = ({ isOpen, onClose, email, code }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     
@@ -27,8 +28,8 @@ const ResetPasswordModal: FC<PropsWithChildren<ResetPasswordModalProps>> = ({ is
         formState: { errors },
     } = useForm<FieldValues>({
         defaultValues: {
-            email: '',
-            code: '',
+            email,
+            code,
             newPassword: ''
         }
     });

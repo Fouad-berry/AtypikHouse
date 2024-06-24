@@ -8,12 +8,16 @@ import axios from 'axios';
 import Modals from './Modals';
 import Heading from '../Heading';
 import Input from '../Inputs/Input';
-import Button from '../Button';
+import useForgotPasswordModal from '@/app/hooks/useForgotPasswordModal';
+import ResetPasswordModal from './ResetPasswordModal'; // Assurez-vous d'importer ce composant
 
 const ForgotPasswordModal = () => {
     const router = useRouter();
-    const [isOpen, setIsOpen] = useState(false);
+    const { isOpen, onClose } = useForgotPasswordModal();
     const [isLoading, setIsLoading] = useState(false);
+    const [isResetPasswordOpen, setIsResetPasswordOpen] = useState(false);
+    const [email, setEmail] = useState('');
+    const [verificationCode, setVerificationCode] = useState('');
 
     const {
         register,
@@ -28,9 +32,12 @@ const ForgotPasswordModal = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
         axios.post('/api/forgot-password/', data)
-            .then(() => {
+            .then((response) => {
                 toast.success('Code de vérification envoyé à votre email');
-                setIsOpen(false);
+                setEmail(data.email);
+                setVerificationCode(response.data.verificationCode);
+                onClose();
+                setIsResetPasswordOpen(true);
             })
             .catch((error) => {
                 toast.error(error.response?.data?.message || 'Erreur lors de l\'envoi du code de vérification');
@@ -38,14 +45,6 @@ const ForgotPasswordModal = () => {
             .finally(() => {
                 setIsLoading(false);
             });
-    };
-
-    const openModal = () => {
-        setIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsOpen(false);
     };
 
     const bodyContent = (
@@ -65,15 +64,20 @@ const ForgotPasswordModal = () => {
 
     return (
         <>
-            <Button onClick={openModal} label="Mot de passe oublié ?" />
             <Modals
                 disabled={isLoading}
                 isOpen={isOpen}
                 title="Mot de passe oublié"
                 actionLabel="Envoyer le code"
-                onClose={closeModal}
+                onClose={onClose}
                 onSubmit={handleSubmit(onSubmit)}
                 body={bodyContent}
+            />
+            <ResetPasswordModal
+                isOpen={isResetPasswordOpen}
+                onClose={() => setIsResetPasswordOpen(false)}
+                email={email}
+                code={verificationCode}
             />
         </>
     );
