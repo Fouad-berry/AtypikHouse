@@ -10,6 +10,10 @@ import LoginModals from "./components/Modals/LoginModals";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModals from "./components/Modals/RentModals";
 import SearchModal from "./components/Modals/SearchModal";
+import ForgotPasswordModal from "./components/Modals/ForgotPasswordModal";
+import ResetPasswordModal from "./components/Modals/ResetPasswordModal";
+import useForgotPasswordModal from "./hooks/useForgotPasswordModal";
+import useResetPasswordModal from "./hooks/useResetPasswordModal";
 
 //Pour avoir la police d'ecriture de la page
 const roboto = Roboto({
@@ -32,6 +36,7 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
 
 
+
   
   return (
     
@@ -43,6 +48,7 @@ export default async function RootLayout({
           <RentModals />
           <LoginModals />
           <RegisterModals />
+          <ForgotPasswordModal />
           <NavBar currentUser={currentUser}/>
         </ClientOnly>
         <div className="pb-20 pt-28">

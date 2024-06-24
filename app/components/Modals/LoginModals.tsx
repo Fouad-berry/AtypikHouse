@@ -19,11 +19,13 @@ import Input from '../Inputs/Input';
 import toast from 'react-hot-toast';
 import Button from '../Button';
 import { useRouter } from 'next/navigation';
+import useForgotPasswordModal from '@/app/hooks/useForgotPasswordModal';
 
 const LoginModals = () => {
     const router = useRouter();
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
+    const forgotPasswordModal = useForgotPasswordModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const{
@@ -65,6 +67,12 @@ const LoginModals = () => {
         loginModal.onClose();
         registerModal.onOpen();
     }, [loginModal, registerModal]);
+
+    const forgot = useCallback(() => {
+        loginModal.onClose();
+        forgotPasswordModal.onOpen();
+    }, [loginModal, forgotPasswordModal]);
+
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -115,7 +123,8 @@ const LoginModals = () => {
                     mt-4
                     font-light
                 '
-            >
+            >                                        
+
                 <div className='justify-center flex flex-row items-center gap-2'>
                     <div>
                         Vous etes nouveau sur notre site ?
@@ -129,6 +138,22 @@ const LoginModals = () => {
                         '
                     >
                         Creez un compte !
+                    </div>
+                </div>
+
+                <div className='justify-center flex flex-row items-center gap-2'>
+                    <div>
+                        Mot de passe oublié ?
+                    </div>
+                    <div 
+                    onClick={forgot}
+                        className='
+                            text-neutral-800
+                            cursor-pointer
+                            hover:underline
+                        '
+                    >
+                        Changez de mot de passe
                     </div>
                 </div>
 
