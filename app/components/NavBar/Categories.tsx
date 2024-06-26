@@ -79,7 +79,7 @@ export const categories = [
     {
         label: 'Barn',
         icon: GiBarn,
-        description:'La propriété est du barn'
+        description:'La propriété est vraiment moderne'
     },
     {
         label: 'Lux',
