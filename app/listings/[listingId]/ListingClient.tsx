@@ -6,7 +6,7 @@ import ListingHead from "@/app/components/Listings/ListingHead";
 import ListingInfo from "@/app/components/Listings/ListingInfo";
 import ListingComment from "@/app/components/Listings/ListingComment";
 import { categories } from "@/app/components/NavBar/Categories";
-import { equipement } from "@/app/components/NavBar/Equipement";
+import { equipement } from "@/app/components/NavBar/Equipement copy";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
