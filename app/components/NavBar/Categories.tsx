@@ -69,7 +69,7 @@ export const categories = [
     {
         label: 'Cave',
         icon: GiCaveEntrance,
-        description:'La propriété est moderne'
+        description:'La propriété est vraiment moderne'
     },
     {
         label: 'Desert ',
