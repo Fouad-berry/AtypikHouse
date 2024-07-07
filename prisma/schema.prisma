@@ -29,6 +29,12 @@ model User {
   comments Comment[]
 }
 
+model Equipment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  label String
+  icon String
+}
+
 model Account{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
