@@ -1,4 +1,3 @@
-// actions/getAllUsers.js
 import prisma from "@/app/libs/prismadb";
 
 const getAllUsers = async () => {
