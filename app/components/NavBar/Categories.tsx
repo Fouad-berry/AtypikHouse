@@ -39,7 +39,7 @@ export const categories = [
     {
         label: 'Islands',
         icon: GiIsland,
-        description:'La propriété est vraiment moderne'
+        description:'La propriété est vraiment vraiment moderne'
     },
     {
         label: 'Lake',
