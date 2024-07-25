@@ -25,3 +25,18 @@ export type SafeUser = Omit<
     updateAt: string;
     emailVerified: string | null;
 }
+
+// types.ts
+export interface Message {
+    id: string;
+    content: string;
+    senderId: string;
+    receiverId: string;
+    createdAt: string;
+    sender: {
+        name: string;
+    };
+    receiver: {
+        name: string;
+    };
+}

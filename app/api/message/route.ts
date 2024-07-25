@@ -35,34 +35,30 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const currentUser = await getCurrentUser();
+      const currentUser = await getCurrentUser();
 
-    if (!currentUser) {
-      return NextResponse.error();
-    }
+      if (!currentUser) {
+          return NextResponse.error();
+      }
 
-    const body = await request.json();
-    const { receiverId, content } = body;
+      const { receiverId, content } = await request.json();
 
-    if (!receiverId || !content) {
-      return NextResponse.error();
-    }
+      if (!receiverId || !content) {
+          return NextResponse.error();
+      }
 
-    const newMessage = await prisma.message.create({
-      data: {
-        content,
-        senderId: currentUser.id,
-        receiverId,
-      },
-      include: {
-        sender: true, // Include sender information
-        receiver: true, // Include receiver information
-      },
-    });
+      const message = await prisma.message.create({
+          data: {
+              content,
+              senderId: currentUser.id,
+              receiverId,
+              createdAt: new Date(),
+          },
+      });
 
-    return NextResponse.json(newMessage);
+      return NextResponse.json(message);
   } catch (error) {
-    console.error('Error sending message:', error);
-    return NextResponse.error();
+      console.error('Error sending message:', error);
+      return NextResponse.error();
   }
 }
