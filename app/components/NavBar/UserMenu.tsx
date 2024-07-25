@@ -137,6 +137,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     label="Mes propriétés"
                                 />
                                 <MenuItem
+                                    onClick={() => router.push('/mes-messages')}
+                                    label="Mes Messages"
+                                />
+                                <MenuItem
                                     onClick={() => router.push('/profile')}
                                     label="Mon compte"
                                 />

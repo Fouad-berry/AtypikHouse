@@ -27,18 +27,6 @@ model User {
   listings Listing[]
   reservations Reservation[]
   comments Comment[]
-  sentMessages Message[] @relation("SentMessages")
-  receivedMessages Message[] @relation("ReceivedMessages")
-}
-
-model Message {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  content String
-  createdAt DateTime @default(now())
-  senderId String @db.ObjectId
-  receiverId String @db.ObjectId
-  sender User @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
-  receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
 }
 
 model Equipment {

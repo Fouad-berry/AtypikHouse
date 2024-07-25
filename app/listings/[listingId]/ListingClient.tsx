@@ -192,8 +192,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
                             {/* Afficher les commentaires existants ici */}
                     </div>
                     <div>
-                    <ListingContact ownerId={listing.user.id} />
-                    </div>
+                    {currentUser && (
+              <ListingContact ownerId={listing.user.id} currentUser={currentUser} />
+            )}                    </div>
                 </div>
             </Container>
         </div>
