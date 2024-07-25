@@ -24,7 +24,7 @@ export const categories = [
     {
         label: 'Moderne',
         icon: MdOutlineVilla,
-        description:'La propriété est moderne'
+        description:'La propriété est vraiment moderne'
     },
     {
         label: 'CountrySide',
