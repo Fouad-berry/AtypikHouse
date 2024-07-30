@@ -1,5 +1,4 @@
 'use client';
-'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SafeUser, Message } from '@/app/types';
@@ -7,7 +6,7 @@ import Container from '@/app/components/Container';
 import Heading from '@/app/components/Heading';
 import MessageItem from '@/app/components/MessageItem';
 import ContactList from '@/app/components/ContactList';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 interface MessagesPageProps {
     currentUser: SafeUser;
@@ -16,8 +15,8 @@ interface MessagesPageProps {
 const MessagesClient: React.FC<MessagesPageProps> = ({ currentUser }) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [contacts, setContacts] = useState<SafeUser[]>([]);
-    const pathname = usePathname();
-    const contactId = pathname ? pathname.split('/').pop() : null;
+    const router = useRouter();
+    const { contactId } = router.query;
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -51,7 +50,7 @@ const MessagesClient: React.FC<MessagesPageProps> = ({ currentUser }) => {
                 <ContactList contacts={contacts} currentUser={currentUser} />
                 <div className="flex-grow">
                     {contactId ? (
-                        <MessageItem messages={messages} currentUser={currentUser} contactId={contactId} />
+                        <MessageItem messages={messages} currentUser={currentUser} contactId={contactId as string} />
                     ) : (
                         <p className="text-gray-500">Sélectionnez un contact pour voir les messages.</p>
                     )}
