@@ -11,7 +11,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 interface MessagesPageProps {
     currentUser: SafeUser;
 }
-export const dynamic = 'force-dynamic';
+
 const MessagesClient: React.FC<MessagesPageProps> = ({ currentUser }) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [contacts, setContacts] = useState<SafeUser[]>([]);
