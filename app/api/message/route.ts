@@ -15,13 +15,13 @@ export async function GET(request: Request) {
 
     const messages = await prisma.message.findMany({
       where: {
-        AND: [
-          { senderId: { in: [currentUser.id, contactId] } },
-          { receiverId: { in: [currentUser.id, contactId] } },
+        OR: [
+          { senderId: currentUser.id, receiverId: contactId },
+          { senderId: contactId, receiverId: currentUser.id },
         ],
       },
       orderBy: {
-        createdAt: 'desc',
+        createdAt: 'asc',
       },
       include: {
         sender: true,
@@ -36,33 +36,32 @@ export async function GET(request: Request) {
   }
 }
 
-
 export async function POST(request: Request) {
   try {
-      const currentUser = await getCurrentUser();
+    const currentUser = await getCurrentUser();
 
-      if (!currentUser) {
-          return NextResponse.error();
-      }
-
-      const { receiverId, content } = await request.json();
-
-      if (!receiverId || !content) {
-          return NextResponse.error();
-      }
-
-      const message = await prisma.message.create({
-          data: {
-              content,
-              senderId: currentUser.id,
-              receiverId,
-              createdAt: new Date(),
-          },
-      });
-
-      return NextResponse.json(message);
-  } catch (error) {
-      console.error('Error sending message:', error);
+    if (!currentUser) {
       return NextResponse.error();
+    }
+
+    const { receiverId, content } = await request.json();
+
+    if (!receiverId || !content) {
+      return NextResponse.error();
+    }
+
+    const message = await prisma.message.create({
+      data: {
+        content,
+        senderId: currentUser.id,
+        receiverId,
+        createdAt: new Date(),
+      },
+    });
+
+    return NextResponse.json(message);
+  } catch (error) {
+    console.error('Error sending message:', error);
+    return NextResponse.error();
   }
 }
