@@ -1,9 +1,9 @@
-import getCurrentUser from "../actions/getCurrentUser";
-import ClientOnly from "../components/ClientOnly";
-import EmptyState from "../components/EmptyState";
-import Footer from "../components/Footer";
-import MobileNavbar from "../components/MobileNavbar";
-import MessagesClient from "./MessageClient";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import ClientOnly from "@/app/components/ClientOnly";
+import EmptyState from "@/app/components/EmptyState";
+import Footer from "@/app/components/Footer";
+import MobileNavbar from "@/app/components/MobileNavbar";
+import MessagesClient from "../MessageClient";
 
 const MessagesPage = async ({ params }: { params: { contactId: string } }) => {
     const currentUser = await getCurrentUser();

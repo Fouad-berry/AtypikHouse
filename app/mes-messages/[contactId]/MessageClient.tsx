@@ -2,10 +2,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SafeUser, Message } from '@/app/types';
-import Container from '../components/Container';
-import Heading from '../components/Heading';
-import MessageItem from '../components/MessageItem';
-import ContactList from '../components/ContactList';
+import Container from '@/app/components/Container';
+import Heading from '@/app/components/Heading';
+import MessageItem from '@/app/components/MessageItem';
+import ContactList from '@/app/components/ContactList';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 interface MessagesPageProps {

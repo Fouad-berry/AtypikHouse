@@ -1,3 +1,4 @@
+// api/message.ts
 import { NextResponse } from 'next/server';
 import prisma from '@/app/libs/prismadb';
 import getCurrentUser from '@/app/actions/getCurrentUser';
@@ -5,24 +6,26 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 export async function GET(request: Request) {
   try {
     const currentUser = await getCurrentUser();
+    const { searchParams } = new URL(request.url);
+    const contactId = searchParams.get('contactId');
 
-    if (!currentUser) {
+    if (!currentUser || !contactId) {
       return NextResponse.error();
     }
 
     const messages = await prisma.message.findMany({
       where: {
-        OR: [
-          { senderId: currentUser.id },
-          { receiverId: currentUser.id },
+        AND: [
+          { senderId: { in: [currentUser.id, contactId] } },
+          { receiverId: { in: [currentUser.id, contactId] } },
         ],
       },
       orderBy: {
         createdAt: 'desc',
       },
       include: {
-        sender: true, // Include sender information
-        receiver: true, // Include receiver information
+        sender: true,
+        receiver: true,
       },
     });
 
@@ -32,6 +35,7 @@ export async function GET(request: Request) {
     return NextResponse.error();
   }
 }
+
 
 export async function POST(request: Request) {
   try {
