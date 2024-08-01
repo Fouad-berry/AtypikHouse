@@ -3,6 +3,8 @@ import { SafeUser } from '@/app/types';
 import { useRouter } from 'next/navigation';
 import { FaUserCircle } from 'react-icons/fa';
 
+export const dynamic = 'force-dynamic';
+
 interface ContactListProps {
   contacts: SafeUser[];
   currentUser: SafeUser;

@@ -8,6 +8,7 @@ import MessageItem from '@/app/components/MessageItem';
 import ContactList from '@/app/components/ContactList';
 import { useRouter } from 'next/router';
 
+export const dynamic = 'force-dynamic';
 interface MessagesPageProps {
     currentUser: SafeUser;
 }

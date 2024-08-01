@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { Message, SafeUser } from '@/app/types';
 import Button from './Button';
 
+export const dynamic = 'force-dynamic';
+
 interface MessageItemProps {
     messages: Message[];
     currentUser: SafeUser;

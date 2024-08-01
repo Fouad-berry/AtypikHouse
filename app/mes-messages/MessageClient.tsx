@@ -8,6 +8,8 @@ import MessageItem from '../components/MessageItem';
 import ContactList from '../components/ContactList';
 import { usePathname, useSearchParams } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 interface MessagesPageProps {
     currentUser: SafeUser;
 }
