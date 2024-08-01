@@ -4,8 +4,8 @@ import axios from 'axios';
 import { SafeUser, Message } from '@/app/types';
 import Container from '@/app/components/Container';
 import Heading from '@/app/components/Heading';
-import MessageItem from '@/app/components/MessageItem';
-import ContactList from '@/app/components/ContactList';
+import MessageItem from '../components/MessageItem';
+import ContactList from '../components/ContactList';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 interface MessagesPageProps {
