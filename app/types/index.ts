@@ -47,6 +47,7 @@ export interface Order {
     id: string;
     totalPrice: number;
     createdAt: string;
+    travelerName: String
     status: string;
   }
   

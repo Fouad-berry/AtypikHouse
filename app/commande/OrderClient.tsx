@@ -7,6 +7,8 @@ import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { generateInvoice } from '../utils/invoice';
 import { Order } from '../types'; 
+import { FaFilePdf, FaInfoCircle } from 'react-icons/fa';
+import OrderModal from "./OrderModal";
 
 interface OrderClientProps {
   currentUser?: SafeUser;
@@ -14,6 +16,8 @@ interface OrderClientProps {
 
 const OrderClient: React.FC<OrderClientProps> = ({ currentUser }) => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -40,27 +44,69 @@ const OrderClient: React.FC<OrderClientProps> = ({ currentUser }) => {
     URL.revokeObjectURL(url);
   };
 
+  const handleShowDetails = (order: Order) => {
+    setSelectedOrder(order);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedOrder(null);
+  };
+
   return (
     <Container>
       <Heading title="Historique des commandes" subtitle="Voici vos précédentes commandes et leur statut." />
       <div className="bg-white p-8 rounded-lg shadow-lg">
-        <div className="flex flex-col gap-6">
-          {orders.map(order => (
-            <div key={order.id} className="flex flex-col gap-4 p-4 bg-gray-100 rounded-lg">
-              <p className="font-bold text-lg">ID de la commande: {order.id}</p>
-              <p>Montant: {order.totalPrice} €</p>
-              <p>Date: {new Date(order.createdAt).toLocaleDateString('fr-FR')}</p>
-              <p>Statut: {order.status}</p>
-              <button
-                onClick={() => handleDownloadInvoice(order)}
-                className="mt-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              >
-                Télécharger la facture
-              </button>
-            </div>
-          ))}
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border rounded-lg">
+            <thead className="bg-gray-200">
+              <tr>
+                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">ID de la commande</th>
+                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Montant</th>
+                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Date</th>
+                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Statut</th>
+                <th className="py-3 px-4 border-b-2 text-center text-sm font-semibold text-gray-700">Facture</th>
+                <th className="py-3 px-4 border-b-2 text-center text-sm font-semibold text-gray-700">Détails</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map(order => (
+                <tr key={order.id} className="hover:bg-gray-100 transition duration-200">
+                  <td className="py-2 px-4 border-b text-sm text-gray-900">{order.id}</td>
+                  <td className="py-2 px-4 border-b text-sm text-gray-900">{order.totalPrice} €</td>
+                  <td className="py-2 px-4 border-b text-sm text-gray-900">{new Date(order.createdAt).toLocaleDateString('fr-FR')}</td>
+                  <td className="py-2 px-4 border-b text-sm text-gray-900">{order.status}</td>
+                  <td className="py-2 px-4 border-b text-center">
+                    <FaFilePdf 
+                      className="text-red-500 cursor-pointer hover:text-red-700 transition duration-200"
+                      onClick={() => handleDownloadInvoice(order)}
+                      size={24}
+                    />
+                  </td>
+                  <td className="py-2 px-4 border-b text-center">
+                    <FaInfoCircle 
+                      className="text-blue-500 cursor-pointer hover:text-blue-700 transition duration-200"
+                      onClick={() => handleShowDetails(order)}
+                      size={24}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
+      {selectedOrder && (
+        <OrderModal isOpen={isModalOpen} onClose={handleCloseModal} title="Détails de la commande">
+          <div className="flex flex-col gap-4">
+            <p><strong>ID de la commande:</strong> {selectedOrder.id}</p>
+            <p><strong>Montant:</strong> {selectedOrder.totalPrice} €</p>
+            <p><strong>Date:</strong> {new Date(selectedOrder.createdAt).toLocaleDateString('fr-FR')}</p>
+            <p><strong>Statut:</strong> {selectedOrder.status}</p>
+          </div>
+        </OrderModal>
+      )}
     </Container>
   );
 };
