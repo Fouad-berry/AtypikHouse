@@ -62,7 +62,7 @@ const OrderClient: React.FC<OrderClientProps> = ({ currentUser }) => {
           <table className="min-w-full bg-white border rounded-lg">
             <thead className="bg-gray-200">
               <tr>
-                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">ID de la commande</th>
+                <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Numéro de la commande</th>
                 <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Montant</th>
                 <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Date</th>
                 <th className="py-3 px-4 border-b-2 text-left text-sm font-semibold text-gray-700">Statut</th>
@@ -73,7 +73,7 @@ const OrderClient: React.FC<OrderClientProps> = ({ currentUser }) => {
             <tbody>
               {orders.map(order => (
                 <tr key={order.id} className="hover:bg-gray-100 transition duration-200">
-                  <td className="py-2 px-4 border-b text-sm text-gray-900">{order.id}</td>
+                  <td className="py-2 px-4 border-b text-sm text-gray-900">{order.orderNumber}</td>
                   <td className="py-2 px-4 border-b text-sm text-gray-900">{order.totalPrice} €</td>
                   <td className="py-2 px-4 border-b text-sm text-gray-900">{new Date(order.createdAt).toLocaleDateString('fr-FR')}</td>
                   <td className="py-2 px-4 border-b text-sm text-gray-900">{order.status}</td>
@@ -100,10 +100,11 @@ const OrderClient: React.FC<OrderClientProps> = ({ currentUser }) => {
       {selectedOrder && (
         <OrderModal isOpen={isModalOpen} onClose={handleCloseModal} title="Détails de la commande">
           <div className="flex flex-col gap-4">
-            <p><strong>ID de la commande:</strong> {selectedOrder.id}</p>
+            <p><strong>Numéro de la commande:</strong> {selectedOrder.orderNumber}</p>
             <p><strong>Montant:</strong> {selectedOrder.totalPrice} €</p>
             <p><strong>Date:</strong> {new Date(selectedOrder.createdAt).toLocaleDateString('fr-FR')}</p>
             <p><strong>Statut:</strong> {selectedOrder.status}</p>
+            {/* Ajoutez d'autres détails si nécessaire */}
           </div>
         </OrderModal>
       )}

@@ -57,7 +57,7 @@ export async function generateInvoice(order: Order) {
         <br />
         <br />
     </>
-    page.drawText(`Facture pour la commande: ${order.id}`, {
+    page.drawText(`Facture pour la commande: ${order.orderNumber}`, {
       x: 50,
       y: height - logoDims.height - 150,
       size: 20,

@@ -118,5 +118,6 @@ model Payment {
   createdAt   DateTime      @default(now())
   status String @default("pending") // Ajoutez cette ligne
   travelerName String
+  orderNumber String @default(cuid())
   reservations Reservation[]
 }

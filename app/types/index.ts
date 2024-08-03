@@ -49,5 +49,6 @@ export interface Order {
     createdAt: string;
     travelerName: String
     status: string;
-  }
+    orderNumber: String
+}
   
