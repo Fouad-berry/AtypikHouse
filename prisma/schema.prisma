@@ -111,9 +111,11 @@ model Comment {
   listing  Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
-model Payment{
+model Payment {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String   @db.ObjectId
   totalPrice Int
+  createdAt   DateTime      @default(now())
+  status String @default("pending") // Ajoutez cette ligne
   reservations Reservation[]
 }

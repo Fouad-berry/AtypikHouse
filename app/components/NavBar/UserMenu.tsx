@@ -145,7 +145,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     label="Mon compte"
                                 />
                                 <MenuItem
-                                    onClick={() => router.push('/order-history')}
+                                    onClick={() => router.push('/commande')}
                                     label="Historique des commandes"
                                 />
                                 <hr />

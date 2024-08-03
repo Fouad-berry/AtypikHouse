@@ -8,7 +8,9 @@ export async function POST(request: Request) {
         await prisma.payment.create({
             data: {
                 userId,
-                totalPrice
+                totalPrice,
+                createdAt: new Date(),
+                status: "completed"
             }
         });
 
