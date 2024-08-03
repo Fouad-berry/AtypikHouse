@@ -40,3 +40,13 @@ export interface Message {
         name: string;
     };
 }
+
+
+// types.ts
+export interface Order {
+    id: string;
+    totalPrice: number;
+    createdAt: string;
+    status: string;
+  }
+  
