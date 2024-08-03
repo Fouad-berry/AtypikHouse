@@ -1,4 +1,5 @@
 'use client';
+
 import { IconType } from "react-icons";
 
 interface ButtonProps {
@@ -8,6 +9,7 @@ interface ButtonProps {
     outline?: boolean;
     small?: boolean;
     icon?: IconType;
+    className?: string; // Ajouter un prop className
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,7 +18,8 @@ const Button: React.FC<ButtonProps> = ({
     disabled,
     outline,
     small,
-    icon: Icon
+    icon: Icon,
+    className // Ajouter className ici
 }) => {
     return (
         <button
@@ -37,6 +40,7 @@ const Button: React.FC<ButtonProps> = ({
                 ${small ? 'text-sm' : 'text-md'}
                 ${small ? 'font-light' : 'font-semibold'}
                 ${small ? 'border-[1px]' : 'border-2'}
+                ${className} // Appliquer les classes supplémentaires
             `}
         >
             {Icon && (

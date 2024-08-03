@@ -117,5 +117,6 @@ model Payment {
   totalPrice Int
   createdAt   DateTime      @default(now())
   status String @default("pending") // Ajoutez cette ligne
+  travelerName String
   reservations Reservation[]
 }

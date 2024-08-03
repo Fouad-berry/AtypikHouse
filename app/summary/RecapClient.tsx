@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Container from "../components/Container";
@@ -72,13 +72,17 @@ const RecapClient: React.FC<RecapClientProps> = ({
     return (
         <Container>
             <div className="bg-white p-8 rounded-lg shadow-lg">
-                <Heading title="Voilà le recapitulatif de votre commande" subtitle="" />
+                <Heading title="Voilà le récapitulatif de votre commande" subtitle="" />
                 <div className="flex flex-col gap-6">
                     <div className="text-center">
                         <h2 className="text-2xl font-bold mb-4">Confirmer et Payer</h2>
                         <p className="text-lg font-semibold">Récapitulatif de votre voyage</p>
                     </div>
                     <div className="flex flex-col gap-4 p-4 bg-gray-100 rounded-lg">
+                        <div>
+                            <p className="font-bold text-lg">Nom du voyageur:</p>
+                            <p>{currentUser?.name}</p>
+                        </div>
                         <div>
                             <p className="font-bold text-lg">Durée du voyage:</p>
                             <p>{formattedStartDate} - {formattedEndDate}</p>
