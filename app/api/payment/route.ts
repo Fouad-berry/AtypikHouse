@@ -1,22 +1,24 @@
-
+import { NextResponse } from 'next/server';
 import prisma from '@/app/libs/prismadb';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 export async function POST(request: Request) {
-    const { userId, totalPrice } = await request.json();
+    const { userId, totalPrice, travelerName } = await request.json();
 
     try {
-        await prisma.payment.create({
+        const payment = await prisma.payment.create({
             data: {
                 userId,
                 totalPrice,
+                status: 'completed',
+                travelerName,
                 createdAt: new Date(),
-                status: "completed"
-            }
+            },
         });
 
-        return new Response(null, { status: 200 });
+        return NextResponse.json(payment, { status: 200 });
     } catch (error) {
         console.error("Erreur lors de l'enregistrement du paiement :", error);
-        return new Response(null, { status: 500 });
+        return NextResponse.json({ message: "Erreur lors de l'enregistrement du paiement" }, { status: 500 });
     }
 }

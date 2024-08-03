@@ -52,14 +52,14 @@ const RecapClient: React.FC<RecapClientProps> = ({
     const router = useRouter();
     
     const onFinal = useCallback(async () => {
-        // Récupérer l'ID de l'utilisateur actuel et l'ID du listing depuis le sessionStorage
         const userId = currentUser?.id;
+        const travelerName = currentUser?.name;
 
-        // Envoyer une requête POST à votre backend pour enregistrer le paiement
         try {
             await axios.post('/api/payment', {
                 userId,
-                totalPrice
+                totalPrice,
+                travelerName
             });
             toast.success('Votre paiement a été accepté et votre réservation confirmée');
             router.push(`/trips`);
