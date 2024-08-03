@@ -144,6 +144,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     onClick={() => router.push('/profile')}
                                     label="Mon compte"
                                 />
+                                <MenuItem
+                                    onClick={() => router.push('/order-history')}
+                                    label="Historique des commandes"
+                                />
                                 <hr />
                                 <MenuItem
                                     onClick={() => signOut()}
