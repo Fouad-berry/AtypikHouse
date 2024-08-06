@@ -89,7 +89,7 @@ export async function generateInvoice(order: Order) {
       Termes et conditions:
       - Paiement dû dans les 30 jours.
       - Aucun remboursement après 15 jours.
-      - Contactez-nous pour toute question.
+      - Contactez notre service clientèle pour toute question .
     `;
 
     page.drawText(termsAndConditions, {
