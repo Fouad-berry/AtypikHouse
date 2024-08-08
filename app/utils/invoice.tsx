@@ -91,6 +91,7 @@ export async function generateInvoice(order: Order) {
       - Aucun remboursement après 15 jours.
       - Contactez notre service clientèle pour toute question.
     `;
+    <br />
 
     page.drawText(termsAndConditions, {
       x: 50,
