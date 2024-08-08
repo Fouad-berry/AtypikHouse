@@ -90,6 +90,7 @@ export async function generateInvoice(order: Order) {
       - Paiement dû dans les 30 jours.
       - Aucun remboursement après 15 jours.
       - Contactez notre service clientèle pour toute question.
+      - Veuillez conserver cette facture , elle pourra vous servir pour le remboursement.
     `;
 
     page.drawText(termsAndConditions, {
