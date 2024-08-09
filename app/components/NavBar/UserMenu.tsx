@@ -37,7 +37,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
-                {currentUser?.role === 'admin' && (
+{/*                 {currentUser?.role === 'admin' && (
                     <div
                         onClick={() => router.push('/admin')}
                         className="
@@ -56,7 +56,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                         Panneau d&apos;administration
                     </div>
                 )}
-                <div
+ */}                <div
                     onClick={onRent}
                     className="
                         hidden
