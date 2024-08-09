@@ -12,18 +12,23 @@ import { IoDiamond } from "react-icons/io5";
 
 export const categories = [
     {
-        label: 'Plage',
-        icon: TbBeach,
-        description:'La propriété est proche de la plage'
+        label: 'Camping',
+        icon: GiForestCamp,
+        description:'La propriété est moderne'
     },
     {
-        label: 'Eolienne',
-        icon: GiWindmill,
-        description:'La propriété est proche d`une source eolienne'
+        label: 'Arctic',
+        icon: BsSnow,
+        description:'La propriété est vraiment moderne'
     },
     {
-        label: 'Moderne',
-        icon: MdOutlineVilla,
+        label: 'Cave',
+        icon: GiCaveEntrance,
+        description:'La propriété est vraiment moderne'
+    },
+    {
+        label: 'Desert ',
+        icon: GiCactus,
         description:'La propriété est vraiment moderne'
     },
     {
@@ -57,29 +62,24 @@ export const categories = [
         description:'La propriété est moderne'
     },
     {
-        label: 'Camping',
-        icon: GiForestCamp,
-        description:'La propriété est moderne'
-    },
-    {
-        label: 'Arctic',
-        icon: BsSnow,
-        description:'La propriété est vraiment moderne'
-    },
-    {
-        label: 'Cave',
-        icon: GiCaveEntrance,
-        description:'La propriété est vraiment moderne'
-    },
-    {
-        label: 'Desert ',
-        icon: GiCactus,
-        description:'La propriété est vraiment moderne'
-    },
-    {
         label: 'Barn',
         icon: GiBarn,
         description:'La propriété est vraiment moderne'
+    },
+    {
+        label: 'Moderne',
+        icon: MdOutlineVilla,
+        description:'La propriété est vraiment moderne'
+    },
+    {
+        label: 'Plage',
+        icon: TbBeach,
+        description:'La propriété est proche de la plage'
+    },
+    {
+        label: 'Eolienne',
+        icon: GiWindmill,
+        description:'La propriété est proche d`une source eolienne'
     },
     {
         label: 'Lux',
