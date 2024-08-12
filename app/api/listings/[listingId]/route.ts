@@ -9,15 +9,15 @@ interface IParams {
 
 export async function DELETE(
     request: Request,
-    {params}: {params: IParams}
+    { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
 
-    if(!currentUser) {
+    if (!currentUser) {
         return NextResponse.error();
     }
 
-    const {listingId} = params;
+    const { listingId } = params;
 
     if (!listingId || typeof listingId !== 'string') {
         throw new Error('Id invalide');
@@ -26,9 +26,9 @@ export async function DELETE(
     const listing = await prisma.listing.deleteMany({
         where: {
             id: listingId,
-            userId: currentUser.id
-        }
-    })
+            userId: currentUser.id,
+        },
+    });
 
     return NextResponse.json(listing);
 }
@@ -54,20 +54,20 @@ export async function PUT(
     const updatedListing = await prisma.listing.updateMany({
         where: {
             id: listingId,
-            userId: currentUser.id
+            userId: currentUser.id,
         },
         data: {
             title: body.title,
             description: body.description,
-            price: body.price,
+            price: parseInt(body.price, 10),
             category: body.category,
             locationvalue: body.location,
             guestCount: body.guestCount,
             roomCount: body.roomCount,
             bathroomCount: body.bathroomCount,
-            imageSrc: body.imageSrc,
-            equipment: body.equipment,
-        }
+            imageSrc: body.imageSrc, // tableau d'URLs d'images
+            equipment: body.equipment, // tableau d'équipements
+        },
     });
 
     return NextResponse.json(updatedListing);

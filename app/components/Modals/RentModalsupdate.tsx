@@ -60,7 +60,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
             guestCount: 1,
             roomCount: 1,
             bathroomCount: 1,
-            imageSrc: '',
+            imageSrc: [],
             price: 1,
             title: '',
             description: '',
@@ -121,15 +121,13 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-    
-        console.log('Data to Submit:', data);
-    
+
         if (step !== STEPS.PRICE) {
             onNext();
             setIsLoading(false);
             return;
         }
-    
+
         if (initialData) {
             // Update listing
             axios.put(`/api/updaterent/${initialData.id}`, {
@@ -138,10 +136,29 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
             })
                 .then(() => {
                     toast.success('Votre location a été mise à jour');
+                    router.refresh();
                     onClose();
                 })
                 .catch((error) => {
-                    console.error("Error updating listing:", error);
+                    logError(error, "updating listing");
+                    toast.error("Une erreur est survenue");
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
+        } else {
+            // Create new listing (if this scenario is supported)
+            axios.post('/api/listings', {
+                ...data,
+                locationvalue: data.location ? data.location.value : null,
+            })
+                .then(() => {
+                    toast.success('Votre location a été créée');
+                    router.refresh();
+                    onClose();
+                })
+                .catch((error) => {
+                    logError(error, "creating listing");
                     toast.error("Une erreur est survenue");
                 })
                 .finally(() => {
@@ -216,11 +233,11 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
             <div className="flex flex-col gap-8">
                 <Heading
                     title="Partagez quelques détails de votre maison"
-                    subtitle="Quels sont les agréments que vous avez?"
+                    subtitle="Quels sont les agréments que vous avez ?"
                 />
                 <Counter 
-                    title='Nombre d'
-                    subtitle='Combien d'
+                    title='Nombre d`invités'
+                    subtitle='Combien d`invités autorisez-vous ?'
                     value={guestCount}
                     onChange={(value) => setCustomValue('guestCount', value)}
                 />
@@ -231,28 +248,28 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     onChange={(value) => setCustomValue('roomCount', value)}
                 />
                 <Counter 
-                    title='Salles de bain'
-                    subtitle='Combien de salles de bain avez-vous ?'
+                    title='Salles de bains'
+                    subtitle='Combien de salles de bains avez-vous ?'
                     value={bathroomCount}
                     onChange={(value) => setCustomValue('bathroomCount', value)}
                 />
             </div>
-        )
+        );
     }
 
     if (step === STEPS.IMAGES) {
         bodyContent = (
             <div className='flex flex-col gap-8'>
                 <Heading
-                    title='Ajoutez une photo de votre maison'
-                    subtitle='Montrez à quoi ressemble votre maison !'
+                    title='Ajoutez des photos de votre maison'
+                    subtitle='Montrez aux visiteurs à quoi ressemble votre maison !'
                 />
                 <ImageUpload
                     value={imageSrc}
                     onChange={(value) => setCustomValue('imageSrc', value)}
                 />
             </div>
-        )
+        );
     }
 
     if (step === STEPS.DESCRIPTION) {
@@ -279,7 +296,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     required
                 />
             </div>
-        )
+        );
     }
 
     if (step === STEPS.EQUIPEMENT) {
@@ -315,7 +332,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     ))}
                 </div>
             </div>
-        )
+        );
     }
 
     if (step === STEPS.PRICE) {
@@ -336,7 +353,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     required
                 />
             </div>
-        )
+        );
     }
 
     return (
@@ -349,7 +366,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
             secondaryActionLabel={secondaryActionLabel}
             body={bodyContent}
         />
-    )
-}
+    );
+};
 
 export default RentModalsUpdate;

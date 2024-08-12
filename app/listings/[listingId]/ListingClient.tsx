@@ -9,15 +9,13 @@ import { categories } from "@/app/components/NavBar/Categories";
 import { equipement } from "@/app/components/NavBar/Equipement";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
-
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { differenceInCalendarDays, differenceInDays, eachDayOfInterval } from "date-fns";
+import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ListingReservation from "@/app/components/Listings/ListingReservation";
 import { Range } from "react-date-range";
 import ListingContact from "@/app/components/Listings/ListingContact";
-import PayPalButton from "@/app/components/PaypalButton";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -28,7 +26,7 @@ const initialDateRange = {
 interface ListingClientProps {
     reservation?: SafeReservation[];
     listing: SafeListing & {
-        user:SafeUser
+        user: SafeUser
     };
     currentUser?: SafeUser | null
 }
@@ -50,7 +48,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 end: new Date(reservation.endDate)
             });
 
-            dates = [...dates, ...range]
+            dates = [...dates, ...range];
         });
 
         return dates;
@@ -73,20 +71,19 @@ const ListingClient: React.FC<ListingClientProps> = ({
             endDate: dateRange.endDate,
             listingId: listing?.id
         })
-        .then(() => {
-/*             toast.success('Votre  réservation a bien été enregistrée');
- */         setDateRange(initialDateRange);
-            sessionStorage.setItem('totalPrice', totalPrice.toString());
-            sessionStorage.setItem('startDate', initialDateRange.startDate.toISOString());
-            sessionStorage.setItem('endDate', initialDateRange.endDate.toISOString());
-            router.push(`/summary`);
+            .then(() => {
+                setDateRange(initialDateRange);
+                sessionStorage.setItem('totalPrice', totalPrice.toString());
+                sessionStorage.setItem('startDate', initialDateRange.startDate.toISOString());
+                sessionStorage.setItem('endDate', initialDateRange.endDate.toISOString());
+                router.push(`/summary`);
             })
-        .catch(() =>{
-            toast.error('Quelque chose s`est mal passé');
-        })
-        .finally(() => {
-            setIsLoading(false);
-        })
+            .catch(() => {
+                toast.error('Quelque chose s`est mal passé');
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     }, [
         totalPrice,
         dateRange,
@@ -96,20 +93,16 @@ const ListingClient: React.FC<ListingClientProps> = ({
         loginModal
     ]);
 
-    /* The double */
     const onSend = useCallback(() => {
         if (!currentUser) {
             return loginModal.onOpen();
         }
-    
+
         sessionStorage.setItem('totalPrice', totalPrice.toString());
         sessionStorage.setItem('startDate', initialDateRange.startDate.toISOString());
         sessionStorage.setItem('endDate', initialDateRange.endDate.toISOString());
-        
         router.push(`/summary`);
     }, [totalPrice, initialDateRange, currentUser, loginModal, router]);
-    
-    /* The double end */
 
     useEffect(() => {
         if (dateRange.startDate && dateRange.endDate) {
@@ -127,15 +120,15 @@ const ListingClient: React.FC<ListingClientProps> = ({
     }, [dateRange, listing.price]);
 
     const category = useMemo(() => {
-        return categories.find((item) => 
+        return categories.find((item) =>
             item.label === listing.category);
     }, [listing.category]);
 
     const equipment = useMemo(() => {
-        return equipement.filter((item) => 
+        return equipement.filter((item) =>
             listing.equipment.includes(item.label));
     }, [listing.equipment]);
-    
+
     return (
         <div>
             <Container>
@@ -143,7 +136,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                     <div className="flex flex-col gap-6">
                         <ListingHead
                             title={listing.title}
-                            imageSrc={listing.imageSrc}
+                            imageSrc={listing.imageSrc} // Ici, passez le tableau d'images
                             locationvalue={listing.locationvalue}
                             id={listing.id}
                             currentUser={currentUser}
@@ -181,20 +174,17 @@ const ListingClient: React.FC<ListingClientProps> = ({
                                         disabled={isLoading}
                                         disabledDates={disabledDates}
                                     />
-{/*                                         <PayPalButton totalPrice={totalPrice} onSuccess={onCreateReservation} />
- */}                            </div>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        
-                            {/* Ajout du commentaire */}
-                                <ListingComment listingId={listing.id} />
-                            {/* Afficher les commentaires existants ici */}
+                        <ListingComment listingId={listing.id} />
                     </div>
                     <div>
-                    {currentUser && (
-              <ListingContact ownerId={listing.user.id} currentUser={currentUser} />
-            )}                    </div>
+                        {currentUser && (
+                            <ListingContact ownerId={listing.user.id} currentUser={currentUser} />
+                        )}
+                    </div>
                 </div>
             </Container>
         </div>

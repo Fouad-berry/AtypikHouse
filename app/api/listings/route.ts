@@ -1,22 +1,19 @@
 import { NextResponse } from "next/server";
-
-import prisma from  "@/app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-export async function POST(
-    request: Request
-) {
+export async function POST(request: Request) {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
-        return  NextResponse.error();
+        return NextResponse.error();
     }
 
     const body = await request.json();
     const {
         title,
         description,
-        imageSrc,
+        imageSrc, // Tableau d'URLs des images
         category,
         roomCount,
         bathroomCount,
@@ -26,22 +23,24 @@ export async function POST(
         equipment
     } = body;
 
+    // Vérification des champs requis
     Object.keys(body).forEach((value: any) => {
         if (!body[value]) {
-            NextResponse.error();
+            return NextResponse.error();
         }
     });
 
+    // Création du listing avec Prisma
     const listing = await prisma.listing.create({
         data: {
             title,
             description,
-            imageSrc,
+            imageSrc, // Stocker les images en tant que tableau de chaînes
             category,
             roomCount,
             bathroomCount,
             guestCount,
-            equipment: {set : equipment },
+            equipment: { set: equipment }, // Gestion des équipements avec Prisma
             locationvalue: location.value,
             price: parseInt(price, 10),
             userId: currentUser.id,

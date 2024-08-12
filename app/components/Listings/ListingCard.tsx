@@ -1,10 +1,9 @@
 'use client';
 
-import { Reservation } from "@prisma/client";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import useCountries from "@/app/hooks/useCountries";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
@@ -83,6 +82,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'PP')} - ${format(end, 'PP')}`;
     }, [reservation]);
 
+    // Utilisation de la première image de la liste d'images
+    const mainImageSrc = data.imageSrc && data.imageSrc.length > 0 ? data.imageSrc[0] : "/placeholder.jpg"; // Placeholder au cas où il n'y a pas d'image
+
     return (
         <div
             onClick={() => router.push(`/listings/${data.id}`)}
@@ -101,7 +103,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
                     <Image 
                         fill
                         alt="Listing"
-                        src={data.imageSrc}
+                        src={mainImageSrc}
                         className="
                             object-cover
                             h-full
