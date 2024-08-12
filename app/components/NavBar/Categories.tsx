@@ -19,7 +19,7 @@ export const categories = [
     {
         label: 'Arctic',
         icon: BsSnow,
-        description:'La propriété est vraiment moderne'
+        description:'Cette propriété est vraiment moderne'
     },
     {
         label: 'Cave',
