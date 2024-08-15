@@ -37,6 +37,18 @@ const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
             });
     }, [currentUser, router]);
 
+    // Fonction pour formater la date et l'heure
+    const formatDate = (dateString: string) => {
+        const options: Intl.DateTimeFormatOptions = {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        };
+        return new Date(dateString).toLocaleDateString('fr-FR', options);
+    };
+
     return (
         <Container>
             <div className="flex flex-col gap-4">
@@ -59,7 +71,9 @@ const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
                                     <td className="py-2 px-6 border-b border-gray-300 border-r">{user.name}</td>
                                     <td className="py-2 px-6 border-b border-gray-300 border-r">{user.email}</td>
                                     <td className="py-2 px-6 border-b border-gray-300 border-r">{user.role}</td>
-                                    <td className="py-2 px-6 border-b border-gray-300 border-r">{user.createAt}</td>
+                                    <td className="py-2 px-6 border-b border-gray-300 border-r">
+                                        {formatDate(user.createAt)}
+                                    </td>
                                     <td className="py-2 px-6 border-b border-gray-300">
                                         <Button
                                             label="Supprimer"

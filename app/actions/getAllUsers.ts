@@ -9,6 +9,8 @@ export default async function getUsers(): Promise<SafeUser[]> {
                 name: true,
                 email: true,
                 role: true,
+                createAt: true,
+                updateAt: true,
             },
         });
 
@@ -17,10 +19,10 @@ export default async function getUsers(): Promise<SafeUser[]> {
             emailVerified: null,
             image: null,
             hashedPassword: null,
-            createAt: new Date().toISOString(), 
-            updateAt: new Date().toISOString(),
             favoriteIds: [],
             verificationCode: null,
+            createAt: user.createAt.toISOString(), 
+            updateAt: user.updateAt ? user.updateAt.toISOString() : "",
         }));
     } catch (error: any) {
         throw new Error(error);
