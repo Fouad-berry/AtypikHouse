@@ -124,13 +124,12 @@ const LoginModals = () => {
 
         <div className='justify-center flex flex-row items-center gap-2 mt-2'>
             <div>
-                Mot de passe oublié ?
             </div>
             <div 
                 onClick={forgot}
                 className='text-neutral-800 cursor-pointer hover:underline'
             >
-                Changez de mot de passe
+                Mot de passe oublié ?
             </div>
         </div>
     </div>
