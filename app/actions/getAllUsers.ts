@@ -12,14 +12,13 @@ export default async function getUsers(): Promise<SafeUser[]> {
             },
         });
 
-        // Map users to include all necessary SafeUser fields with defaults
         return users.map(user => ({
             ...user,
             emailVerified: null,
             image: null,
             hashedPassword: null,
-            createAt: new Date().toISOString(), // Convert Date to string
-            updateAt: new Date().toISOString(), // Convert Date to string
+            createAt: new Date().toISOString(), 
+            updateAt: new Date().toISOString(),
             favoriteIds: [],
             verificationCode: null,
         }));
