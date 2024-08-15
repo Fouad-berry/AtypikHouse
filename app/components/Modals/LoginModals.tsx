@@ -93,46 +93,48 @@ const LoginModals = () => {
     );
 
     const footerContent = (
-        <div className="flex flex-col gap-4 mt-3">
-            <hr/>
-            <Button 
-                outline
-                label="Continuer avec Google"
-                icon={FcGoogle}
-                onClick={() => {signIn('google')}}
-            />
-            <Button 
-                outline
-                label="Continuer avec GitHub"
-                icon={AiFillGithub}
-                onClick={() => signIn('github')}
-            />
-            <div className='text-neutral-500 text-center mt-4 font-light'>                                        
-                <div className='justify-center flex flex-row items-center gap-2'>
-                    <div>
-                        Vous êtes nouveau sur notre site ?
-                    </div>
-                    <div 
-                        onClick={toggle}
-                        className='text-neutral-800 cursor-pointer hover:underline'
-                    >
-                        Créez un compte !
-                    </div>
-                </div>
-
-                <div className='justify-center flex flex-row items-center gap-2'>
-                    <div>
-                        Mot de passe oublié ?
-                    </div>
-                    <div 
-                        onClick={forgot}
-                        className='text-neutral-800 cursor-pointer hover:underline'
-                    >
-                        Changez de mot de passe
-                    </div>
-                </div>
+<div className="flex flex-col gap-4 mt-3 p-4 md:p-6 mx-auto max-w-md">
+    <hr className="border-gray-300"/>
+    <Button 
+        outline
+        label="Continuer avec Google"
+        icon={FcGoogle}
+        onClick={() => {signIn('google')}}
+        className="w-full"
+    />
+    <Button 
+        outline
+        label="Continuer avec GitHub"
+        icon={AiFillGithub}
+        onClick={() => signIn('github')}
+        className="w-full"
+    />
+    <div className='text-neutral-500 text-center mt-4 font-light text-sm md:text-base'>                                        
+        <div className='justify-center flex flex-row items-center gap-2'>
+            <div>
+                Vous êtes nouveau ?
+            </div>
+            <div 
+                onClick={toggle}
+                className='text-neutral-800 cursor-pointer hover:underline'
+            >
+                Créez un compte !
             </div>
         </div>
+
+        <div className='justify-center flex flex-row items-center gap-2 mt-2'>
+            <div>
+                Mot de passe oublié ?
+            </div>
+            <div 
+                onClick={forgot}
+                className='text-neutral-800 cursor-pointer hover:underline'
+            >
+                Changez de mot de passe
+            </div>
+        </div>
+    </div>
+</div>
     );
 
     return (
