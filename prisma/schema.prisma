@@ -121,3 +121,9 @@ model Payment {
   orderNumber String @default(cuid())
   reservations Reservation[]
 }
+
+model Equip {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  label String
+  icon  String
+}
