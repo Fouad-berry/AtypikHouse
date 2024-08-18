@@ -24,7 +24,7 @@ export const categories = [
     {
         label: 'Cave',
         icon: GiCaveEntrance,
-        description:'La '
+        description:'Vivez une expérience somptueuse dans des propriétés ultra-luxueuses.'
     },
     {
         label: 'Desert ',
