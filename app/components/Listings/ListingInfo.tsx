@@ -86,7 +86,6 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
                 />
             )}
             <hr />
-            <hr />
             {equipment && equipment.length > 0 && (
                 <div>
                     <h2 className="text-xl font-semibold text-neutral-700">Les équipements que propose ce logement</h2> <br></br>
