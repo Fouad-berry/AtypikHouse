@@ -14,78 +14,80 @@ export const categories = [
     {
         label: 'Camping',
         icon: GiForestCamp,
-        description: 'Découvrez une retraite en pleine nature, idéale pour les amateurs de plein air.'
+        description:'La '
     },
     {
-        label: 'Arctique',
+        label: 'Arctic',
         icon: BsSnow,
-        description: 'Expérimentez la beauté glaciale des régions polaires avec des vues enneigées à couper le souffle.'
+        description:'Cette'
     },
     {
-        label: 'Grotte',
+        label: 'Cave',
         icon: GiCaveEntrance,
-        description: 'Séjournez dans des espaces mystérieux et captivants, sculptés dans la roche.'
+        description:'La '
     },
     {
-        label: 'Désert',
+        label: 'Desert ',
         icon: GiCactus,
-        description: 'Évadez-vous dans l&apos;immensité des dunes, où le silence règne en maître.'
+        description:'La propriété est vraiment moderne'
     },
     {
-        label: 'Campagne',
+        label: 'CountrySide',
         icon: TbMountain,
-        description: 'Profitez de la tranquillité de la campagne, entourée de verdure et de montagnes.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Piscines',
+        label: 'Pools',
         icon: TbPool,
-        description: 'Détendez-vous dans des propriétés dotées de superbes piscines privées.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Îles',
+        label: 'Islands',
         icon: GiIsland,
-        description: 'Explorez des refuges insulaires exclusifs, entourés par la mer.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Lac',
+        label: 'Lake',
         icon: GiBoatFishing,
-        description: 'Séjournez au bord de l&apos;eau avec des vues sereines sur le lac.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Ski',
+        label: 'Skiing',
         icon: FaSkiing,
-        description: 'Accédez directement aux pistes depuis votre porte pour un séjour au cœur des montagnes enneigées.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Château',
+        label: 'GiCastle',
         icon: GiCastle,
-        description: 'Vivez comme des rois dans des châteaux majestueux au charme historique.'
+        description:'La propriété est moderne'
     },
     {
-        label: 'Grange',
+        label: 'Barn',
         icon: GiBarn,
-        description: 'Séjournez dans des granges restaurées, alliant le charme rustique à un confort moderne.'
+        description:'La propriété est vraiment moderne'
     },
     {
         label: 'Moderne',
         icon: MdOutlineVilla,
-        description: 'Profitez dun design épuré et contemporain dans des propriétés modernes.'
+        description:'La propriété est vraiment moderne'
     },
     {
         label: 'Plage',
         icon: TbBeach,
-        description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
+        description:'La propriété est proche de la plage'
     },
     {
-        label: 'Éolienne',
+        label: 'Eolienne',
         icon: GiWindmill,
-        description: 'Découvrez le charme de la campagne avec des moulins à vent emblématiques.'
+        description:'La propriété est proche d`une source eolienne'
     },
     {
-        label: 'Luxe',
+        label: 'Lux',
         icon: IoDiamond,
-        description: 'Vivez une expérience somptueuse dans des propriétés ultra-luxueuses.'
+        description:'La propriété est vraiment moderne'
     },
+
+
 ]
 
 const Categories = () => {
