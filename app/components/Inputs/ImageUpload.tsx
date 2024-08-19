@@ -62,7 +62,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                                     <Image 
                                         alt="Upload"
                                         fill
-                                        style={{ objectFit: 'cover' }}
+                                        style={{ objectFit: 'contain' }}
                                         src={imageSrc}
                                     />
                                 </div>
