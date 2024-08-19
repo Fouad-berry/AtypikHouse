@@ -1,13 +1,13 @@
 'use client';
 
+import { useState, useEffect } from "react";
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
 import Heading from "../Heading";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 interface ListingHeadProps {
     title: string;
@@ -16,30 +16,6 @@ interface ListingHeadProps {
     id: string;
     currentUser?: SafeUser | null,
 }
-
-const NextArrow = (props: any) => {
-    const { onClick } = props;
-    return (
-        <div
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 cursor-pointer flex items-center justify-center bg-black bg-opacity-75 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-            onClick={onClick}
-        >
-            &#9654;
-        </div>
-    );
-};
-
-const PrevArrow = (props: any) => {
-    const { onClick } = props;
-    return (
-        <div
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 cursor-pointer flex items-center justify-center bg-black bg-opacity-75 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-            onClick={onClick}
-        >
-            &#9664;
-        </div>
-    );
-};
 
 const ListingHead: React.FC<ListingHeadProps> = ({
     title,
@@ -50,17 +26,17 @@ const ListingHead: React.FC<ListingHeadProps> = ({
 }) => {
     const { getByValue } = useCountries();
     const location = getByValue(locationvalue);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        arrows: true,
-    };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <>
@@ -68,27 +44,51 @@ const ListingHead: React.FC<ListingHeadProps> = ({
                 title={title}
                 subtitle={`${location?.region}, ${location?.label}`}
             />
-            <div
-                className="
-                    w-full
-                    h-[60vh]
-                    overflow-hidden
-                    rounded-xl
-                    relative
-                    group
-                ">
-                <Slider {...settings}>
-                    {imageSrc.map((src, index) => (
-                        <div key={index} className="relative w-full h-[60vh]">
+            <div className="w-full h-[60vh] overflow-hidden rounded-xl relative">
+                {isMobile ? (
+                    <Carousel
+                        showThumbs={false}
+                        showStatus={false}
+                        infiniteLoop
+                        autoPlay
+                        interval={3000}
+                    >
+                        {imageSrc.map((src, index) => (
+                            <div key={index} className="relative w-full h-[60vh]">
+                                <Image
+                                    alt={`Image ${index + 1}`}
+                                    src={src}
+                                    fill
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        ))}
+                    </Carousel>
+                ) : (
+                    <div className="flex h-full gap-1">
+                        <div className="w-2/3 h-full relative">
                             <Image
-                                alt={`Image ${index + 1}`}
-                                src={src}
+                                alt="Main Image"
+                                src={imageSrc[0]}
                                 fill
-                                className="object-cover w-full h-full"
+                                className="object-cover w-full h-full rounded-l-xl"
                             />
                         </div>
-                    ))}
-                </Slider>
+                        <div className="w-1/3 h-full flex flex-col gap-1">
+                            {imageSrc.slice(1, 3).map((src, index) => (
+                                <div key={index} className="relative flex-1">
+                                    <Image
+                                        alt={`Image ${index + 2}`}
+                                        src={src}
+                                        fill
+                                        className="object-cover w-full h-full rounded-r-xl"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 <div className="absolute top-5 right-5">
                     <HeartButton 
                         listingId={id}
