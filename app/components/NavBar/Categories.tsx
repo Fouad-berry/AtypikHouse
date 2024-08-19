@@ -29,7 +29,7 @@ export const categories = [
     {
         label: 'Desert ',
         icon: GiCactus,
-        description:'Évadez-vous dans l&apos;immensité des dunes, où le silence règne en maître.'
+        description:'Évadez-vous dans l\'immensité des dunes, où le silence règne en maître.'
     },
     {
         label: 'Campagne',
@@ -49,7 +49,7 @@ export const categories = [
     {
         label: 'Lac',
         icon: GiBoatFishing,
-        description:'Séjournez au bord de l&apos;eau avec des vues sereines sur le lac.'
+        description:'Séjournez au bord de l\'eau avec des vues sereines sur le lac.'
     },
     {
         label: 'Ski',
