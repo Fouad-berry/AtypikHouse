@@ -82,7 +82,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'PP')} - ${format(end, 'PP')}`;
     }, [reservation]);
 
-    // Utilisation de la première image de la liste d'images
     const mainImageSrc = data.imageSrc && data.imageSrc.length > 0 ? data.imageSrc[0] : "/placeholder.jpg"; // Placeholder au cas où il n'y a pas d'image
 
     return (
@@ -130,7 +129,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
                         € {price}
                     </div>
                     {!reservation && (
-                        <div className="font-light"> / nuit</div>
+                        <div className="font-light"> par nuit</div>
                     )}
                 </div>
                 {onAction && actionLabel && (
