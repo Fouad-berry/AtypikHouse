@@ -9,13 +9,14 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { IoDesktopOutline, IoMedkitOutline, IoCarSportOutline, IoBarbellOutline } from "react-icons/io5";
 import { LuBath, LuUtensils } from "react-icons/lu";
 import { BsKey, BsDoorClosed } from "react-icons/bs";
-import { GiBarbecue, GiChimney, GiCctvCamera, GiToaster, GiGasStove } from "react-icons/gi";
+import { GiBarbecue, GiChimney, GiCctvCamera, GiToaster, GiGasStove, GiDutchBike } from "react-icons/gi";
 import { PiWineLight, PiPaintBrushHouseholdLight } from "react-icons/pi";
 import { RiFridgeLine } from "react-icons/ri";
 import { TbIroningSteam } from "react-icons/tb";
 import { BiSolidDryer } from "react-icons/bi";
 import { FaUmbrellaBeach } from "react-icons/fa6";
-import { LiaBabyCarriageSolid, LiaPawSolid } from "react-icons/lia";
+import { LiaBabyCarriageSolid, LiaPawSolid, LiaSmokingSolid } from "react-icons/lia";
+import { VscGame } from "react-icons/vsc";
 
 export const equipement = [
     {
@@ -137,12 +138,23 @@ export const equipement = [
     {
         label: 'Recommandation de baby-sitters',
         icon: LiaBabyCarriageSolid,
-    },
+    }, 
     {
         label: 'Animaux accepetés',
         icon: LiaPawSolid,
     },
-
+    {
+        label: 'Logement fumeur',
+        icon: LiaSmokingSolid,
+    },  
+    {
+        label: 'Vélos',
+        icon: GiDutchBike,
+    },
+    {
+        label: 'Jouets',
+        icon: VscGame,
+    },
 
 ]
 
