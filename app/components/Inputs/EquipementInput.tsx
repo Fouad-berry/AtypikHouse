@@ -1,9 +1,11 @@
 'use client';
 
 import { IconType } from "react-icons";
+import Image from 'next/image';
 
 interface EquipementInputProps {
-    icon: IconType;
+    icon?: IconType;
+    image?: string; // Ajout de la prop image
     label: string;
     selected?: boolean;
     onClick: (value: string) => void;
@@ -11,10 +13,11 @@ interface EquipementInputProps {
 
 const EquipementInput: React.FC<EquipementInputProps> = ({
     icon: Icon,
+    image, // Ajout de la prop image
     label,
     selected,
     onClick
-}) =>{
+}) => {
     return (
         <div
             onClick={() => onClick(label)}
@@ -27,11 +30,15 @@ const EquipementInput: React.FC<EquipementInputProps> = ({
                 gap-3
                 hover:border-black
                 transition
-                cursor-poionter
+                cursor-pointer
                 ${selected ? 'border-black' : 'border-neutral-200'}
             `}
         >
-            <Icon size={30} />
+            {image ? (
+                <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-md" />
+            ) : (
+                Icon && <Icon size={30} color="black"/>
+            )}
             <div className="">
                 {label}
             </div>

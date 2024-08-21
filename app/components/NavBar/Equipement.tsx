@@ -2,11 +2,11 @@
 
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import Container from "../Container";
-import { PiWheelchair, PiWifiHigh, PiFireExtinguisher, PiThermometerSimple, PiSnowflake, PiShirtFoldedLight, PiCoatHanger } from "react-icons/pi";
+import { PiWheelchair, PiWifiHigh, PiFireExtinguisher, PiThermometerSimple, PiSnowflake, PiShirtFoldedLight, PiCoatHanger, PiChargingStationLight } from "react-icons/pi";
 import { MdChair, MdFlatware, MdOutlineCoffeeMaker } from "react-icons/md";
 import EquipementBox from "../EquipementBox";
 import { usePathname, useSearchParams } from "next/navigation";
-import { IoDesktopOutline, IoMedkitOutline, IoCarSportOutline, IoBarbellOutline } from "react-icons/io5";
+import { IoDesktopOutline, IoMedkitOutline, IoCarSportOutline, IoBarbellOutline, IoBedOutline } from "react-icons/io5";
 import { LuBath, LuUtensils } from "react-icons/lu";
 import { BsKey, BsDoorClosed } from "react-icons/bs";
 import { GiBarbecue, GiChimney, GiCctvCamera, GiToaster, GiGasStove, GiDutchBike } from "react-icons/gi";
@@ -15,8 +15,9 @@ import { RiFridgeLine } from "react-icons/ri";
 import { TbIroningSteam } from "react-icons/tb";
 import { BiSolidDryer } from "react-icons/bi";
 import { FaUmbrellaBeach } from "react-icons/fa6";
-import { LiaBabyCarriageSolid, LiaPawSolid, LiaSmokingSolid } from "react-icons/lia";
+import { LiaBabyCarriageSolid, LiaBookSolid, LiaPawSolid, LiaSmokingSolid } from "react-icons/lia";
 import { VscGame } from "react-icons/vsc";
+import { TfiGame } from "react-icons/tfi";
 
 export const equipement = [
     {
@@ -150,17 +151,36 @@ export const equipement = [
     {
         label: 'Vélos',
         icon: GiDutchBike,
-    },
+    }, 
     {
         label: 'Jouets',
         icon: VscGame,
     },
-
+    {
+        label: 'Lit',
+        icon: IoBedOutline,
+    }, 
+    {
+        label: 'Livres et de quoi lire',
+        icon: LiaBookSolid,
+    }, 
+    {
+        label: 'Stations de rehcarge pour véhicules électrique',
+        icon: PiChargingStationLight,
+    },
+    {
+        label: 'Console de jeux ps4',
+        icon: TfiGame,
+    },
+    {
+        label: 'tente',
+        image: '/images/tente.png',
+    },
 ]
 
 const Equipement = () => {
     const params = useSearchParams();
-    const equipment = params?.get('gequipment');
+    const equipment = params?.get('equipement');
     const pathname = usePathname();
 
     const isMainPage = pathname === "/";
@@ -171,20 +191,22 @@ const Equipement = () => {
     return (
         <Container>
             <div
-            className="
-                pt-4
-                flex
-                flex-row
-                items-center
-                justify-between
-                overflow-x-auto
-            ">
+                className="
+                    pt-4
+                    flex
+                    flex-row
+                    items-center
+                    justify-between
+                    overflow-x-auto
+                "
+            >
                 {equipement.map((item) => (
                     <EquipementBox
                         key={item.label}
                         label={item.label}
                         selected={equipment === item.label}
                         icon={item.icon}
+                        image={item.image}  // Passage de l'image à EquipementBox
                     />
                 ))}
             </div>

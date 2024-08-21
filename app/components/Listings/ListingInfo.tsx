@@ -24,7 +24,8 @@ interface ListingInfoProps {
         description: string;
     } | undefined
     equipment: {
-        icon: IconType;
+        icon?: IconType;  // Rendre l'icône optionnelle
+        image?: string;   // Ajouter une prop pour l'image
         label: string;
     }[] | undefined
     locationvalue: string;
@@ -40,7 +41,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
     equipment,
     locationvalue
 }) => {
-    const {getByValue} = useCountries();
+    const { getByValue } = useCountries();
 
     const coordinates = getByValue(locationvalue)?.latlng;
 
@@ -88,12 +89,14 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             <hr />
             {equipment && equipment.length > 0 && (
                 <div>
-                    <h2 className="text-xl font-semibold text-neutral-700">Les équipements que propose ce logement</h2> <br></br>
+                    <h2 className="text-xl font-semibold text-neutral-700">Les équipements que propose ce logement</h2>
+                    <br />
                     <div className="grid grid-cols-2 gap-3">
                         {equipment.map((item, index) => (
                             <ListingEquipement
                                 key={index}
                                 icon={item.icon}
+                                image={item.image}  // Passer l'image si disponible
                                 label={item.label}
                             />
                         ))}
@@ -106,7 +109,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             </div>
             <hr />
             <div className="text-lg font-bold text-normal-300">
-                Ou se trouve notre logement Athipique
+                Où se trouve notre logement Athipique
             </div>
             <Map center={coordinates}/>
         </div>

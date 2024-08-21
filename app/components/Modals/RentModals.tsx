@@ -275,6 +275,7 @@ const RentModals = () => {
                                 selected={equipment.includes(item.label)}
                                 label={item.label}
                                 icon={item.icon}
+                                image={item.image}
                             />
                         </div>
                     ))}

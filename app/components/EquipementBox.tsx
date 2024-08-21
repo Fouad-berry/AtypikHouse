@@ -4,17 +4,20 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
 import qs from "query-string";
+import Image from 'next/image';
 
 interface EquipementBoxProps {
-    icon: IconType;
+    icon?: IconType;
     label: string;
-    selected:  boolean;
+    selected: boolean;
+    image?: string;  // Ajout de la prop image
 }
 
 const EquipementBox: React.FC<EquipementBoxProps> = ({
     icon: Icon,
     label,
-    selected
+    selected,
+    image
 }) => {
     const router = useRouter();
     const params = useSearchParams();
@@ -28,11 +31,11 @@ const EquipementBox: React.FC<EquipementBoxProps> = ({
 
         const updateQuery: any = {
             ...currentQuery,
-            category: label
+            equipement: label
         }
 
         if (params?.get('equipement') === label) {
-            delete updateQuery.category;
+            delete updateQuery.equipement;
         }
 
         const url = qs.stringifyUrl({
@@ -45,23 +48,27 @@ const EquipementBox: React.FC<EquipementBoxProps> = ({
 
     return (
         <div
-        onClick={handleClick}
-        className={`
-            flex
-            flex-col
-            items-center
-            justify-center
-            gap-2
-            p-3
-            border-b-2
-            hover:text-neutral-800
-            transition
-            cursor-pointer
-            ${selected ? 'border-b-neutral-800' : 'border-transparent'}
-            ${selected ? 'text-neutral-800' : 'text-neutral-500'}
-        `}
+            onClick={handleClick}
+            className={`
+                flex
+                flex-col
+                items-center
+                justify-center
+                gap-2
+                p-3
+                border-b-2
+                hover:text-neutral-800
+                transition
+                cursor-pointer
+                ${selected ? 'border-b-neutral-800' : 'border-transparent'}
+                ${selected ? 'text-neutral-800' : 'text-neutral-500'}
+            `}
         >
-            <Icon size={26} />
+            {image ? (
+                <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-full" />
+            ) : (
+                Icon && <Icon size={26} color="black" />
+            )}
             <div className="font-medium text-sm">
                 {label}
             </div>
