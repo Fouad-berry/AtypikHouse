@@ -15,7 +15,7 @@ import { RiFridgeLine } from "react-icons/ri";
 import { TbIroningSteam } from "react-icons/tb";
 import { BiSolidDryer } from "react-icons/bi";
 import { FaUmbrellaBeach } from "react-icons/fa6";
-import { LiaBabyCarriageSolid } from "react-icons/lia";
+import { LiaBabyCarriageSolid, LiaPawSolid } from "react-icons/lia";
 
 export const equipement = [
     {
@@ -137,6 +137,10 @@ export const equipement = [
     {
         label: 'Recommandation de baby-sitters',
         icon: LiaBabyCarriageSolid,
+    },
+    {
+        label: 'Animaux accepetés',
+        icon: LiaPawSolid,
     },
 
 
