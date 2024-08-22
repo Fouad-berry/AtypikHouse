@@ -194,8 +194,13 @@ export const equipement = [
     },
     {
         label: 'Connexion Ethernet',
-        image: '/public/images/ethernet.png',
+        image: '/images/ethernet.png',
     },
+    {
+        label: 'Aire de jeux extérieure',
+        image: '/images/parc.png',
+    },
+
 ]
 
 const Equipement = () => {
