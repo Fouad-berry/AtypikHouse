@@ -110,15 +110,15 @@ export const equipement = [
     },
     {
         label: 'Sèche linge',
-        icon: BiSolidDryer,
+        image: '/images/seche-linge.png',
     },
     {
         label: 'Camera de surveillance',
-        icon: GiCctvCamera,
+        image: '/images/camera-de-securite.png',
     }, 
     {
         label: 'Grille-pain',
-        icon: GiToaster,
+        image: '/images/grille-pain.png',
     },
     {
         label: 'Menage disponible tout au long du sejour',
@@ -134,7 +134,7 @@ export const equipement = [
     },
     {
         label: 'Cuisinière a gaz',
-        icon: GiGasStove,
+        image: '/images/cuisiniere.png',
     },
     {
         label: 'Recommandation de baby-sitters',
@@ -192,7 +192,10 @@ export const equipement = [
         label: 'Produits de nettoyage',
         image: '/images/outils.png',
     },
-
+    {
+        label: 'Connexion Ethernet',
+        image: '/public/images/ethernet.png',
+    },
 ]
 
 const Equipement = () => {
