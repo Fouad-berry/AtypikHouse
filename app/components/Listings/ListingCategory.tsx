@@ -4,8 +4,8 @@ import { IconType } from "react-icons";
 import Image from 'next/image';
 
 interface ListingCategoryProps {
-    icon?: IconType; // Rendre l'icône optionnelle
-    image?: string;  // Ajouter une prop pour l'image
+    icon?: IconType;
+    image?: string;
     label: string;
     description: string;
 }

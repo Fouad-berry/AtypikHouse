@@ -147,7 +147,8 @@ const RentModals = () => {
                             selected={category === item.label}
                             label={item.label}
 /*                             icon={item.icon}
- */                        />
+ */                         image={item.image}
+                            />
                     </div>
                 ))}
             </div>
