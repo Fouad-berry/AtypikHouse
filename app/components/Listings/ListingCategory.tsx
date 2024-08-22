@@ -20,7 +20,7 @@ const ListingCategory: React.FC<ListingCategoryProps> = ({
         <div className="flex flex-col gap-6">
             <div className="flex flex-row items-center gap-4">
                 {image ? (
-                    <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-md" />
+                    <Image src={image} alt={label} width={30} height={30} className="object-cover rounded-md" />
                 ) : (
                     Icon && <Icon size={40} className="text-neutral-600" />
                 )}

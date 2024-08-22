@@ -91,7 +91,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             <hr />
             {equipment && equipment.length > 0 && (
                 <div>
-                    <h2 className="text-xl font-semibold text-neutral-700">Les équipements que propose ce logement</h2>
+                    <h2 className="text-xl font-semibold text-neutral-700">Ce que propose ce logement</h2>
                     <br />
                     <div className="grid grid-cols-2 gap-3">
                         {equipment.map((item, index) => (

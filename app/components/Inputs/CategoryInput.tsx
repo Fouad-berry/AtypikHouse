@@ -35,7 +35,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
             `}
         >
             {image ? (
-                <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-md" />
+                <Image src={image} alt={label} width={30} height={30} className="object-cover rounded-md" />
             ) : (
                 Icon && <Icon size={30} />
             )}

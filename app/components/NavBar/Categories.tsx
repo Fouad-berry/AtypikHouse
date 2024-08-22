@@ -22,7 +22,7 @@ export const categories = [
         description: 'Expérimentez la beauté glaciale des régions polaires avec des vues enneigées à couper le souffle.'
     },
     {
-        label: 'Cabanes perchées',
+        label: 'Cabanes',
         image: '/images/cabane.png',
         description: 'Échappez à la routine quotidienne dans une cabane perchée, un havre de paix au cœur de la forêt, idéal pour se reconnecter avec la nature.'
     },
@@ -32,13 +32,13 @@ export const categories = [
         description: 'Évadez-vous dans l\'immensité des dunes, où le silence règne en maître.'
     },
     {
-        label: 'Campagne',
-        icon: TbMountain,
-        description: 'Profitez de la tranquillité de la campagne, entourée de verdure et de montagnes.'
+        label: 'Caravanes',
+        image: '/images/caravane.png',
+        description: 'Embarquez pour une escapade nomade avec nos caravanes confortables, offrant la liberté de découvrir de nouveaux horizons tout en profitant du confort moderne.'
     },
     {
         label: 'Piscines',
-        icon: TbPool,
+        image: '/images/piscine.png',
         description: 'Détendez-vous dans des propriétés dotées de superbes piscines privées.'
     },
     {
@@ -67,9 +67,9 @@ export const categories = [
         description: 'Séjournez dans des granges restaurées, alliant le charme rustique à un confort moderne.'
     },
     {
-        label: 'Moderne',
-        icon: MdOutlineVilla,
-        description: 'Profitez dun design épuré et contemporain dans des propriétés modernes.'
+        label: 'Wow!',
+        image: '/images/vaisseau.png',
+        description: 'Profitez dun design fantastique et contemporain dans des propriétés .'
     },
     {
         label: 'Plage',
