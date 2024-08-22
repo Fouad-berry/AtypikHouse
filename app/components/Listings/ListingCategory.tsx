@@ -17,8 +17,8 @@ const ListingCategory: React.FC<ListingCategoryProps> = ({
     description
 }) => {
     return (
-        <div className="flex flex-col gap-8">
-            <div className="flex flex-row items-center gap-6">
+        <div className="flex flex-col gap-6">
+            <div className="flex flex-row items-center gap-4">
                 {image ? (
                     <Image src={image} alt={label} width={30} height={30} className="object-cover rounded-md" />
                 ) : (
