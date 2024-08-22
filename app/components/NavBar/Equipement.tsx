@@ -50,11 +50,11 @@ export const equipement = [
     },
     {
         label: 'Meubles',
-        icon: MdChair,
+        image: '/images/un-meuble.png',
     },
     {
         label: 'Cuisine',
-        icon: MdFlatware,
+        image: '/images/cuisine.png',
     },
     {
         label: 'Television',
