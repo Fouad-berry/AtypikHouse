@@ -173,9 +173,26 @@ export const equipement = [
         icon: TfiGame,
     },
     {
-        label: 'tente',
-        image: '/images/tente.png',
+        label: 'Savon pour le corps',
+        image: '/images/savon-pour-le-corps.png',
     },
+    {
+        label: 'Gel douche',
+        image: '/images/gel-douche.png',
+    },
+    {
+        label: 'Eau chaude',
+        image: '/images/eau-chaude.png',
+    },
+    {
+        label: 'Sèche-cheveux',
+        image: '/images/seche-cheveux.png',
+    },
+    {
+        label: 'Produits de nettoyage',
+        image: '/images/outils.png',
+    },
+
 ]
 
 const Equipement = () => {
