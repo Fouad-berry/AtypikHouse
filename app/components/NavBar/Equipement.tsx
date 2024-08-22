@@ -94,7 +94,7 @@ export const equipement = [
     },
     {
         label: 'Caffétière',
-        icon: MdOutlineCoffeeMaker,
+        image: '/public/images/cafetiere.png',
     },
     {
         label: 'Refrigerateur',
