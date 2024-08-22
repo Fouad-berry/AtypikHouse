@@ -42,28 +42,13 @@ export const categories = [
         description: 'Détendez-vous dans des propriétés dotées de superbes piscines privées.'
     },
     {
-        label: 'Îles',
-        icon: GiIsland,
-        description: 'Explorez des refuges insulaires exclusifs, entourés par la mer.'
-    },
-    {
-        label: 'Lac',
-        icon: GiBoatFishing,
-        description: 'Séjournez au bord de l\'eau avec des vues sereines sur le lac.'
-    },
-    {
-        label: 'Ski',
-        icon: FaSkiing,
-        description: 'Accédez directement aux pistes depuis votre porte pour un séjour au cœur des montagnes enneigées.'
-    },
-    {
-        label: 'Chateau',
-        icon: GiCastle,
+        label: 'Tours',
+        image: '/images/tour.png',
         description: 'Vivez comme des rois dans des châteaux majestueux au charme historique.'
     },
     {
         label: 'Grange',
-        icon: GiBarn,
+        image: '/images/grange.png',
         description: 'Séjournez dans des granges restaurées, alliant le charme rustique à un confort moderne.'
     },
     {
@@ -73,18 +58,13 @@ export const categories = [
     },
     {
         label: 'Plage',
-        icon: TbBeach,
+        image: '/images/plage.png',
         description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
     },
     {
         label: 'Eolienne',
         icon: GiWindmill,
         description: 'Découvrez le charme de la campagne avec des moulins à vent emblématiques.'
-    },
-    {
-        label: 'Lux',
-        icon: IoDiamond,
-        description: 'Vivez une expérience somptueuse dans des propriétés ultra-luxueuses.'
     },
 ];
 

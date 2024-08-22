@@ -7,8 +7,8 @@ import Image from 'next/image';
 import qs from "query-string";
 
 interface CategoryBoxProps {
-    icon?: IconType; // Icon becomes optional
-    image?: string; // Add image prop
+    icon?: IconType;
+    image?: string; 
     label: string;
     selected: boolean;
 }
