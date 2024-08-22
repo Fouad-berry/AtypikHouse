@@ -102,7 +102,7 @@ export const equipement = [
     },
     {
         label: 'Cheminée',
-        icon: GiChimney,
+        image: '/images/cheminee.png',
     },
     {
         label: 'Fer a repassé',
