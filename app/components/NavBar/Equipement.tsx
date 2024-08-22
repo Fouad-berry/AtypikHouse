@@ -26,11 +26,11 @@ export const equipement = [
     },
     {
         label: 'Accès aux handicapé',
-        icon: PiWheelchair,
+        image: '/images/personnes-handicapees.png',
     },
     {
         label: 'Extincteur',
-        icon: PiFireExtinguisher,
+        image: '/images/extincteur-dincendie.png',
     },
     {
         label: 'Chauffage',
@@ -46,7 +46,7 @@ export const equipement = [
     },
     {
         label: 'Cintre',
-        icon: PiCoatHanger,
+        image: '/images/cintre.png',
     },
     {
         label: 'Meubles',
@@ -58,7 +58,7 @@ export const equipement = [
     },
     {
         label: 'Television',
-        icon: IoDesktopOutline,
+        image: '/images/television.png',
     },
     {
         label: 'Kit de premier secours',
@@ -66,7 +66,7 @@ export const equipement = [
     },
     {
         label: 'Baignoire',
-        icon: LuBath,
+        image: '/images/baignoire.png',
     },
     {
         label: 'Parking gratuit sur place ',
@@ -74,7 +74,7 @@ export const equipement = [
     },
     {
         label: 'Equipements de cuisine',
-        icon: LuUtensils,
+        image: '/images/ustensiles-de-cuisine.png',
     }, 
     {
         label: 'Salle de gymn',
@@ -200,7 +200,10 @@ export const equipement = [
         label: 'Aire de jeux extérieure',
         image: '/images/parc.png',
     },
-
+    {
+        label: 'Table à manger',
+        image: '/public/images/table-a-manger.png',
+    },
 ]
 
 const Equipement = () => {
