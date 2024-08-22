@@ -2,11 +2,11 @@
 
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
-import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 import ListingEquipement from "./ListingEquipement";
 import dynamic from "next/dynamic";
+import { IconType } from "react-icons";
 
 const Map = dynamic(() => import('../Map'), {
     ssr: false
@@ -19,13 +19,14 @@ interface ListingInfoProps {
     roomCount: number;
     bathroomCount: number;
     category: {
-        icon: IconType;
+        icon?: IconType;
+        image?: string;  
         label: string;
         description: string;
     } | undefined
     equipment: {
-        icon?: IconType;  // Rendre l'icône optionnelle
-        image?: string;   // Ajouter une prop pour l'image
+        icon?: IconType;
+        image?: string;
         label: string;
     }[] | undefined
     locationvalue: string;
@@ -82,6 +83,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             {category && (
                 <ListingCategory
                     icon={category.icon}
+                    image={category.image}  // Pass the image if available
                     label={category.label}
                     description={category.description}
                 />
@@ -96,7 +98,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
                             <ListingEquipement
                                 key={index}
                                 icon={item.icon}
-                                image={item.image}  // Passer l'image si disponible
+                                image={item.image}  // Pass the image if available
                                 label={item.label}
                             />
                         ))}

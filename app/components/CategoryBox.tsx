@@ -3,16 +3,19 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+import Image from 'next/image';
 import qs from "query-string";
 
 interface CategoryBoxProps {
-    icon: IconType;
+    icon?: IconType; // Icon becomes optional
+    image?: string; // Add image prop
     label: string;
-    selected:  boolean;
+    selected: boolean;
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
     icon: Icon,
+    image,
     label,
     selected
 }) => {
@@ -45,23 +48,27 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
     return (
         <div
-        onClick={handleClick}
-        className={`
-            flex
-            flex-col
-            items-center
-            justify-center
-            gap-2
-            p-3
-            border-b-2
-            hover:text-neutral-800
-            transition
-            cursor-pointer
-            ${selected ? 'border-b-neutral-800' : 'border-transparent'}
-            ${selected ? 'text-neutral-800' : 'text-neutral-500'}
-        `}
+            onClick={handleClick}
+            className={`
+                flex
+                flex-col
+                items-center
+                justify-center
+                gap-2
+                p-3
+                border-b-2
+                hover:text-neutral-800
+                transition
+                cursor-pointer
+                ${selected ? 'border-b-neutral-800' : 'border-transparent'}
+                ${selected ? 'text-neutral-800' : 'text-neutral-500'}
+            `}
         >
-            <Icon size={26} />
+            {image ? (
+                <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-md" />
+            ) : (
+                Icon && <Icon size={26} />
+            )}
             <div className="font-medium text-xs">
                 {label}
             </div>

@@ -86,7 +86,7 @@ export const equipement = [
     },
     {
         label: 'Barbecue',
-        icon: GiBarbecue,
+        image: '/images/barbecue.png',
     },
     {
         label: 'Verres a vins',
