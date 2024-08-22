@@ -16,6 +16,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { equipement } from '../NavBar/Equipement';
+import EquipementInput from '../Inputs/EquipementInput'; // Assurez-vous que cette importation est correcte
 
 enum STEPS {
     CATEGORY = 0,
@@ -70,7 +71,6 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
 
     useEffect(() => {
         if (initialData) {
-            // Map initialData to form fields, including locationvalue to location
             reset({
                 ...initialData,
                 location: initialData.locationvalue ? { value: initialData.locationvalue } : null,
@@ -129,10 +129,9 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
         }
 
         if (initialData) {
-            // Update listing
             axios.put(`/api/updaterent/${initialData.id}`, {
                 ...data,
-                locationvalue: data.location ? data.location.value : null, // Map location to locationvalue
+                locationvalue: data.location ? data.location.value : null,
             })
                 .then(() => {
                     toast.success('Votre location a été mise à jour');
@@ -147,7 +146,6 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     setIsLoading(false);
                 });
         } else {
-            // Create new listing (if this scenario is supported)
             axios.post('/api/listings', {
                 ...data,
                 locationvalue: data.location ? data.location.value : null,
@@ -317,7 +315,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                     ">
                     {equipement.map((item) => (
                         <div key={item.label} className="col-span-1">
-                            <CategoryInput 
+                            <EquipementInput 
                                 onClick={(label) => {
                                     const newEquipment = equipment.includes(label)
                                         ? equipment.filter((equip: string) => equip !== label)
@@ -327,6 +325,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                                 selected={equipment.includes(item.label)}
                                 label={item.label}
                                 icon={item.icon}
+                                image={item.image}
                             />
                         </div>
                     ))}
