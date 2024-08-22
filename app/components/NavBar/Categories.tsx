@@ -18,12 +18,12 @@ export const categories = [
     },
     {
         label: 'Arctique',
-        icon: BsSnow,
+        image: '/public/images/artic.png',
         description: 'Expérimentez la beauté glaciale des régions polaires avec des vues enneigées à couper le souffle.'
     },
     {
-        label: 'Cave',
-        icon: GiCaveEntrance,
+        label: 'Cabanes perchées',
+        image: '/public/images/cabane.png',
         description: 'Séjournez dans des espaces mystérieux et captivants, sculptés dans la roche.'
     },
     {
