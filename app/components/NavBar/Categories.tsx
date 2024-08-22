@@ -24,11 +24,11 @@ export const categories = [
     {
         label: 'Cabanes perchées',
         image: '/images/cabane.png',
-        description: 'Séjournez dans des espaces mystérieux et captivants, sculptés dans la roche.'
+        description: 'Échappez à la routine quotidienne dans une cabane perchée, un havre de paix au cœur de la forêt, idéal pour se reconnecter avec la nature.'
     },
     {
         label: 'Desert',
-        icon: GiCactus,
+        image: '/images/cactus.png',
         description: 'Évadez-vous dans l\'immensité des dunes, où le silence règne en maître.'
     },
     {
