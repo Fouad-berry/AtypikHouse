@@ -202,8 +202,8 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                             onClick={(category) => setCustomValue('category', category)}
                             selected={category === item.label}
                             label={item.label}
-                            icon={item.icon}
-                            image={item.image}
+/*                             icon={item.icon}
+ */                            image={item.image}
                         />
                     </div>
                 ))}

@@ -146,8 +146,8 @@ const RentModals = () => {
                                 setCustomValue('category', category)}
                             selected={category === item.label}
                             label={item.label}
-                            icon={item.icon}
-                        />
+/*                             icon={item.icon}
+ */                        />
                     </div>
                 ))}
             </div>

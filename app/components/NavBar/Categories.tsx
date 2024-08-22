@@ -11,6 +11,7 @@ import { BsSnow } from "react-icons/bs";
 import { IoDiamond } from "react-icons/io5";
 
 export const categories = [
+
     {
         label: 'Camping',
         image: '/images/tente.png',
@@ -61,11 +62,6 @@ export const categories = [
         image: '/images/plage.png',
         description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
     },
-    {
-        label: 'Eolienne',
-        icon: GiWindmill,
-        description: 'Découvrez le charme de la campagne avec des moulins à vent emblématiques.'
-    },
 ];
 
 const Categories = () => {
@@ -94,7 +90,6 @@ const Categories = () => {
                         key={item.label}
                         label={item.label}
                         selected={category === item.label}
-                        icon={item.icon}
                         image={item.image}
                     />
                 ))}
