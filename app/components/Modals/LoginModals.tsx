@@ -130,7 +130,7 @@ const LoginModals = () => {
                 onClick={forgot}
                 className='text-neutral-800 cursor-pointer hover:underline'
             >
-                Mot de passe oublié ?
+                Cliquez ici
             </div>
         </div>
     </div>
