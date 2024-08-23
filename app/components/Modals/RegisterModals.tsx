@@ -146,7 +146,7 @@ const RegisterModals = () => {
             disabled={isLoading}
             isOpen={registerModal.isOpen}
             title="Inscription"
-            actionLabel="Continuer"
+            actionLabel="Créer un compte"
             onClose={registerModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
             body={bodyContent}

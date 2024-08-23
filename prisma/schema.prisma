@@ -41,12 +41,6 @@ model Message {
   receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
 }
 
-model Equipment {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  label String
-  icon String
-}
-
 model Account{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
@@ -116,14 +110,8 @@ model Payment {
   userId String   @db.ObjectId
   totalPrice Int
   createdAt   DateTime      @default(now())
-  status String @default("pending") // Ajoutez cette ligne
+  status String @default("pending")
   travelerName String
   orderNumber String @default(cuid())
   reservations Reservation[]
-}
-
-model Equip {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  label String
-  icon  String
 }
