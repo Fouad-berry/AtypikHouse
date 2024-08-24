@@ -62,7 +62,7 @@ export const equipement = [
     },
     {
         label: 'Kit de premier secours',
-        icon: IoMedkitOutline,
+        image: '/images/secours.png',
     },
     {
         label: 'Baignoire',
@@ -70,7 +70,7 @@ export const equipement = [
     },
     {
         label: 'Parking gratuit sur place ',
-        icon: IoCarSportOutline,
+        image: '/images/parking.png',
     },
     {
         label: 'Equipements de cuisine',
@@ -78,7 +78,7 @@ export const equipement = [
     }, 
     {
         label: 'Salle de gymn',
-        icon: IoBarbellOutline,
+        image: '/images/gym.png',
     },
     {
         label: 'Arrivé autonome',
