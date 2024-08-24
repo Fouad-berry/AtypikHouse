@@ -35,7 +35,7 @@ const Search = () => {
                 diff +1
             }
 
-            return `${diff} Days`;
+            return `${diff} Jours`;
         }
 
         return 'N`importe quelle semaine'
