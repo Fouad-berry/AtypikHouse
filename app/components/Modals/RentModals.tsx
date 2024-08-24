@@ -110,7 +110,7 @@ const RentModals = () => {
 
     const actionLabel = useMemo(() => {
         if (step === STEPS.PRICE) {
-            return 'Créer';
+            return 'Publier';
         }
 
         return 'Suivant';
