@@ -34,11 +34,11 @@ export const equipement = [
     },
     {
         label: 'Chauffage',
-        icon: PiThermometerSimple,
+        image: '/images/chauffage.png',
     },
     {
         label: 'Climatisation',
-        icon: PiSnowflake,
+        image: '/images/climatisation.png',
     },
     {
         label: 'Armoire d\'habits',
