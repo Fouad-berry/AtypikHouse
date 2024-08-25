@@ -53,11 +53,6 @@ export const categories = [
         description: 'Séjournez dans des granges restaurées, alliant le charme rustique à un confort moderne.'
     },
     {
-        label: 'Grange',
-        image: '/images/grange.png',
-        description: 'Séjournez dans des granges restaurées, alliant le charme rustique à un confort moderne.'
-    },
-    {
         label: 'Wow!',
         image: '/images/vaisseau.png',
         description: 'Profitez dun design fantastique et contemporain dans des propriétés .'
