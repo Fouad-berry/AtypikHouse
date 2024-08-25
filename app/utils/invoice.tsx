@@ -72,57 +72,62 @@ export async function generateInvoice(order: Order) {
       color: rgb(0, 0, 0),
     });
 
+    // Initialisation des variables pour le tableau
     const rowHeight = 20;
-    const marginLeft = 50;
-    const marginRight = width - 50;
+    const colWidth = [100, 150, 150, 150]; // Largeur des colonnes
+    const tableX = 50; // Position x du tableau
+    let tableY = tableTop - 30; // Position y du tableau
 
-    const tableData = [
-      { label: 'Numéro de la commande', value: order.orderNumber },
-      { label: 'Montant total payé', value: `${order.totalPrice} €` },
-      { label: 'Date de paiement', value: new Date(order.createdAt).toLocaleDateString('fr-FR') },
-    ];
+    // En-têtes de colonne
+    const headers = ['Réservation', 'Date de début', 'Date de fin', 'Montant'];
 
-    tableData.forEach((row, index) => {
-      page.drawText(`${row.label}:`, {
-        x: marginLeft,
-        y: tableTop - rowHeight * (index + 2),
-        size: 12,
-        color: rgb(0, 0, 0),
-      });
-      page.drawText(row.value.toString(), {
-        x: marginLeft + 150,
-        y: tableTop - rowHeight * (index + 2),
+    // Dessiner l'en-tête du tableau
+    headers.forEach((header, i) => {
+      page.drawText(header, {
+        x: tableX + colWidth.slice(0, i).reduce((a, b) => a + b, 0),
+        y: tableY,
         size: 12,
         color: rgb(0, 0, 0),
       });
     });
 
-    // Ajouter les détails de la réservation
-    let currentYPosition = tableTop - rowHeight * (tableData.length + 2);
-    order.reservations.forEach((reservation, index) => {
-      page.drawText(`Réservation ${index + 1}:`, {
-        x: marginLeft,
-        y: currentYPosition,
-        size: 12,
-        color: rgb(0, 0, 0),
-      });
+    // Dessiner les bordures de l'en-tête
+    page.drawLine({
+      start: { x: tableX, y: tableY - 5 },
+      end: { x: tableX + colWidth.reduce((a, b) => a + b, 0), y: tableY - 5 },
+      thickness: 1,
+      color: rgb(0, 0, 0),
+    });
 
-      const reservationInfo = [
-        `Date de début: ${new Date(reservation.startDate).toLocaleDateString('fr-FR')}`,
-        `Date de fin: ${new Date(reservation.endDate).toLocaleDateString('fr-FR')}`,
-        `Montant: ${reservation.totalPrice} €`,
+    tableY -= rowHeight;
+
+    // Dessiner les lignes du tableau pour chaque réservation
+    order.reservations.forEach((reservation, index) => {
+      const row = [
+        `Réservation ${index + 1}`,
+        new Date(reservation.startDate).toLocaleDateString('fr-FR'),
+        new Date(reservation.endDate).toLocaleDateString('fr-FR'),
+        `${reservation.totalPrice} €`,
       ];
 
-      reservationInfo.forEach((info, infoIndex) => {
-        page.drawText(info, {
-          x: marginLeft + 20,
-          y: currentYPosition - rowHeight * (infoIndex + 1),
+      row.forEach((cell, i) => {
+        page.drawText(cell, {
+          x: tableX + colWidth.slice(0, i).reduce((a, b) => a + b, 0),
+          y: tableY,
           size: 12,
           color: rgb(0, 0, 0),
         });
       });
 
-      currentYPosition -= rowHeight * (reservationInfo.length + 1);
+      // Dessiner les bordures des lignes
+      page.drawLine({
+        start: { x: tableX, y: tableY - 5 },
+        end: { x: tableX + colWidth.reduce((a, b) => a + b, 0), y: tableY - 5 },
+        thickness: 0.5,
+        color: rgb(0, 0, 0),
+      });
+
+      tableY -= rowHeight;
     });
 
     // Termes et conditions
@@ -139,7 +144,7 @@ export async function generateInvoice(order: Order) {
       y: 50,
       size: 10,
       color: rgb(0, 0, 0),
-      maxWidth: marginRight - marginLeft,
+      maxWidth: width - 100,
     });
 
     const pdfBytes = await pdfDoc.save();
