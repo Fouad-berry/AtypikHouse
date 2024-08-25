@@ -82,7 +82,7 @@ export const equipement = [
     },
     {
         label: 'Arrivé autonome',
-        icon: BsKey,
+        image: '/images/cles.png',
     },
     {
         label: 'Barbecue',
@@ -90,7 +90,7 @@ export const equipement = [
     },
     {
         label: 'Verres a vins',
-        icon: PiWineLight,
+        image: '/images/verres-a-vin.png',
     },
     {
         label: 'Caffétière',
@@ -106,7 +106,7 @@ export const equipement = [
     },
     {
         label: 'Fer a repassé',
-        icon: TbIroningSteam,
+        image: '/images/le-fer.png',
     },
     {
         label: 'Sèche linge',
