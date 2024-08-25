@@ -117,7 +117,7 @@ export const equipement = [
         image: '/images/grille-pain.png',
     },
     {
-        label: 'Menage disponible tout au long du sejour',
+        label: 'Menage disponible',
         image: '/images/menage.png',
     },
     {
