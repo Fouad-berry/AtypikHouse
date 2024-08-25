@@ -42,7 +42,7 @@ export const equipement = [
     },
     {
         label: 'Armoire d\'habits',
-        icon: PiShirtFoldedLight,
+        image: '/images/armoire.png',
     },
     {
         label: 'Cintre',
