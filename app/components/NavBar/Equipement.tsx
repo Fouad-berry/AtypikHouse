@@ -98,7 +98,7 @@ export const equipement = [
     },
     {
         label: 'Refrigerateur',
-        icon: RiFridgeLine,
+        image: '/images/refrigerateur.png',
     },
     {
         label: 'Cheminée',
