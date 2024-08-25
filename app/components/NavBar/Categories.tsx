@@ -19,7 +19,7 @@ export const categories = [
     },
     {
         label: 'Arctique',
-        image: '/images/artic.png',
+        image: '/images/flocon-de-neige.png',
         description: 'Expérimentez la beauté glaciale des régions polaires avec des vues enneigées à couper le souffle.'
     },
     {
