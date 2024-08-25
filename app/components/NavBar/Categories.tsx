@@ -64,7 +64,7 @@ export const categories = [
     },
     {
         label: 'Ski',
-        image: '/images/ski.png',
+        image: '/images/plage.png',
         description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
     },
 ];
