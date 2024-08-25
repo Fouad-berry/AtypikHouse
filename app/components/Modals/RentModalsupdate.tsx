@@ -10,13 +10,13 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import CountrySelect from '../Inputs/CountrySelect';
 import dynamic from 'next/dynamic';
 import Counter from '../Inputs/Counter';
-import ImageUpload from '../Inputs/ImageUpload';
 import Input from '../Inputs/Input';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { equipement } from '../NavBar/Equipement';
-import EquipementInput from '../Inputs/EquipementInput'; // Assurez-vous que cette importation est correcte
+import EquipementInput from '../Inputs/EquipementInput';
+import { equipement as staticEquipments } from '../NavBar/Equipement';
+import ImageUpload from '../Inputs/ImageUpload';
 
 enum STEPS {
     CATEGORY = 0,
@@ -44,6 +44,25 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
 
     const [step, setStep] = useState(STEPS.CATEGORY);
     const [isLoading, setIsLoading] = useState(false);
+    const [dynamicEquipments, setDynamicEquipments] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/equipments')
+            .then((response) => {
+                setDynamicEquipments(response.data);
+            })
+            .catch(() => {
+                toast.error("Erreur lors du chargement des équipements dynamiques");
+            });
+    }, []);
+
+    const combinedEquipments = useMemo(() => {
+        const formattedDynamicEquipments = dynamicEquipments.map((item: any) => ({
+            label: item.name,
+            image: item.image,
+        }));
+        return [...staticEquipments, ...formattedDynamicEquipments];
+    }, [dynamicEquipments]);
 
     const {
         register,
@@ -202,8 +221,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                             onClick={(category) => setCustomValue('category', category)}
                             selected={category === item.label}
                             label={item.label}
-/*                             icon={item.icon}
- */                            image={item.image}
+                            image={item.image}
                         />
                     </div>
                 ))}
@@ -314,7 +332,7 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                         max-h-[50vh]
                         overflow-y-auto
                     ">
-                    {equipement.map((item) => (
+                    {combinedEquipments.map((item) => (
                         <div key={item.label} className="col-span-1">
                             <EquipementInput 
                                 onClick={(label) => {
@@ -325,7 +343,6 @@ const RentModalsUpdate: React.FC<RentModalsProps> = ({
                                 }}
                                 selected={equipment.includes(item.label)}
                                 label={item.label}
-                                icon={item.icon}
                                 image={item.image}
                             />
                         </div>

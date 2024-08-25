@@ -115,3 +115,11 @@ model Payment {
   orderNumber String @default(cuid())
   reservations Reservation[]
 }
+
+model Equipment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  image String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

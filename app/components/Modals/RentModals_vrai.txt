@@ -2,7 +2,7 @@
 
 import useRentModal from '@/app/hooks/useRentModal';
 import Modals from './Modals';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import Heading from '../Heading';
 import { categories } from '../NavBar/Categories';
 import CategoryInput from '../Inputs/CategoryInput';
@@ -10,13 +10,13 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import CountrySelect from '../Inputs/CountrySelect';
 import dynamic from 'next/dynamic';
 import Counter from '../Inputs/Counter';
+import ImageUpload from '../Inputs/ImageUpload';
 import Input from '../Inputs/Input';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { equipement } from '../NavBar/Equipement';
 import EquipementInput from '../Inputs/EquipementInput';
-import { equipement as staticEquipments } from '../NavBar/Equipement';
-import ImageUpload from '../Inputs/ImageUpload';
 
 enum STEPS {
     CATEGORY = 0,
@@ -34,25 +34,6 @@ const RentModals = () => {
 
     const [step, setStep] = useState(STEPS.CATEGORY);
     const [isLoading, setIsLoading] = useState(false);
-    const [dynamicEquipments, setDynamicEquipments] = useState([]);
-
-    useEffect(() => {
-        axios.get('/api/equipments')
-            .then((response) => {
-                setDynamicEquipments(response.data);
-            })
-            .catch(() => {
-                toast.error("Erreur lors du chargement des équipements dynamiques");
-            });
-    }, []);
-
-    const combinedEquipments = useMemo(() => {
-        const formattedDynamicEquipments = dynamicEquipments.map((item: any) => ({
-            label: item.name,
-            image: item.image,
-        }));
-        return [...staticEquipments, ...formattedDynamicEquipments];
-    }, [dynamicEquipments]);
 
     const {
         register,
@@ -165,8 +146,9 @@ const RentModals = () => {
                                 setCustomValue('category', category)}
                             selected={category === item.label}
                             label={item.label}
-                            image={item.image}
-                        />
+/*                             icon={item.icon}
+ */                         image={item.image}
+                            />
                     </div>
                 ))}
             </div>
@@ -278,7 +260,7 @@ const RentModals = () => {
                         max-h-[50vh]
                         overflow-y-auto
                     ">
-                    {combinedEquipments.map((item) => (
+                    {equipement.map((item) => (
                         <div key={item.label} className="col-span-1">
                             <EquipementInput
                                 onClick={(selected) => {
@@ -293,6 +275,7 @@ const RentModals = () => {
                                 }}
                                 selected={equipment.includes(item.label)}
                                 label={item.label}
+                                icon={item.icon}
                                 image={item.image}
                             />
                         </div>

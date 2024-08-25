@@ -142,11 +142,11 @@ export const equipement = [
     }, 
     {
         label: 'Animaux accepetés',
-        icon: LiaPawSolid,
+        image: '/images/pattes.png',
     },
     {
         label: 'Logement fumeur',
-        icon: LiaSmokingSolid,
+        image: '/images/zone-fumeur.png',
     },  
     {
         label: 'Vélos',
@@ -202,7 +202,7 @@ export const equipement = [
     },
     {
         label: 'Table à manger',
-        image: '/public/images/table-a-manger.png',
+        image: '/images/table-a-manger.png',
     },
 ]
 

@@ -6,7 +6,7 @@ import ListingHead from "@/app/components/Listings/ListingHead";
 import ListingInfo from "@/app/components/Listings/ListingInfo";
 import ListingComment from "@/app/components/Listings/ListingComment";
 import { categories } from "@/app/components/NavBar/Categories";
-import { equipement } from "@/app/components/NavBar/Equipement";
+import { equipement as staticEquipments } from "@/app/components/NavBar/Equipement";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -57,6 +57,17 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const [isLoading, setIsLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState(listing.price);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+    const [dynamicEquipments, setDynamicEquipments] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/equipments')
+            .then((response) => {
+                setDynamicEquipments(response.data);
+            })
+            .catch(() => {
+                toast.error("Erreur lors du chargement des équipements dynamiques");
+            });
+    }, []);
 
     const onCreateReservation = useCallback(() => {
         if (!currentUser) {
@@ -124,10 +135,16 @@ const ListingClient: React.FC<ListingClientProps> = ({
             item.label === listing.category);
     }, [listing.category]);
 
-    const equipment = useMemo(() => {
-        return equipement.filter((item) =>
-            listing.equipment.includes(item.label));
-    }, [listing.equipment]);
+    const combinedEquipments = useMemo(() => {
+        const formattedDynamicEquipments = dynamicEquipments.map((item: any) => ({
+            label: item.name,
+            image: item.image,
+        }));
+        const allEquipments = [...staticEquipments, ...formattedDynamicEquipments];
+
+        // Filtrer les équipements spécifiques au listing
+        return allEquipments.filter(equip => listing.equipment.includes(equip.label));
+    }, [dynamicEquipments, listing.equipment]);
 
     return (
         <div>
@@ -151,7 +168,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                             <ListingInfo
                                 user={listing.user}
                                 category={category}
-                                equipment={equipment}
+                                equipment={combinedEquipments}
                                 description={listing.description}
                                 roomCount={listing.roomCount}
                                 guestCount={listing.guestCount}
