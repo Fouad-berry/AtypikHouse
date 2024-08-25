@@ -62,6 +62,11 @@ export const categories = [
         image: '/images/plage.png',
         description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
     },
+    {
+        label: 'Ski',
+        image: '/images/ski.png',
+        description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
+    },
 ];
 
 const Categories = () => {
