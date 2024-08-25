@@ -229,7 +229,6 @@ const Equipement = () => {
                         key={item.label}
                         label={item.label}
                         selected={equipment === item.label}
-                        icon={item.icon}
                         image={item.image}  // Passage de l'image à EquipementBox
                     />
                 ))}

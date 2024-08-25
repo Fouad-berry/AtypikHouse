@@ -2,19 +2,16 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-import { IconType } from "react-icons";
 import qs from "query-string";
 import Image from 'next/image';
 
 interface EquipementBoxProps {
-    icon?: IconType;
     label: string;
     selected: boolean;
-    image?: string;  // Ajout de la prop image
+    image: string;  // Image est maintenant obligatoire
 }
 
 const EquipementBox: React.FC<EquipementBoxProps> = ({
-    icon: Icon,
     label,
     selected,
     image
@@ -64,11 +61,7 @@ const EquipementBox: React.FC<EquipementBoxProps> = ({
                 ${selected ? 'text-neutral-800' : 'text-neutral-500'}
             `}
         >
-            {image ? (
-                <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-full" />
-            ) : (
-                Icon && <Icon size={26} color="black" />
-            )}
+            <Image src={image} alt={label} width={40} height={40} className="object-cover rounded-full" />
             <div className="font-medium text-sm">
                 {label}
             </div>
