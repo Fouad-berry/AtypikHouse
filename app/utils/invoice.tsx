@@ -2,13 +2,14 @@ import { PDFDocument, rgb } from 'pdf-lib';
 import { Order } from '../types';
 
 const logoUrl = '/images/logo_atypikhouse.png';
+
 export async function generateInvoice(order: Order) {
   try {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([600, 800]);
     const { width, height } = page.getSize();
 
-    console.log('Loading logo...');
+    // Charger et dessiner le logo
     const logoImageBytes = await fetch(logoUrl).then(res => {
       if (!res.ok) {
         throw new Error('Failed to load logo image');
@@ -25,6 +26,7 @@ export async function generateInvoice(order: Order) {
       height: logoDims.height,
     });
 
+    // Infos de l'entreprise
     page.drawText(`AtypikHouse`, {
       x: 50,
       y: height - logoDims.height - 70,
@@ -52,11 +54,8 @@ export async function generateInvoice(order: Order) {
       size: 10,
       color: rgb(0, 0, 0),
     });
-    <>
-        <br />
-        <br />
-        <br />
-    </>
+
+    // Titre de la facture
     page.drawText(`Facture pour la commande: ${order.orderNumber}`, {
       x: 50,
       y: height - logoDims.height - 150,
@@ -64,33 +63,57 @@ export async function generateInvoice(order: Order) {
       color: rgb(0, 0, 0),
     });
 
-    page.drawText(`Montant: ${order.totalPrice} €`, {
+    // Détails de la commande
+    const tableTop = height - logoDims.height - 180;
+    page.drawText('Détails de la commande:', {
       x: 50,
-      y: height - logoDims.height - 180,
+      y: tableTop,
       size: 15,
       color: rgb(0, 0, 0),
     });
 
-    page.drawText(`Date: ${new Date(order.createdAt).toLocaleDateString('fr-FR')}`, {
-      x: 50,
-      y: height - logoDims.height - 210,
-      size: 15,
-      color: rgb(0, 0, 0),
+    const rowHeight = 20;
+    const marginLeft = 50;
+    const marginRight = width - 50;
+
+    // Détails de la réservation
+    const reservationDetails = order.reservations.map(reservation => {
+      return `
+        - Date de début: ${new Date(reservation.startDate).toLocaleDateString('fr-FR')}
+        - Date de fin: ${new Date(reservation.endDate).toLocaleDateString('fr-FR')}
+        - Montant: ${reservation.totalPrice} €
+      `;
+    }).join("\n");
+
+    const tableData = [
+      { label: 'Numéro de la commande', value: order.orderNumber },
+      { label: 'Montant total payé', value: `${order.totalPrice} €` },
+      { label: 'Date de paiement', value: new Date(order.createdAt).toLocaleDateString('fr-FR') },
+      { label: 'Détails de la réservation', value: reservationDetails },
+    ];
+
+    tableData.forEach((row, index) => {
+      page.drawText(`${row.label}:`, {
+        x: marginLeft,
+        y: tableTop - rowHeight * (index + 2),
+        size: 12,
+        color: rgb(0, 0, 0),
+      });
+      page.drawText(row.value.toString(), { // Conversion explicite en string
+        x: marginLeft + 150,
+        y: tableTop - rowHeight * (index + 2),
+        size: 12,
+        color: rgb(0, 0, 0),
+      });
     });
 
-    page.drawText(`Statut: ${order.status}`, {
-      x: 50,
-      y: height - logoDims.height - 240,
-      size: 15,
-      color: rgb(0, 0, 0),
-    });
-
+    // Termes et conditions
     const termsAndConditions = `
       Termes et conditions:
       - Paiement dû dans les 30 jours.
       - Aucun remboursement après 15 jours.
       - Contactez notre service clientèle pour toute question.
-      - Veuillez conserver cette facture , elle pourra vous servir pour le remboursement.
+      - Veuillez conserver cette facture, elle pourra vous servir pour le remboursement.
     `;
 
     page.drawText(termsAndConditions, {
@@ -98,11 +121,10 @@ export async function generateInvoice(order: Order) {
       y: 50,
       size: 10,
       color: rgb(0, 0, 0),
-      maxWidth: width - 100,
+      maxWidth: marginRight - marginLeft,
     });
 
     const pdfBytes = await pdfDoc.save();
-    console.log('PDF generated successfully');
     return pdfBytes;
   } catch (error) {
     console.error('Error generating invoice:', error);

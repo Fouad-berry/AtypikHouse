@@ -14,8 +14,11 @@ export async function GET(request: Request) {
             where: {
                 userId: currentUser.id,
                 createdAt: {
-                    not: undefined,  // Filtrer les enregistrements où createdAt n'est pas null
+                    not: undefined,
                 }
+            },
+            include: {
+                reservations: true,
             },
             orderBy: {
                 createdAt: 'desc',

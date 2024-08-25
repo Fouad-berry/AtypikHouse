@@ -64,7 +64,7 @@ model Listing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String 
   description String
-  imageSrc String[] // Changer en tableau pour stocker plusieurs images
+  imageSrc String[]
   createAt DateTime @default(now())
   category String
   roomCount Int

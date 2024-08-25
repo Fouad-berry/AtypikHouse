@@ -50,5 +50,6 @@ export interface Order {
     travelerName: String
     status: string;
     orderNumber: String
+    reservations: Reservation[];
 }
   
