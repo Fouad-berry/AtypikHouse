@@ -70,7 +70,7 @@ const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({ isOpen, onClose }
         disabled={isLoading}
         style={{ padding: '12px', height: '50px' }} // Augmentation de la taille ici
       />
-      {errors.image && <span className="text-red-500 text-sm">L'image est requise</span>}
+      {errors.image && <span className="text-red-500 text-sm">L&aposimage est requise</span>}
     </div>
   );
 
