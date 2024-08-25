@@ -21,10 +21,6 @@ import { TfiGame } from "react-icons/tfi";
 
 export const equipement = [
     {
-        label: 'Wifi',
-        icon: PiWifiHigh,
-    },
-    {
         label: 'Accès aux handicapé',
         image: '/images/personnes-handicapees.png',
     },
@@ -122,15 +118,15 @@ export const equipement = [
     },
     {
         label: 'Menage disponible tout au long du sejour',
-        icon: PiPaintBrushHouseholdLight,
+        image: '/images/menage.png',
     },
     {
-        label: 'Produit indispensable pour la plage',
-        icon: FaUmbrellaBeach,
+        label: 'Chaussure pour la plage',
+        image: '/images/chaussure-de-plage.png',
     },
     {
         label: 'Entrée privée',
-        icon: BsDoorClosed,
+        image: '/images/cle.png',
     },
     {
         label: 'Cuisinière a gaz',
@@ -138,7 +134,7 @@ export const equipement = [
     },
     {
         label: 'Recommandation de baby-sitters',
-        icon: LiaBabyCarriageSolid,
+        image: '/images/cle.png',
     }, 
     {
         label: 'Animaux accepetés',
@@ -150,27 +146,27 @@ export const equipement = [
     },  
     {
         label: 'Vélos',
-        icon: GiDutchBike,
+        image: '/images/velo.png',
     }, 
     {
         label: 'Jouets',
-        icon: VscGame,
+        image: '/images/jouet.png',
     },
     {
         label: 'Lit',
-        icon: IoBedOutline,
+        image: '/images/lit.png',
     }, 
     {
         label: 'Livres et de quoi lire',
-        icon: LiaBookSolid,
+        image: '/images/livre-ouvert.png',
     }, 
     {
         label: 'Stations de rehcarge pour véhicules électrique',
-        icon: PiChargingStationLight,
+        image: '/images/voiture-electrique.png',
     },
     {
         label: 'Console de jeux ps4',
-        icon: TfiGame,
+        image: '/images/console-de-jeu.png',
     },
     {
         label: 'Savon pour le corps',
