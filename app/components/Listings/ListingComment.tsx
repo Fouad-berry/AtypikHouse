@@ -29,7 +29,7 @@ const ListingComment = ({ listingId }: { listingId: string }) => {
             'enculé',
             'Je vais faire en sorte que tout le monde sache comment vous traitez vos locataires',
             'représaille',
-                        ];
+            ];
 
     // Fonction pour récupérer les commentaires associés à la location
     const fetchComments = async () => {

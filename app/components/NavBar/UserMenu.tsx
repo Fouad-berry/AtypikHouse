@@ -121,6 +121,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     />
                                 )}
                                 <MenuItem
+                                    onClick={() => router.push('/qui-sommes-nous')}
+                                    label="Decouvrir l'activité de l'entreprise"
+                                />
+                                <MenuItem
                                     onClick={() => router.push('/trips')}
                                     label="Mes voyages"
                                 />
@@ -163,6 +167,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                 <MenuItem
                                     onClick={registerModal.onOpen}
                                     label="Inscription"
+                                />
+                                <MenuItem
+                                    onClick={() => router.push('/qui-sommes-nous')}
+                                    label="Decouvrir l'activité de l'entreprise"
                                 />
                             </>
                         )}
