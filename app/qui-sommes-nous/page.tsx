@@ -35,7 +35,7 @@ const QuiSommesNous = async () => {
                     height={200}
                     style={{ objectFit: "contain" }}
                 />
-                <p className="mt-4">Texte sous l'image 1</p>
+                <p className="mt-4">Texte sous l&apos;image 1</p>
             </div>
         <div className="text-center">
             <Image
@@ -45,7 +45,7 @@ const QuiSommesNous = async () => {
                 height={200}
                 style={{ objectFit: "contain" }}
             />
-            <p className="mt-4">Texte sous l'image 2</p>
+            <p className="mt-4">Texte sous l&apos;image 2</p>
         </div>
         <div className="text-center">
             <Image
@@ -55,7 +55,7 @@ const QuiSommesNous = async () => {
             height={200}
             style={{ objectFit: "contain" }}
             />
-            <p className="mt-4">Texte sous l'image 3</p>
+            <p className="mt-4">Texte sous l&apos;image 3</p>
         </div>
         </div>
 
@@ -72,7 +72,7 @@ const QuiSommesNous = async () => {
             </div>
                 <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0">
                     <p>
-                    Ceci est un paragraphe à droite de l'image. Vous pouvez ajouter autant de texte que vous
+                    Ceci est un paragraphe à droite de l&apos;image. Vous pouvez ajouter autant de texte que vous
                     le souhaitez pour décrire cette section.
                     </p>
                 </div>
