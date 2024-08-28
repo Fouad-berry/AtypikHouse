@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: '/app/admin/'
+
+Sitemap: https://f2i-dev22-fm-lo-am-it.vercel.app/sitemap.xml
