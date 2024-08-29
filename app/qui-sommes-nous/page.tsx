@@ -38,40 +38,44 @@ const QuiSommesNous = () => {
       </div>
 
       {/* Second Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
-        <div className="flex flex-col items-center justify-center text-center">
-          <Image
-            src="/images/marche-cible.png"
-            alt="Image 1"
-            width={150}
-            height={150}
-            style={{ objectFit: "contain" }}
-          />
-          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular'}}>Place de marché</p>
-          <p className="mt-4 text-sm text-neutral-500" >Une offre centralisée et spécialisée dans les logements atypiques.</p>
-        </div>
-        <div className="flex flex-col items-center justify-center text-center">
-          <Image
-            src="/images/page-daccueil.png"
-            alt="Image 2"
-            width={150}
-            height={150}
-            style={{ objectFit: "contain" }}
-          />
-          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Modèle à la performance</p>
-          <p className="mt-4 text-sm text-neutral-500" >Sans abonnement, ni frais de mise en service, uniquement une commission sur les ventes.</p>
-
-        </div>
-        <div className="flex flex-col items-center justify-center text-center">
-          <Image
-            src="/images/sans-contact.png"
-            alt="Image 3"
-            width={150}
-            height={150}
-            style={{ objectFit: "contain" }}
-          />
-          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Réservation instantannée</p>
-          <p className="mt-4 text-sm text-neutral-500" >Une réservation ferme et payée à 100% en ligne par le client.</p>
+      <div className="my-16">
+        <h2 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'LilitaOne-Regular' }}>
+          LE CONCEPT
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center justify-center text-center">
+            <Image
+              src="/images/marche-cible.png"
+              alt="Image 1"
+              width={150}
+              height={150}
+              style={{ objectFit: "contain" }}
+            />
+            <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular'}}>Place de marché</p>
+            <p className="mt-4 text-sm text-neutral-500">Une offre centralisée et spécialisée dans les logements atypiques.</p>
+          </div>
+          <div className="flex flex-col items-center justify-center text-center">
+            <Image
+              src="/images/page-daccueil.png"
+              alt="Image 2"
+              width={150}
+              height={150}
+              style={{ objectFit: "contain" }}
+            />
+            <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Modèle à la performance</p>
+            <p className="mt-4 text-sm text-neutral-500">Sans abonnement, ni frais de mise en service, uniquement une commission sur les ventes.</p>
+          </div>
+          <div className="flex flex-col items-center justify-center text-center">
+            <Image
+              src="/images/sans-contact.png"
+              alt="Image 3"
+              width={150}
+              height={150}
+              style={{ objectFit: "contain" }}
+            />
+            <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Réservation instantannée</p>
+            <p className="mt-4 text-sm text-neutral-500">Une réservation ferme et payée à 100% en ligne par le client.</p>
+          </div>
         </div>
       </div>
 
