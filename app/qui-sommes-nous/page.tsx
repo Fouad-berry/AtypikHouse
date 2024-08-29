@@ -48,7 +48,7 @@ const QuiSommesNous = () => {
             style={{ objectFit: "contain" }}
           />
           <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular'}}>Place de marché</p>
-          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
+          <p className="mt-4 text-sm text-neutral-500" >Une offre centralisée et spécialisée dans les logements atypiques.</p>
         </div>
         <div className="flex flex-col items-center justify-center text-center">
           <Image
@@ -59,7 +59,7 @@ const QuiSommesNous = () => {
             style={{ objectFit: "contain" }}
           />
           <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Modèle à la performance</p>
-          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
+          <p className="mt-4 text-sm text-neutral-500" >Sans abonnement, ni frais de mise en service, uniquement une commission sur les ventes.</p>
 
         </div>
         <div className="flex flex-col items-center justify-center text-center">
@@ -71,7 +71,7 @@ const QuiSommesNous = () => {
             style={{ objectFit: "contain" }}
           />
           <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Réservation instantannée</p>
-          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
+          <p className="mt-4 text-sm text-neutral-500" >Une réservation ferme et payée à 100% en ligne par le client.</p>
         </div>
       </div>
 
