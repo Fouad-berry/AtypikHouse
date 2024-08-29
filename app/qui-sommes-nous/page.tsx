@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
@@ -6,8 +7,11 @@ import Footer from "../components/Footer";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import Image from "next/image";
+import Button from "../components/Button";
+import { useRouter } from "next/navigation";
 
 const QuiSommesNous = () => {
+    const router = useRouter();
   return (
     <Container>
       {/* First Section */}
@@ -25,7 +29,11 @@ const QuiSommesNous = () => {
           <p className="text-xl mt-2" style={{ fontFamily: 'LilitaOne-Regular' }}>
             Intégrez la future 1ère place de marché exclusivement dédiée à la commercialisation d&apos;hébergements insolites !
           </p>
-          <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded">Bouton</button>
+          <Button
+                className="mt-4 px-6 py-2 w-1/4 mx-auto"
+                label="C'EST PARTI"
+                onClick={() => router.push('/')}
+          />
         </div>
       </div>
 
@@ -33,33 +41,37 @@ const QuiSommesNous = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
         <div className="flex flex-col items-center justify-center text-center">
           <Image
-            src="/images/narutouzu.jpg"
+            src="/images/marche-cible.png"
             alt="Image 1"
-            width={300}
-            height={200}
+            width={150}
+            height={150}
             style={{ objectFit: "contain" }}
           />
-          <p className="mt-4">Texte sous l&apos;image 1</p>
+          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular'}}>Place de marché</p>
+          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
         </div>
         <div className="flex flex-col items-center justify-center text-center">
           <Image
-            src="/images/narutouzu.jpg"
+            src="/images/page-daccueil.png"
             alt="Image 2"
-            width={300}
-            height={200}
+            width={150}
+            height={150}
             style={{ objectFit: "contain" }}
           />
-          <p className="mt-4">Texte sous l&apos;image 2</p>
+          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Modèle à la performance</p>
+          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
+
         </div>
         <div className="flex flex-col items-center justify-center text-center">
           <Image
-            src="/images/narutouzu.jpg"
+            src="/images/sans-contact.png"
             alt="Image 3"
-            width={300}
-            height={200}
+            width={150}
+            height={150}
             style={{ objectFit: "contain" }}
           />
-          <p className="mt-4">Texte sous l&apos;image 3</p>
+          <p className="mt-4 text-xl text-neutral-500" style={{ fontFamily: 'LilitaOne-Regular' }}>Réservation instantannée</p>
+          <p className="mt-4 text-sm text-neutral-500" >Modèle à la performance</p>
         </div>
       </div>
 
@@ -84,7 +96,7 @@ const QuiSommesNous = () => {
 
       {/* Fourth Section */}
       <div className="text-center my-16">
-        <h1 className="text-3xl font-bold">Ils parlent de nous</h1>
+        <h1 className="text-4xl font-normal" style={{ fontFamily: 'LilitaOne-Regular' }}>Ils parlent de nous</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
           <div className="flex justify-center">
             <Image
