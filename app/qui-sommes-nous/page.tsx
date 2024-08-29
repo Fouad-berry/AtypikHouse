@@ -5,7 +5,7 @@ import MobileNavbar from "../components/MobileNavbar";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
-import Image from "next/image"; // Assuming you're using Next.js
+import Image from "next/image";
 
 const QuiSommesNous = async () => {
     return (
@@ -13,13 +13,13 @@ const QuiSommesNous = async () => {
       {/* First Section */}
         <div className="relative w-full h-[500px]">
             <Image
-            src="/images/narutouzu.jpg" // Update with your image path
+            src="/images/narutouzu.jpg"
                 alt="Background Image"
                 fill
                 style={{ objectFit: "cover" }}
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white">
-                <h1 className="text-4xl font-bold">Grand Titre</h1>
+                <h1 className="text-4xl font-bold">REJOIGNEZ L'AVENTURE ET BOOSTEZ VOS VENTES !</h1>
                 <p className="text-xl mt-2">Sous Titre</p>
                 <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded">Bouton</button>
             </div>
@@ -29,7 +29,7 @@ const QuiSommesNous = async () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
             <div className="text-center">
                 <Image
-                    src="/images/narutouzu.jpg" // Update with your image path
+                    src="/images/narutouzu.jpg"
                     alt="Image 1"
                     width={300}
                     height={200}
@@ -39,7 +39,7 @@ const QuiSommesNous = async () => {
             </div>
         <div className="text-center">
             <Image
-                src="/images/narutouzu.jpg" // Update with your image path
+                src="/images/narutouzu.jpg"
                 alt="Image 2"
                 width={300}
                 height={200}
@@ -49,7 +49,7 @@ const QuiSommesNous = async () => {
         </div>
         <div className="text-center">
             <Image
-            src="/images/narutouzu.jpg" // Update with your image path
+            src="/images/narutouzu.jpg"
             alt="Image 3"
             width={300}
             height={200}
@@ -63,7 +63,7 @@ const QuiSommesNous = async () => {
         <div className="flex flex-col md:flex-row items-center my-16">
             <div className="md:w-1/2">
                 <Image
-                src="/images/narutouzu.jpg" // Update with your image path
+                src="/images/narutouzu.jpg"
                 alt="Image à gauche"
                 width={500}
                 height={300}
@@ -80,42 +80,47 @@ const QuiSommesNous = async () => {
 
       {/* Fourth Section */}
       <div className="text-center my-16">
-        <h2 className="text-3xl font-bold">Nos Partenaires</h2>
+        <h1 className="text-3xl font-bold">Ils parlent de nous</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
           <div className="flex justify-center">
             <Image
-                src="/images/narutouzu.jpg" // Update with your image path
+                src="/images/tf1.jpg"
                 alt="Partenaire 1"
               width={150}
               height={100}
               style={{ objectFit: "contain" }}
+              className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+
             />
           </div>
           <div className="flex justify-center">
             <Image
-            src="/images/narutouzu.jpg" // Update with your image path
+            src="/images/logo-télématin.jpg"
             alt="Partenaire 2"
               width={150}
               height={100}
               style={{ objectFit: "contain" }}
+              className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
             />
           </div>
           <div className="flex justify-center">
             <Image
-            src="/images/narutouzu.jpg" // Update with your image path
+            src="/images/M6.jpg"
             alt="Partenaire 3"
               width={150}
               height={100}
               style={{ objectFit: "contain" }}
+              className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
             />
           </div>
             <div className="flex justify-center">
             <Image
-            src="/images/narutouzu.jpg" // Update with your image path
+            src="/images/france3.png"
             alt="Partenaire 4"
                 width={150}
                 height={100}
                 style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
             />
             </div>
         </div>
