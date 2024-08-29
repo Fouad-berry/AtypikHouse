@@ -93,7 +93,7 @@ const QuiSommesNous = () => {
         <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0 px-4">
         <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'LilitaOne-Regular' }}>
           QUI-SOMMES-NOUS ?</h2>
-          <p>
+          <p className="text-xl">
           Chez AtypikHouse, nous plaçons la relation avec les propriétaires au cœur du partenariat. Notre collaboration avec les hébergeurs est basée sur le respect des intérêts de chacun, tout en laissant la liberté et l&apos;indépendance nécessaires à leur activité. Une équipe de professionnels du tourisme, spécialisés dans le secteur de l&apos;insolite, vous propose un service réactif et efficace qui se veut humain, qualitatif et adapté.</p>
         </div>
       </div>
