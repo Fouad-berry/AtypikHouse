@@ -104,7 +104,88 @@ const QuiSommesNous = () => {
         </div>
       </div>
 
-      {/* Fourth Section */}
+{/* Four Section */}
+<div className="text-center my-16 bg-gray-100 py-8">
+  <h1 className="text-4xl font-bold mb-8" style={{ fontFamily: 'LilitaOne-Regular' }}>VOTRE OFFRE EST-ELLE ELIGIBLE ?</h1>
+  
+  {/* Wrapper for the rows */}
+  <div className="flex flex-col space-y-8">
+    {/* First Row */}
+    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
+      <div className="flex items-center justify-center">
+        <div className="flex-shrink-0">
+          <Image
+            src="/images/banner.jpg"
+            alt="Team Member 1"
+            width={100}
+            height={100}
+            className="rounded-full"
+            style={{ objectFit: "cover", width: "100px", height: "100px" }}
+          />
+        </div>
+        <div className="ml-4">
+          <p className="text-xl font-semibold">Nom du membre 1</p>
+          <p className="text-neutral-500">Fonction du membre 1</p>
+        </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="flex-shrink-0">
+          <Image
+            src="/images/banner.jpg"
+            alt="Team Member 2"
+            width={100}
+            height={100}
+            className="rounded-full"
+            style={{ objectFit: "cover", width: "100px", height: "100px" }}
+          />
+        </div>
+        <div className="ml-4">
+          <p className="text-xl font-semibold">Nom du membre 2</p>
+          <p className="text-neutral-500">Fonction du membre 2</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Second Row */}
+    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-10">
+      <div className="flex items-center justify-center">
+        <div className="flex-shrink-0">
+          <Image
+            src="/images/banner.jpg"
+            alt="Team Member 3"
+            width={100}
+            height={100}
+            className="rounded-full"
+            style={{ objectFit: "cover", width: "100px", height: "100px" }}
+          />
+        </div>
+        <div className="ml-4">
+          <p className="text-xl font-semibold">Nom du membre 3</p>
+          <p className="text-neutral-500">Fonction du membre 3</p>
+        </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="flex-shrink-0">
+          <Image
+            src="/images/banner.jpg"
+            alt="Team Member 4"
+            width={100}
+            height={100}
+            className="rounded-full"
+            style={{ objectFit: "cover", width: "100px", height: "100px" }}
+          />
+        </div>
+        <div className="ml-4">
+          <p className="text-xl font-semibold">Nom du membre 4</p>
+          <p className="text-neutral-500">Fonction du membre 4</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      {/* Fifth Section */}
       <div className="text-center my-16">
         <h1 className="text-4xl font-normal" style={{ fontFamily: 'LilitaOne-Regular' }}>Ils parlent de nous</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
@@ -151,10 +232,11 @@ const QuiSommesNous = () => {
         </div>
       </div>
 
-      <Footer />
-      <MobileNavbar />
-    </Container>
-  );
+<Footer />
+<MobileNavbar />
+</Container>
+);
 };
+
 
 export default QuiSommesNous;
