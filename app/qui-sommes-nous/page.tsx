@@ -94,9 +94,7 @@ const QuiSommesNous = () => {
         <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'LilitaOne-Regular' }}>
           QUI-SOMMES-NOUS ?</h2>
           <p>
-            Ceci est un paragraphe à droite de l&apos;image. Vous pouvez ajouter autant de texte que vous
-            le souhaitez pour décrire cette section.
-          </p>
+          Chez <br>AtypikHouse</br>, nous plaçons la relation avec les propriétaires au cœur du partenariat. Notre collaboration avec les hébergeurs est basée sur le respect des intérêts de chacun, tout en laissant la liberté et l&apos;indépendance nécessaires à leur activité. Une équipe de professionnels du tourisme, spécialisés dans le secteur de l&apos;insolite, vous propose un service réactif et efficace qui se veut humain, qualitatif et adapté.</p>
         </div>
       </div>
 
