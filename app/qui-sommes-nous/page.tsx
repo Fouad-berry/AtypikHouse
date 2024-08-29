@@ -85,8 +85,8 @@ const QuiSommesNous = () => {
           <Image
             src="/images/madeinfrance.jpg"
             alt="Image à gauche"
-            width={500}
-            height={300}
+            width={800}
+            height={350}
             style={{ objectFit: "cover" }}
           />
         </div>
@@ -94,6 +94,10 @@ const QuiSommesNous = () => {
         <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'LilitaOne-Regular' }}>
           QUI-SOMMES-NOUS ?</h2>
           <p className="text-xl">
+            <br />
+            Basée dans le Sud de la France, AbracadaRoom est leader sur le marché de l'insolite et référence des hébergements atypiques partout sur son territoire, et même à l'étranger ! 
+          <br />
+          <br />
           Chez AtypikHouse, nous plaçons la relation avec les propriétaires au cœur du partenariat. Notre collaboration avec les hébergeurs est basée sur le respect des intérêts de chacun, tout en laissant la liberté et l&apos;indépendance nécessaires à leur activité. Une équipe de professionnels du tourisme, spécialisés dans le secteur de l&apos;insolite, vous propose un service réactif et efficace qui se veut humain, qualitatif et adapté.</p>
         </div>
       </div>
