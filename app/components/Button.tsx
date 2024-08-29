@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
                 rounded-lg
                 hover:opacity-80
                 transition
-                w-full
+                ${className || 'w-full'} 
                 ${outline ? 'bg-white' : 'bg-[#e7f53c]'}
                 ${outline ? 'border-black' : 'border-[#e7f53c]'}
                 text-black
