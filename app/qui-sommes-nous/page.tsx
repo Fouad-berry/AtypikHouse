@@ -81,16 +81,18 @@ const QuiSommesNous = () => {
 
       {/* Third Section */}
       <div className="flex flex-col md:flex-row items-center my-16 bg-gray-200 py-8">
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 px-4">
           <Image
-            src="/images/narutouzu.jpg"
+            src="/images/madeinfrance.jpg"
             alt="Image à gauche"
             width={500}
             height={300}
             style={{ objectFit: "cover" }}
           />
         </div>
-        <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0">
+        <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0 px-4">
+        <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'LilitaOne-Regular' }}>
+          QUI-SOMMES-NOUS ?</h2>
           <p>
             Ceci est un paragraphe à droite de l&apos;image. Vous pouvez ajouter autant de texte que vous
             le souhaitez pour décrire cette section.
