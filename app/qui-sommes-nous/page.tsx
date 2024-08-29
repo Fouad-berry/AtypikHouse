@@ -13,14 +13,14 @@ const QuiSommesNous = async () => {
       {/* First Section */}
         <div className="relative w-full h-[500px]">
             <Image
-            src="/images/narutouzu.jpg"
+            src="/images/banner.jpg"
                 alt="Background Image"
                 fill
                 style={{ objectFit: "cover" }}
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white">
-                <h1 className="text-4xl font-bold">REJOIGNEZ L'AVENTURE ET BOOSTEZ VOS VENTES !</h1>
-                <p className="text-xl mt-2">Sous Titre</p>
+                <h1 className="text-4xl font-bold" style={{ fontFamily: 'LilitaOne-Regular', fontWeight:'bold' }}>REJOIGNEZ L&apos;AVENTURE ET BOOSTEZ VOS VENTES !</h1>
+                <p className="text-xl mt-2" style={{ fontFamily: 'LilitaOne-Regular' }}>Intégrez la future 1ère place de marché exclusivement dédiée à la commercialisation d&apos;hébergements insolites !</p>
                 <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded">Bouton</button>
             </div>
         </div>
