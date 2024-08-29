@@ -29,11 +29,11 @@ const QuiSommesNous = () => {
           <p className="text-xl mt-2" style={{ fontFamily: 'LilitaOne-Regular' }}>
             Intégrez la future 1ère place de marché exclusivement dédiée à la commercialisation d&apos;hébergements insolites !
           </p>
-          <Button
-                className="mt-4 px-6 py-2 w-1/4 mx-auto"
+            <Button
+                className="mt-4 px-6 py-2 mx-auto w-auto w-1/4"
                 label="C'EST PARTI"
                 onClick={() => router.push('/')}
-          />
+            />
         </div>
       </div>
 
