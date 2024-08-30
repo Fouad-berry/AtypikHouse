@@ -112,7 +112,7 @@ const QuiSommesNous = () => {
   <div className="flex flex-col space-y-8">
     {/* First Row */}
     <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center" style={{paddingRight:"100px"}}>
         <div className="flex-shrink-0">
           <Image
             src="/images/banner.jpg"
@@ -124,7 +124,7 @@ const QuiSommesNous = () => {
           />
         </div>
         <div className="ml-4">
-          <p className="text-xl font-semibold">Nom du membre 1</p>
+          <h2 className=" font-semibold">Dimension insolite</h2>
           <p className="text-neutral-500">Fonction du membre 1</p>
         </div>
       </div>
@@ -140,7 +140,7 @@ const QuiSommesNous = () => {
           />
         </div>
         <div className="ml-4">
-          <p className="text-xl font-semibold">Nom du membre 2</p>
+          <h2 className="font-semibold">Environnement privilégié</h2>
           <p className="text-neutral-500">Fonction du membre 2</p>
         </div>
       </div>
@@ -148,7 +148,7 @@ const QuiSommesNous = () => {
 
     {/* Second Row */}
     <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-10">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center" style={{paddingRight:"15px"}}>
         <div className="flex-shrink-0">
           <Image
             src="/images/banner.jpg"
@@ -160,11 +160,11 @@ const QuiSommesNous = () => {
           />
         </div>
         <div className="ml-4">
-          <p className="text-xl font-semibold">Nom du membre 3</p>
+          <h2 className="font-semibold">Une offre et des tarifs cohérents</h2>
           <p className="text-neutral-500">Fonction du membre 3</p>
         </div>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center" style={{paddingRight:"-15px"}}>
         <div className="flex-shrink-0">
           <Image
             src="/images/banner.jpg"
@@ -176,7 +176,7 @@ const QuiSommesNous = () => {
           />
         </div>
         <div className="ml-4">
-          <p className="text-xl font-semibold">Nom du membre 4</p>
+          <h2 className=" font-semibold">Qualité de la collaboration</h2>
           <p className="text-neutral-500">Fonction du membre 4</p>
         </div>
       </div>
