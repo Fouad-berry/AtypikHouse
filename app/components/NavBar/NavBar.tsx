@@ -25,15 +25,10 @@ const NavBar: React.FC<NavBarProps> = ({
                     items-center
                     justify-between
                     gap-3
-                    ml-6">  {/* Ajout de la marge à gauche */}
-                        <Logo />
-                        <div className="flex flex-col items-center flex-grow">
-                            <div className="text-center text-sm font-bold text-black-700 mb-2">
-                            Découvrez le glamping, les cabanes, les mini-maisons, les cabanes dans les arbres, les dômes...
-                            </div>
-                            <Search />
-                        </div>
-                        <UserMenu currentUser={currentUser} />
+                    md:gap-0">
+                        <Logo/>
+                        <Search/>
+                        <UserMenu currentUser={currentUser}  />
                     </div>
                 </Container>
             </div>
