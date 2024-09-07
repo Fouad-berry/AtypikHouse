@@ -30,6 +30,11 @@ const Footer = () => {
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
             > Infos sur l&apos;entreprise
             </p>&emsp;
+            <p
+              onClick={() => router.push('/nous-contactez')}
+              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+            > Contact
+            </p>&emsp;
           </div>
           {/* Colonne à droite avec deux éléments */}
           <div className="col-span-1 flex justify-center">
