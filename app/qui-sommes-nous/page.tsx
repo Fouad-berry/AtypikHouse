@@ -107,80 +107,54 @@ const QuiSommesNous = () => {
 {/* Four Section */}
 <div className="text-center my-16 bg-gray-100 py-8">
   <h1 className="text-4xl font-bold mb-8" style={{ fontFamily: 'LilitaOne-Regular' }}>VOTRE OFFRE EST-ELLE ELIGIBLE ?</h1>
-  
-  {/* Wrapper for the rows */}
-  <div className="flex flex-col space-y-8">
-    {/* First Row */}
-    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
-      <div className="flex items-center justify-center" style={{paddingRight:"100px"}}>
-        <div className="flex-shrink-0">
-          <Image
-            src="/images/banner.jpg"
-            alt="Team Member 1"
-            width={100}
-            height={100}
-            className="rounded-full"
-            style={{ objectFit: "cover", width: "100px", height: "100px" }}
-          />
-        </div>
-        <div className="ml-4">
-          <h2 className=" font-semibold">Dimension insolite</h2>
-          <p className="text-neutral-500">Fonction du membre 1</p>
-        </div>
-      </div>
-      <div className="flex items-center justify-center">
-        <div className="flex-shrink-0">
-          <Image
-            src="/images/banner.jpg"
-            alt="Team Member 2"
-            width={100}
-            height={100}
-            className="rounded-full"
-            style={{ objectFit: "cover", width: "100px", height: "100px" }}
-          />
-        </div>
-        <div className="ml-4">
-          <h2 className="font-semibold">Environnement privilégié</h2>
-          <p className="text-neutral-500">Fonction du membre 2</p>
-        </div>
+
+  {/* Container for two columns in two rows */}
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+    
+    {/* Column 1 */}
+    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
+    <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Dimension insolite</h3>
+      <div className="flex items-center">
+        <img src="/images/natura.png" alt="Image 1" className="w-16 h-16 rounded-full mr-4"/>
+        <p className="text-left">
+        Votre hébergement doit être privatif et proposer une expérience atypique grâce à sa typologie et/ou son concept. Les internautes recherchent un séjour unique avec des services et activités de qualité !
+        </p>
       </div>
     </div>
 
-    {/* Second Row */}
-    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-10">
-      <div className="flex items-center justify-center" style={{paddingRight:"15px"}}>
-        <div className="flex-shrink-0">
-          <Image
-            src="/images/banner.jpg"
-            alt="Team Member 3"
-            width={100}
-            height={100}
-            className="rounded-full"
-            style={{ objectFit: "cover", width: "100px", height: "100px" }}
-          />
-        </div>
-        <div className="ml-4">
-          <h2 className="font-semibold">Une offre et des tarifs cohérents</h2>
-          <p className="text-neutral-500">Fonction du membre 3</p>
-        </div>
-      </div>
-      <div className="flex items-center justify-center" style={{paddingRight:"-15px"}}>
-        <div className="flex-shrink-0">
-          <Image
-            src="/images/banner.jpg"
-            alt="Team Member 4"
-            width={100}
-            height={100}
-            className="rounded-full"
-            style={{ objectFit: "cover", width: "100px", height: "100px" }}
-          />
-        </div>
-        <div className="ml-4">
-          <h2 className=" font-semibold">Qualité de la collaboration</h2>
-          <p className="text-neutral-500">Fonction du membre 4</p>
-        </div>
+    {/* Column 2 */}
+    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
+    <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Environnement privilégié</h3>
+      <div className="flex items-center">
+        <img src="/images/hautesalpes.png" alt="Image 2" className="w-16 h-16 rounded-full mr-4"/>
+        <p className="text-left">
+        Loin des sentiers battus, l&apos;hébergement proposé doit être implanté dans un cadre préservé. Il s&apos;agit de partager avec les voyageurs un cadre hors du commun ou un site d&apos;exception ! 
+        </p>
       </div>
     </div>
+
+    {/* Column 3 */}
+    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
+    <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Une offre et des tarifs cohérents</h3>
+      <div className="flex items-center">
+        <img src="/images/thumbsup4.png" alt="Image 3" className="w-16 h-16 rounded-full mr-4"/>
+        <p className="text-left">
+        Les tarifs et conditions doivent être en adéquation avec le marché et notre cible de clientèle. Il s&apos;agit de présenter une offre et des prestations cohérentes et justes pour le client. 
+        </p>
+      </div>
+    </div>
+
+    {/* Column 4 */}
+    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
+    <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Qualité de la collaboration</h3>
+      <div className="flex items-center">
+        <img src="/images/hand-shake.png" alt="Image 4" className="w-16 h-16 rounded-full mr-4"/>
+        <p className="text-left">
+        L&apos;hébergeur doit témoigner d&apos;une réelle envie d&apos;être partenaire de notre réseau : un bon contact, de la réactivité et du professionnalisme sont des éléments primordiaux à la collaboration !
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
 
