@@ -29,7 +29,6 @@ model User {
   comments Comment[]
   sentMessages Message[] @relation("SentMessages")
   receivedMessages Message[] @relation("ReceivedMessages")
-  contactMessages ContactMessage[] @relation("UserContactMessages") // Relation avec ContactMessage
 }
 
 model Message {
@@ -42,18 +41,10 @@ model Message {
   receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
 }
 
-model ContactMessage {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  message String
-  createdAt DateTime @default(now())
-  userId String @db.ObjectId
-  user User @relation("UserContactMessages", fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model Account {
+model Account{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
-  type String
+  type String 
   provider String
   providerAccountId String
   refresh_tokeN String? @db.String
@@ -64,14 +55,14 @@ model Account {
   id_token String? @db.String
   session_state String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
+    @@unique([provider, providerAccountId])
 }
 
 model Listing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  title String 
   description String
   imageSrc String[]
   createAt DateTime @default(now())
@@ -89,7 +80,7 @@ model Listing {
   comments Comment[]
 }
 
-model Reservation {
+model Reservation{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
   listingId String @db.ObjectId
@@ -104,21 +95,21 @@ model Reservation {
 }
 
 model Comment {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  content String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
   createdAt DateTime @default(now())
-  userId String @db.ObjectId
-  listingId String @db.ObjectId
+  userId    String   @db.ObjectId
+  listingId String   @db.ObjectId
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing  Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
 model Payment {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String @db.ObjectId
+  userId String   @db.ObjectId
   totalPrice Int
-  createdAt DateTime @default(now())
+  createdAt   DateTime      @default(now())
   status String @default("pending")
   travelerName String
   orderNumber String @default(cuid())

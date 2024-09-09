@@ -1,11 +1,34 @@
-import React from 'react';
+import EmptyState from "../components/EmptyState";
+import ClientOnly from "../components/ClientOnly";
 
-const page = () => {
+import getCurrentUser from "../actions/getCurrentUser";
+import ContactClient from "./ContactClient";
+import MobileNavbar from "../components/MobileNavbar";
+import Footer from "../components/Footer";
+
+const ContactPage = async () => {
+    const currentUser = await getCurrentUser();
+
+    if (!currentUser) {
+        return (
+            <ClientOnly>
+                <EmptyState 
+                    title="Vous n'êtes pas autorisé"
+                    subtitle="S'il vous plaît connectez-vous pour envoyer un message"
+                />
+            </ClientOnly>
+        );
+    }
+
     return (
-        <div>
-            
-        </div>
+        <>
+        <ClientOnly>
+            <ContactClient currentUser={currentUser} />
+        </ClientOnly>
+        <Footer />
+        <MobileNavbar />
+        </>
     );
 };
 
-export default page;
+export default ContactPage;
