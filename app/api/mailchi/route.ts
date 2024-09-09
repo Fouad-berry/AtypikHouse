@@ -3,28 +3,30 @@ import prisma from '@/app/libs/prismadb';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
-    const { message, userId } = await request.json();
+    const { yourname, email, phone, message, userId } = await request.json();
 
-    if (!message || !userId) {
-        return NextResponse.json({ message: 'Message ou utilisateur invalide' }, { status: 400 });
-    }
-
-    // Récupérer les infos de l'utilisateur
-    const user = await prisma.user.findUnique({ where: { id: userId } });
-
-    if (!user) {
-        return NextResponse.json({ message: 'Utilisateur non trouvé' }, { status: 404 });
+    // Validation des données envoyées
+    if (!yourname || !email || !phone || !message) {
+        return NextResponse.json({ message: 'Tous les champs sont requis' }, { status: 400 });
     }
 
     // Sauvegarder le message dans la base de données
-    await prisma.contactMessage.create({
-        data: {
-            message,
-            userId
-        }
-    });
+    try {
+        await prisma.contactMessage.create({
+            data: {
+                yourname,
+                email,
+                phone,
+                message,
+                userId: userId || undefined, // Utiliser userId si fourni
+            }
+        });
+    } catch (error) {
+        console.error('Erreur lors de l\'enregistrement du message:', error);
+        return NextResponse.json({ message: 'Erreur lors de l\'enregistrement du message' }, { status: 500 });
+    }
 
-    // Configurer nodemailer
+    // Configurer nodemailer pour l'envoi d'email
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -33,15 +35,20 @@ export async function POST(request: Request) {
         }
     });
 
-    // Envoyer l'email au destinataire prédéfini
     const predefinedEmail = process.env.CONTACT_EMAIL;
-    
+
+    // Envoyer un email avec le message
     try {
         await transporter.sendMail({
             from: process.env.EMAIL_USER,
             to: predefinedEmail,
-            subject: `Nouveau message de ${user.email}`,
-            text: `Message : ${message}\nDe : ${user.email}`
+            subject: `Nouveau message de ${yourname}`,
+            text: `
+                Nom: ${yourname}
+                Email: ${email}
+                Téléphone: ${phone}
+                Message: ${message}
+            `
         });
 
         return NextResponse.json({ message: 'Message envoyé avec succès' });
