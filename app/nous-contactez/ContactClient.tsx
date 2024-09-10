@@ -75,12 +75,10 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
                 subtitle="Envoyez un message à l'équipe de support"
             />
 
-            {/* Section contenant l'image et le formulaire */}
             <div className="flex flex-col md:flex-row items-center justify-between mt-6 bg-white rounded-lg p-6">
-                {/* Image à gauche */}
                 <div className="w-full md:w-1/2 mb-6 md:mb-0">
                     <Image 
-                        src="/images/customer.jpg" // Remplace par le chemin de ton image
+                        src="/images/customer.jpg"
                         alt="Contact Support"
                         width={500}
                         height={400}
@@ -88,7 +86,6 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
                     />
                 </div>
 
-                {/* Formulaire à droite */}
                 <div className="w-full md:w-1/2">
                     <input 
                         type="text"
@@ -132,7 +129,6 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
                 </div>
             </div>
 
-            {/* Section avec les icônes en dessous */}
             <div className="flex justify-between items-center mt-8 space-x-4 text-center">
                 <div className="flex flex-col items-center">
                     <FaHeadset size={40} className="text-blue-500" />
