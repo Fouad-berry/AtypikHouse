@@ -4,8 +4,8 @@ import { useState, useCallback } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { FaHeadset, FaClock, FaReply } from 'react-icons/fa'; // Importation des icônes
-import Image from "next/image"; // Pour l'image à gauche
+import { FaHeadset, FaClock, FaReply } from 'react-icons/fa';
+import Image from "next/image";
 
 import Heading from "../components/Heading";
 import Container from "../components/Container";
@@ -40,7 +40,7 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
             email,
             phone,
             message,
-            userId: currentUser?.id // Si l'utilisateur est authentifié, lier son ID
+            userId: currentUser?.id
         })
         .then(() => {
             toast.success('Message envoyé avec succès');
