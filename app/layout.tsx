@@ -10,11 +10,9 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModals from "./components/Modals/RentModals";
 import SearchModal from "./components/Modals/SearchModal";
 import ForgotPasswordModal from "./components/Modals/ForgotPasswordModal";
-import ResetPasswordModal from "./components/Modals/ResetPasswordModal";
 import Head from "next/head";
 import Script from "next/script";
 
-// Pour avoir la police d'écriture de la page
 const roboto = Roboto({
   style: ["normal"],
   weight: "400",
