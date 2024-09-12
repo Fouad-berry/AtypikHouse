@@ -4,6 +4,7 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import Footer from "./components/Footer";
+import Landing from "./components/landing";
 import ListingCard from "./components/Listings/ListingCard";
 import MobileNavbar from "./components/MobileNavbar";
 
@@ -25,6 +26,7 @@ const Home = async ({searchParams}: HomeProps) => {
 
   return (
     <ClientOnly>
+      <Landing />
       <Container>
         <div className="
           pt-24
