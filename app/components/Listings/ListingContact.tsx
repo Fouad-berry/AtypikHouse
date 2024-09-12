@@ -15,10 +15,8 @@ const ListingContact = ({ ownerId, currentUser }: { ownerId: string, currentUser
                 message,
                 senderId: currentUser.id,
             });
-            // Afficher un message de succès ou effectuer d'autres actions nécessaires
         } catch (error) {
             console.error('Erreur lors de l\'envoi du message :', error);
-            // Gérer les erreurs d'envoi de message
         }
     };
 

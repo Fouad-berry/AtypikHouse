@@ -26,8 +26,8 @@ const Home = async ({searchParams}: HomeProps) => {
 
   return (
     <ClientOnly>
-      <Landing />
-      <Container>
+{/*       <Landing />
+ */}      <Container>
         <div className="
           pt-24
           grid
