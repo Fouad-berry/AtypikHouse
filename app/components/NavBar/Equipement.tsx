@@ -134,7 +134,7 @@ export const equipement = [
     },
     {
         label: 'Recommandation de baby-sitters',
-        image: '/images/cle.png',
+        image: '/images/baby-sitter.png',
     }, 
     {
         label: 'Animaux accepetés',
