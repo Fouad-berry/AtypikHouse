@@ -53,6 +53,10 @@ export const equipement = [
         image: '/images/cuisine.png',
     },
     {
+        label: 'Drap',
+        image: '/images/draps-de-lit.png',
+    },
+    {
         label: 'Television',
         image: '/images/television.png',
     },
@@ -189,12 +193,20 @@ export const equipement = [
         image: '/images/outils.png',
     },
     {
+        label: 'Oreillers et couvertures supplémentaires',
+        image: '/images/oreiller.png',
+    },
+    {
         label: 'Connexion Ethernet',
         image: '/images/ethernet.png',
     },
     {
         label: 'Aire de jeux extérieure',
         image: '/images/parc.png',
+    },
+    {
+        label: 'Depot de bagage',
+        image: '/images/bagage.png',
     },
     {
         label: 'Table à manger',
