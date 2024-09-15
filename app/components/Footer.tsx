@@ -9,7 +9,7 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <footer className="bg-gray-200 py-4 fixed bottom-0 left-0 right-0 hidden sm:block">
+    <footer className="bg-white py-4 fixed bottom-0 left-0 right-0 hidden border-t sm:block">
       <div className="container mx-auto text-center">
         <div className="grid grid-cols-2 gap-4">
           {/* Colonne à gauche avec deux éléments */}

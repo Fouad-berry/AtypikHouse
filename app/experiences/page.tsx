@@ -9,7 +9,7 @@ import Image from "next/image";
 const Experiences = async () => {
 
     return (
-        <Container>
+        <>
             <Heading
                 title="Politique de confidentialité"
             />
@@ -26,7 +26,7 @@ const Experiences = async () => {
 
             <Footer />
             <MobileNavbar />
-        </Container>
+            </>
     )
 };
 
