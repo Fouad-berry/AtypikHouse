@@ -12,7 +12,6 @@ const Footer = () => {
     <footer className="bg-white py-4 fixed bottom-0 left-0 right-0 hidden border-t sm:block">
       <div className="container mx-auto text-center">
         <div className="grid grid-cols-2 gap-4">
-          {/* Colonne à gauche avec deux éléments */}
           <div className="col-span-1 flex flex-wrap justify-center sm:justify-center">
             <p className="mb-2 sm:mb-0"> @ 2024 AtypikHouse, Inc.</p>&emsp;
             <p
@@ -36,7 +35,6 @@ const Footer = () => {
             > Contact
             </p>&emsp;
           </div>
-          {/* Colonne à droite avec deux éléments */}
           <div className="col-span-1 flex justify-center">
             <p
               onClick={() => router.push('/trips')}
