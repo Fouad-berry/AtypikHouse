@@ -1,12 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BiLogoFacebookSquare } from 'react-icons/bi';
 import { FaInstagramSquare } from 'react-icons/fa';
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
+import NewsletterModal from './Modals/NewsletterModal';// Importation du composant modal pour la newsletter
 
 const Footer = () => {
   const router = useRouter();
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false); // État pour gérer l'ouverture du modal
+
+  const openNewsletterModal = () => setIsNewsletterModalOpen(true);
+  const closeNewsletterModal = () => setIsNewsletterModalOpen(false);
 
   return (
     <footer className="bg-white py-4 fixed bottom-0 left-0 right-0 hidden border-t sm:block">
@@ -17,38 +22,53 @@ const Footer = () => {
             <p
               onClick={() => router.push('/conditions-generales')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > CUGV
+            >
+              CUGV
             </p>&emsp;
             <p
               onClick={() => router.push('/politique-de-confidentialite')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Politique de confidentialité
+            >
+              Politique de confidentialité
             </p>&emsp;
             <p
               onClick={() => router.push('/a-propos-de-nous')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Infos sur l&apos;entreprise
+            >
+              Infos sur l&apos;entreprise
             </p>&emsp;
             <p
               onClick={() => router.push('/nous-contactez')}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
-            > Contact
+            >
+              Contact
+            </p>&emsp;
+            <p
+              onClick={openNewsletterModal} // Ouvre le modal de la newsletter
+              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+            >
+              Newsletter
             </p>&emsp;
           </div>
           <div className="col-span-1 flex justify-center">
             <p
               onClick={() => router.push('/trips')}
               className="cursor-pointer hover:underline ml-2"
-            > <BiLogoFacebookSquare size={25} />
+            >
+              <BiLogoFacebookSquare size={25} />
             </p>&emsp;
             <p
               onClick={() => router.push('/trips')}
               className="cursor-pointer hover:underline ml-2"
-            > <FaInstagramSquare size={25} />
+            >
+              <FaInstagramSquare size={25} />
             </p>&emsp;
           </div>
         </div>
       </div>
+
+      {/* Modal pour la souscription à la newsletter */}
+      <NewsletterModal isOpen={isNewsletterModalOpen} onClose={closeNewsletterModal} />
     </footer>
   );
 };
