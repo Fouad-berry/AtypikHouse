@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { BiLogoFacebookSquare } from 'react-icons/bi';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import NewsletterModal from './Modals/NewsletterModal';
+import NewsletterModal from './Modals/NewsletterModal'; // Importation du composant modal pour la newsletter
 
 const Footer = () => {
   const router = useRouter();
-  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false); // État pour gérer l'ouverture du modal
 
   const openNewsletterModal = () => setIsNewsletterModalOpen(true);
   const closeNewsletterModal = () => setIsNewsletterModalOpen(false);
@@ -17,56 +17,57 @@ const Footer = () => {
     <footer className="bg-white py-4 fixed bottom-0 left-0 right-0 hidden border-t sm:block">
       <div className="container mx-auto text-center">
         <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-1 flex flex-wrap justify-center sm:justify-center">
-            <p className="mb-2 sm:mb-0"> @ 2024 AtypikHouse, Inc.</p>&emsp;
+          <div className="col-span-1 flex justify-center sm:justify-center flex-wrap gap-x-1">
+            <p className="mb-2 sm:mb-0 ml-6"> @ 2024 AtypikHouse, Inc.</p>
             <p
               onClick={() => router.push('/conditions-generales')}
-              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+              className="cursor-pointer hover:underline"
             >
               CUGV
-            </p>&emsp;
+            </p>
             <p
               onClick={() => router.push('/politique-de-confidentialite')}
-              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+              className="cursor-pointer hover:underline ml-2"
             >
               Politique de confidentialité
-            </p>&emsp;
+            </p>
             <p
               onClick={() => router.push('/a-propos-de-nous')}
-              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+              className="cursor-pointer hover:underline ml-2"
             >
               Infos sur l&apos;entreprise
-            </p>&emsp;
+            </p>
             <p
               onClick={() => router.push('/nous-contactez')}
-              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+              className="cursor-pointer hover:underline ml-2"
             >
               Contact
-            </p>&emsp;
+            </p>
             <p
-              onClick={openNewsletterModal}
-              className="cursor-pointer hover:underline ml-2 sm:ml-0"
+              onClick={openNewsletterModal} // Ouvre le modal de la newsletter
+              className="cursor-pointer hover:underline ml-2"
             >
               Newsletter
-            </p>&emsp;
+            </p>
           </div>
-          <div className="col-span-1 flex justify-center">
+          <div className="col-span-1 flex justify-center gap-x-4">
             <p
               onClick={() => router.push('/trips')}
-              className="cursor-pointer hover:underline ml-2"
+              className="cursor-pointer hover:underline"
             >
               <BiLogoFacebookSquare size={25} />
-            </p>&emsp;
+            </p>
             <p
               onClick={() => router.push('/trips')}
-              className="cursor-pointer hover:underline ml-2"
+              className="cursor-pointer hover:underline"
             >
               <FaInstagramSquare size={25} />
-            </p>&emsp;
+            </p>
           </div>
         </div>
       </div>
 
+      {/* Modal pour la souscription à la newsletter */}
       <NewsletterModal isOpen={isNewsletterModalOpen} onClose={closeNewsletterModal} />
     </footer>
   );
