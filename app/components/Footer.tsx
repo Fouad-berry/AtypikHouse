@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { BiLogoFacebookSquare } from 'react-icons/bi';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import NewsletterModal from './Modals/NewsletterModal';// Importation du composant modal pour la newsletter
+import NewsletterModal from './Modals/NewsletterModal';
 
 const Footer = () => {
   const router = useRouter();
-  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false); // État pour gérer l'ouverture du modal
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
 
   const openNewsletterModal = () => setIsNewsletterModalOpen(true);
   const closeNewsletterModal = () => setIsNewsletterModalOpen(false);
@@ -44,7 +44,7 @@ const Footer = () => {
               Contact
             </p>&emsp;
             <p
-              onClick={openNewsletterModal} // Ouvre le modal de la newsletter
+              onClick={openNewsletterModal}
               className="cursor-pointer hover:underline ml-2 sm:ml-0"
             >
               Newsletter
@@ -67,7 +67,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Modal pour la souscription à la newsletter */}
       <NewsletterModal isOpen={isNewsletterModalOpen} onClose={closeNewsletterModal} />
     </footer>
   );
