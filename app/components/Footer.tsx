@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="container mx-auto text-center">
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-1 flex justify-center sm:justify-center flex-wrap gap-x-1">
-            <p className="mb-2 sm:mb-0 ml-6"> @ 2024 AtypikHouse, Inc.</p>
+            <p className="mb-2 sm:mb-0 ml-4"> @ 2024 AtypikHouse, Inc.</p>
             <p
               onClick={() => router.push('/conditions-generales')}
               className="cursor-pointer hover:underline"
