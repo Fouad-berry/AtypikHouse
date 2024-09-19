@@ -18,7 +18,7 @@ interface AdminClientProps {
 const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
     const router = useRouter();
     const [isAddEquipmentModalOpen, setIsAddEquipmentModalOpen] = useState(false);
-    const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false); // État pour ouvrir la modale newsletter
+    const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
     const [isDeleting, setIsDeleting] = useState<string | null>(null);
 
     const onDeleteUser = useCallback((userId: string) => {
@@ -31,7 +31,7 @@ const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
         axios.delete(`/api/users/${userId}`)
             .then(() => {
                 toast.success('Utilisateur supprimé');
-                router.refresh();  // Refresh the page to update the list of users
+                router.refresh();
             })
             .catch((error) => {
                 toast.error('Erreur lors de la suppression de l\'utilisateur');
@@ -53,7 +53,6 @@ const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
                     className="bg-blue-500 text-white hover:bg-blue-600 transition-colors w-full sm:w-1/2 md:w-1/4 lg:w-1/5 border-none"
                 />
 
-                {/* Nouveau bouton pour envoyer la newsletter */}
                 <Button 
                     label="Envoyer la newsletter"
                     onClick={() => setIsNewsletterModalOpen(true)} // Ouvre la modale
@@ -67,7 +66,6 @@ const AdminClient: React.FC<AdminClientProps> = ({ users, currentUser }) => {
                     onClose={() => setIsAddEquipmentModalOpen(false)} 
                 />
 
-                {/* Modale pour la newsletter */}
                 <SendNewsletterModal 
                     isOpen={isNewsletterModalOpen}
                     onClose={() => setIsNewsletterModalOpen(false)}
