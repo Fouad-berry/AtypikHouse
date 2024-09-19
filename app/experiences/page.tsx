@@ -14,15 +14,6 @@ const Experiences = async () => {
                 title="Politique de confidentialité"
             />
 
-            {/* Ajout de l'image responsive */}
-            <div className="relative w-full h-100 md:h-96"> {/* Le parent doit être "relative" avec des dimensions */}
-                <Image
-                    src="/images/bg-lg.jpg" // Remplace par le chemin correct de l'image
-                    alt="Image de Politique de Confidentialité"
-                    fill // Utilise "fill" pour remplir l'espace parent
-                    className="object-cover" // Utilise Tailwind CSS pour l'ajustement de l'image
-                />
-            </div>
 
             <Footer />
             <MobileNavbar />
