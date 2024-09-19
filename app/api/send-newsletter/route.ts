@@ -23,19 +23,19 @@ export async function POST(request: Request) {
 
 
   const emailHTML = `
-    <div style="font-family: Arial, sans-serif; color: #333;">
-      <h2 style="background-color: #f4f4f4; padding: 10px; text-align: center;">${subject}</h2>
-      <div style="padding: 20px;">
-        <p>${content}</p>
-      </div>
-      <hr style="border: 1px solid #ddd;"/>
-      <footer style="text-align: center; padding: 10px;">
-        <p>Merci de nous suivre !</p>
-        <p><a href="https://votre-site.com" style="color: #007bff;">Visitez notre site</a></p>
-        <p><a href="https://votre-site.com/unsubscribe" style="color: #007bff;">Se désinscrire</a></p>
-      </footer>
+  <div style="font-family: Arial, sans-serif; color: #333;">
+    <h2 style="background-color: #f4f4f4; padding: 10px; text-align: center;">${subject}</h2>
+    <div style="padding: 20px;">
+      <p>${content}</p>
     </div>
-  `;
+    <hr style="border: 1px solid #ddd;"/>
+    <footer style="text-align: center; padding: 10px;">
+      <p>Merci de nous suivre !</p>
+      <p><a href="https://f2i-dev22-fm-lo-am-it.vercel.app" style="color: #007bff;">Visitez notre site</a></p>
+      <p><a href="https://f2i-dev22-fm-lo-am-it.vercel.app/se-desabonner" style="color: #007bff;">Se désinscrire</a></p>
+    </footer>
+  </div>
+`;
 
   for (const subscriber of subscribers) {
     await transporter.sendMail({
