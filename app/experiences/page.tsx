@@ -17,16 +17,12 @@ const Experiences = async () => {
 
     const OPTIONS: EmblaOptionsType = {}
     const SLIDE_COUNT = 5
-    const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+    const slides = Array.from(Array(SLIDE_COUNT).keys())
 
     return (
         <>
-{/*             <Heading
-                title="Politique de confidentialité"
-            />
- */}
-    <h1 className="bonjour">Bonjour</h1>
-                <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+            <h1 className="pt-6 pb-2 text-center text-xl font-bolder">Les experiences avec atypikHouse</h1>
+                <EmblaCarousel slides={['bg-lg.jpg', 'bg-lg.jpg', 'bg-lg.jpg']} options={OPTIONS} />
 
             <Footer />
             <MobileNavbar />

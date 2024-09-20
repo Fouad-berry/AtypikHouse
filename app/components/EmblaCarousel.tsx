@@ -1,45 +1,44 @@
 'use client';
 
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import ClassNames from 'embla-carousel-class-names'
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import ClassNames from 'embla-carousel-class-names';
 import {
   NextButton,
   PrevButton,
-  usePrevNextButtons
-} from './EmblaCarouselArrowButtons'
-import { DotButton, useDotButton } from './EmblaCarouselDotButton'
+  usePrevNextButtons,
+} from './EmblaCarouselArrowButtons';
+import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 
 type PropType = {
-  slides: number[]
-  options?: EmblaOptionsType
-}
+  slides: string[]; // Change type to string[] to hold image filenames
+  options?: EmblaOptionsType;
+};
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [ClassNames()])
+  const { slides, options } = props;
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [ClassNames()]);
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi)
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
-  } = usePrevNextButtons(emblaApi)
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
 
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
+          {slides.map((imageName, index) => (
             <div className="embla__slide embla__class-names" key={index}>
               <img
                 className="embla__slide__img"
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
+                src={`/images/${imageName}`} // Path to your local images in the public folder
+                alt={`Image ${index}`}
               />
             </div>
           ))}
@@ -65,7 +64,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EmblaCarousel
+export default EmblaCarousel;
