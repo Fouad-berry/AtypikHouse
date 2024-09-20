@@ -50,7 +50,7 @@ const Experiences = async () => {
             </div>
             <div className="flex justify-center">
             <Image
-                src="/images/M6.jpg"
+                src="/images/spotify.png"
                 alt="Partenaire 3"
                 width={150}
                 height={100}
@@ -60,7 +60,7 @@ const Experiences = async () => {
             </div>
             <div className="flex justify-center">
                 <Image
-                    src="/images/france3.png"
+                    src="/images/ikea.png"
                     alt="Partenaire 4"
                     width={150}
                     height={100}
@@ -69,10 +69,10 @@ const Experiences = async () => {
                 />
             </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-4">
             <div className="flex justify-center">
                 <Image
-                src="/images/tf1.jpg"
+                src="/images/genshin.png"
                 alt="Partenaire 1"
                 width={150}
                 height={100}
@@ -82,7 +82,7 @@ const Experiences = async () => {
             </div>
             <div className="flex justify-center">
                 <Image
-                src="/images/logo-télématin.jpg"
+                src="/images/myconcierge.png"
                 alt="Partenaire 2"
                 width={150}
                 height={100}
@@ -92,7 +92,7 @@ const Experiences = async () => {
             </div>
             <div className="flex justify-center">
             <Image
-                src="/images/M6.jpg"
+                src="/images/oreo.png"
                 alt="Partenaire 3"
                 width={150}
                 height={100}
@@ -102,7 +102,7 @@ const Experiences = async () => {
             </div>
             <div className="flex justify-center">
                 <Image
-                    src="/images/france3.png"
+                    src="/images/emma.jpg"
                     alt="Partenaire 4"
                     width={150}
                     height={100}
