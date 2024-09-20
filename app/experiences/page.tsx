@@ -6,7 +6,6 @@ import Container from "../components/Container";
 import Heading from "../components/Heading";
 import Image from "next/image";
 import React from 'react'
-import ReactDOM from 'react-dom/client'
 import EmblaCarousel from "../components/EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import '../embla.css';
