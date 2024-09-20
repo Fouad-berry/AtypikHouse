@@ -19,13 +19,104 @@ const Experiences = async () => {
     const slides = Array.from(Array(SLIDE_COUNT).keys())
 
     return (
-        <>
-            <h1 className="pt-6 pb-2 text-center text-xl font-bolder">Les experiences avec atypikHouse</h1>
+        <Container>
+            <h1 className="pt-6 pb-2 text-center text-2xl font-bolder" style={{ fontFamily: 'LilitaOne-Regular' }}>Les experiences avec atypikHouse</h1>
                 <EmblaCarousel slides={['bg-lg.jpg', 'bg-lg.jpg', 'bg-lg.jpg']} options={OPTIONS} />
+                <br />
+                <br />
+                
+                <div className="text-center my-16">
+        <h1 className="text-4xl font-normal" style={{ fontFamily: 'LilitaOne-Regular' }}>Vivez une experiences inoubliables en compagnie de nos partenaires </h1>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+            <div className="flex justify-center">
+                <Image
+                src="/images/croix-rouge.png"
+                alt="Partenaire 1"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            <div className="flex justify-center">
+                <Image
+                src="/images/netflix.png"
+                alt="Partenaire 2"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            <div className="flex justify-center">
+            <Image
+                src="/images/M6.jpg"
+                alt="Partenaire 3"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+            />
+            </div>
+            <div className="flex justify-center">
+                <Image
+                    src="/images/france3.png"
+                    alt="Partenaire 4"
+                    width={150}
+                    height={100}
+                    style={{ objectFit: "contain" }}
+                    className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="flex justify-center">
+                <Image
+                src="/images/tf1.jpg"
+                alt="Partenaire 1"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            <div className="flex justify-center">
+                <Image
+                src="/images/logo-télématin.jpg"
+                alt="Partenaire 2"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            <div className="flex justify-center">
+            <Image
+                src="/images/M6.jpg"
+                alt="Partenaire 3"
+                width={150}
+                height={100}
+                style={{ objectFit: "contain" }}
+                className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+            />
+            </div>
+            <div className="flex justify-center">
+                <Image
+                    src="/images/france3.png"
+                    alt="Partenaire 4"
+                    width={150}
+                    height={100}
+                    style={{ objectFit: "contain" }}
+                    className="transition-all duration-300 filter grayscale-[50%] hover:grayscale-0 cursor-pointer"
+                />
+            </div>
+            </div>
+        </div>
 
+                
             <Footer />
             <MobileNavbar />
-        </>
+        </Container>
     )
 };
 

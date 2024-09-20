@@ -50,6 +50,7 @@
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "socket.io": "^4.7.5",
+    "tw-elements-react": "^1.0.0-alpha-end",
     "world-countries": "^5.0.0",
     "zustand": "^4.5.0"
   },
