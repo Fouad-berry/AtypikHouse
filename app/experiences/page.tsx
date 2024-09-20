@@ -21,7 +21,7 @@ const Experiences = async () => {
     return (
         <Container>
             <h1 className="pt-6 pb-2 text-center text-2xl font-bolder" style={{ fontFamily: 'LilitaOne-Regular' }}>Les experiences avec atypikHouse</h1>
-                <EmblaCarousel slides={['bg-lg.jpg', 'bg-lg.jpg', 'bg-lg.jpg']} options={OPTIONS} />
+                <EmblaCarousel slides={['weekend-amoureux.jpg', 'culinaires.jpg', 'bg-lg.jpg']} options={OPTIONS} />
                 <br />
                 <br />
                 
