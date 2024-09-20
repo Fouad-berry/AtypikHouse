@@ -37,7 +37,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide embla__class-names" key={index}>
               <img
                 className="embla__slide__img"
-                src={`/images/${imageName}`} // Path to your local images in the public folder
+                src={`/images/${imageName}`}
                 alt={`Image ${index}`}
               />
             </div>
