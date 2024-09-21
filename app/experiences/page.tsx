@@ -21,14 +21,14 @@ const Experiences = async () => {
     return (
         <Container>
             <h1 className="pt-6 pb-2 text-center text-2xl font-bolder" style={{ fontFamily: 'LilitaOne-Regular' }}>Les experiences avec atypikHouse</h1>
-                <EmblaCarousel slides={['weekend-amoureux.jpg', 'people-relaxing.jpg', 'full-shot.jpg', 'nomad-family.jpg']} options={OPTIONS} />
+                <EmblaCarousel slides={['weekend-amoureux.jpg', 'people-relaxing.jpg', 'full-shot.jpg', 'nomad-family.jpg', 'sejour-en-famille.jpg']} options={OPTIONS} />
                 <br />
                 <br />
                 
             <div className="flex flex-col md:flex-row items-center my-16 bg-gray-200 py-8">
                 <div className="md:w-1/2 px-4">
                 <Image
-                    src="/images/madeinfrance.jpg"
+                    src="/images/full-shot.jpg"
                     alt="Image à gauche"
                     width={800}
                     height={350}
@@ -40,9 +40,9 @@ const Experiences = async () => {
                 NOTRE HISTOIRE, VOS AVENTURES</h2>
                 <p className="text-xl">
                     <br />
-                    Chez AtypikHouse, nous ne nous contentons pas de proposer des hébergements atypiques, nous créons des expériences inoubliables. Basée dans le Sud de la France, notre plateforme offre à ses utilisateurs l'opportunité de vivre des moments uniques, que ce soit dans une cabane perchée, une yourte, ou encore une maison flottante. <br />
+                    Chez AtypikHouse, nous ne nous contentons pas de proposer des hébergements atypiques, nous créons des expériences inoubliables. Basée dans le Sud de la France, notre plateforme offre à ses utilisateurs l&apos;opportunité de vivre des moments uniques, que ce soit dans une cabane perchée, une yourte, ou encore une maison flottante. <br />
                     <br />
-                    Chaque séjour est une aventure, un voyage hors du temps, pensé pour ravir les amoureux de la nature, les familles en quête de découverte, et les voyageurs avides d'originalité. Nous sommes fiers de collaborer avec des hébergeurs passionnés qui partagent cette vision. Ensemble, nous offrons bien plus qu'un simple hébergement, nous créons des souvenirs impérissables. <br />
+                    Chaque séjour est une aventure, un voyage hors du temps, pensé pour ravir les amoureux de la nature, les familles en quête de découverte, et les voyageurs avides d&apos;originalité. Nous sommes fiers de collaborer avec des hébergeurs passionnés qui partagent cette vision. Ensemble, nous offrons bien plus qu&apos;un simple hébergement, nous créons des souvenirs impérissables. <br />
                 </p>
                 </div>
             </div>
