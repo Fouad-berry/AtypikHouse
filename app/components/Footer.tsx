@@ -58,10 +58,9 @@ const Footer = () => {
               <BiLogoFacebookSquare size={25} />
             </p>
             <p
-              onClick={() => router.push('/trips')}
+              onClick={() => window.open('https://www.instagram.com/atypikhouse2024?igsh=eWc3Nnp6NmszZ3g3&utm_source=qr', '_blank')}
               className="cursor-pointer hover:underline"
-            >
-              <FaInstagramSquare size={25} />
+>              <FaInstagramSquare size={25} />
             </p>
           </div>
         </div>
