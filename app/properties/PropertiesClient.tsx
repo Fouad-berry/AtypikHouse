@@ -54,7 +54,6 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
     return (
         <>
         <br />
-        <br />
         <Container>
             <Heading 
                 title="Propriétés"

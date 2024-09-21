@@ -58,10 +58,15 @@ export const categories = [
         description: 'Profitez dun design fantastique et contemporain dans des propriétés .'
     },
     {
+        label: 'Chateau',
+        image: '/images/chateau.png',
+        description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
+    },
+    {
         label: 'Plage',
         image: '/images/plage.png',
         description: 'Ressentez la brise marine dans des propriétés à deux pas de la plage.'
-    },
+    }
 ];
 
 const Categories = () => {
