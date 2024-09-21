@@ -41,7 +41,6 @@ const ListingHead: React.FC<ListingHeadProps> = ({
     return (
         <>
         <br />
-        <br />
             <Heading
                 title={title}
                 subtitle={`${location?.region}, ${location?.label}`}

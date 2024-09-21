@@ -28,7 +28,8 @@ const ListingPage = async ({params}: {params: IParams}) => {
         )
     }
     return (
-        <><ClientOnly>
+        <>
+        <ClientOnly>
             <ListingClient
                 listing={listing}
                 reservation={reservations}
