@@ -52,6 +52,9 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
     const listingToEdit = listings.find(listing => listing.id === editingId);
 
     return (
+        <>
+        <br />
+        <br />
         <Container>
             <Heading 
                 title="Propriétés"
@@ -90,6 +93,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
                 />
             )}
         </Container>
+        </>
     );
 };
 
