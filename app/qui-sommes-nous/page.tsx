@@ -108,10 +108,8 @@ const QuiSommesNous = () => {
 <div className="text-center my-16 bg-gray-100 py-8">
   <h1 className="text-4xl font-bold mb-8" style={{ fontFamily: 'LilitaOne-Regular' }}>VOTRE OFFRE EST-ELLE ELIGIBLE ?</h1>
 
-  {/* Container for two columns in two rows */}
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
     
-    {/* Column 1 */}
     <div className="flex flex-col items-center bg-white p-4 shadow-lg">
     <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Dimension insolite</h3>
       <div className="flex items-center">
@@ -122,7 +120,6 @@ const QuiSommesNous = () => {
       </div>
     </div>
 
-    {/* Column 2 */}
     <div className="flex flex-col items-center bg-white p-4 shadow-lg">
     <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Environnement privilégié</h3>
       <div className="flex items-center">
@@ -133,7 +130,6 @@ const QuiSommesNous = () => {
       </div>
     </div>
 
-    {/* Column 3 */}
     <div className="flex flex-col items-center bg-white p-4 shadow-lg">
     <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Une offre et des tarifs cohérents</h3>
       <div className="flex items-center">
@@ -144,8 +140,7 @@ const QuiSommesNous = () => {
       </div>
     </div>
 
-    {/* Column 4 */}
-    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
+$    <div className="flex flex-col items-center bg-white p-4 shadow-lg">
     <h3 className="text-xl font-semibold mt-2" style={{ fontFamily: 'LilitaOne-Regular' , fontWeight:'lighter'}}>Qualité de la collaboration</h3>
       <div className="flex items-center">
         <img src="/images/hand-shake.png" alt="Image 4" className="w-16 h-16 rounded-full mr-4"/>
