@@ -37,7 +37,7 @@ const Experiences = async () => {
                 </div>
                 <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0 px-4">
                 <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'LilitaOne-Regular' }}>
-                QUI-SOMMES-NOUS ?</h2>
+                NOTRE HISTOIRE, VOS AVENTURES</h2>
                 <p className="text-xl">
                     <br />
                     Chez AtypikHouse, nous ne nous contentons pas de proposer des hébergements atypiques, nous créons des expériences inoubliables. Basée dans le Sud de la France, notre plateforme offre à ses utilisateurs l'opportunité de vivre des moments uniques, que ce soit dans une cabane perchée, une yourte, ou encore une maison flottante. <br />
