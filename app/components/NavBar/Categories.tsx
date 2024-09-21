@@ -28,9 +28,9 @@ export const categories = [
         description: 'Échappez à la routine quotidienne dans une cabane perchée, un havre de paix au cœur de la forêt, idéal pour se reconnecter avec la nature.'
     },
     {
-        label: 'Desert',
-        image: '/images/cactus.png',
-        description: 'Évadez-vous dans l\'immensité des dunes, où le silence règne en maître.'
+        label: 'Dômes',
+        image: '/images/dome.png',
+        description: 'Plongez dans une retraite paisible sous les étoiles, où le confort rencontre la nature. Vivez une expérience inédite dans un dôme au cœur des paysages sauvages.'
     },
     {
         label: 'Fermes',
