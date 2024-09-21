@@ -57,6 +57,8 @@ const MessagesClient: React.FC<MessagesPageProps> = ({ currentUser }) => {
     };
 
     return (
+        <>
+        <br />
         <Container>
             <Heading title="Bienvenue dans votre espace de messagerie" subtitle="Consultez vos messages" />
             <div className="flex">
@@ -70,6 +72,7 @@ const MessagesClient: React.FC<MessagesPageProps> = ({ currentUser }) => {
                 )}
             </div>
         </Container>
+        </>
     );
 };
 

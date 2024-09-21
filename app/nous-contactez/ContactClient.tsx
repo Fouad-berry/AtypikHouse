@@ -69,6 +69,8 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
     };
 
     return (
+        <>
+        <br />
         <Container>
             <Heading 
                 title="Contactez-nous"
@@ -144,6 +146,7 @@ const ContactClient: React.FC<ContactClientProps> = ({ currentUser }) => {
                 </div>
             </div>
         </Container>
+        </>
     );
 };
 

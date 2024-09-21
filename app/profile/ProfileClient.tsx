@@ -46,6 +46,8 @@ const ProfileClient: React.FC<TripsClientProps> = ({
     };
     
     return (
+        <>
+        <br />
         <Container>
             <Heading 
                 title={`Bienvenue sur votre profil, ${currentUser?.name || ''}`}
@@ -127,6 +129,7 @@ const ProfileClient: React.FC<TripsClientProps> = ({
                 </form>
             </div>
         </Container>
+        </>
     );
 };
 

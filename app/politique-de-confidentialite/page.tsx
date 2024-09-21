@@ -9,6 +9,8 @@ import Heading from "../components/Heading";
 const  ConditionsGenerales = async () => {
 
     return (
+        <>
+        <br />
         <Container>
             <Heading
                 title="Politique de confidentialité"
@@ -103,7 +105,7 @@ Nous pouvons mettre à jour cette politique de confidentialité de temps à autr
             <Footer />
             <MobileNavbar />
         </Container>
-
+        </>
     )
 };
 
