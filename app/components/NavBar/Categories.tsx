@@ -18,9 +18,9 @@ export const categories = [
         description: 'Découvrez une retraite en pleine nature, idéale pour les amateurs de plein air.'
     },
     {
-        label: 'Arctique',
-        image: '/images/flocon-de-neige.png',
-        description: 'Expérimentez la beauté glaciale des régions polaires avec des vues enneigées à couper le souffle.'
+        label: 'Caravanes',
+        image: '/images/caravane.png',
+        description: 'Embarquez pour une escapade nomade avec nos caravanes confortables, offrant la liberté de découvrir de nouveaux horizons tout en profitant du confort moderne.'
     },
     {
         label: 'Cabanes',
@@ -33,9 +33,9 @@ export const categories = [
         description: 'Évadez-vous dans l\'immensité des dunes, où le silence règne en maître.'
     },
     {
-        label: 'Caravanes',
-        image: '/images/caravane.png',
-        description: 'Embarquez pour une escapade nomade avec nos caravanes confortables, offrant la liberté de découvrir de nouveaux horizons tout en profitant du confort moderne.'
+        label: 'Fermes',
+        image: '/images/paysage.png',
+        description: 'Expérimentez la beauté des verdures , des chevaux , des espaces verts qu\'offrent les fermes'
     },
     {
         label: 'Piscines',
