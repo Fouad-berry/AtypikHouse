@@ -5,7 +5,6 @@ import ClientOnly from "../components/ClientOnly";
 import MobileNavbar from "../components/MobileNavbar";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
-import Heading from "../components/Heading";
 import Image from "next/image";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
