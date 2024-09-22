@@ -40,6 +40,8 @@ const TripsClient: React.FC<TripsClientProps> = ({
     }, [router]);
 
     return (
+        <>
+        <br />
         <Container>
             <Heading 
                 title="Mes voyages"
@@ -70,6 +72,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
                 ))}
             </div>
         </Container>
+        </>
     );
 };
 
