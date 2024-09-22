@@ -39,6 +39,8 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
         })
     }, [router]);
     return (
+        <>
+        <br />
         <Container>
             <Heading 
                 title="Reservations"
@@ -69,6 +71,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
                 ))}
             </div>
         </Container>
+        </>
     );
 };
 
