@@ -18,9 +18,9 @@ export const categories = [
         description: 'Découvrez une retraite en pleine nature, idéale pour les amateurs de plein air.'
     },
     {
-        label: 'Caravanes',
-        image: '/images/caravane.png',
-        description: 'Embarquez pour une escapade nomade avec nos caravanes confortables, offrant la liberté de découvrir de nouveaux horizons tout en profitant du confort moderne.'
+        label: 'Conteneur',
+        image: '/images/conteneur.png',
+        description: 'Vivez une expérience unique en harmonie avec la nature dans nos conteneurs aménagés. Alliant design moderne et esprit écologique, ces espaces originaux offrent tout le confort nécessaire pour une escapade inoubliable, au cœur de paysages inspirants.'
     },
     {
         label: 'Cabanes',
