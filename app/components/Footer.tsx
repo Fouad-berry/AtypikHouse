@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1 flex justify-center gap-x-4">
             <p
-              onClick={() => router.push('/trips')}
+              onClick={() => window.open('https://www.facebook.com/people/AtypikHouse/61566390087947/', '_blank')}
               className="cursor-pointer hover:underline"
             >
               <BiLogoFacebookSquare size={25} />
