@@ -1,13 +1,13 @@
 
 import { NextResponse } from 'next/server';
-import prisma from '@/app/libs/prismadb'; // Assurez-vous de configurer Prisma correctement
+import prisma from '@/app/libs/prismadb';
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {
-    const lastChecked = new Date(Date.now() - 60 * 1000); // Dernière minute
+    const lastChecked = new Date(Date.now() - 60 * 1000);
     const newListing = await prisma.listing.findMany({
       where: {
         createAt: {
