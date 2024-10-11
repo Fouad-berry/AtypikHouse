@@ -8,7 +8,7 @@ import Image from 'next/image';
 interface EquipementBoxProps {
     label: string;
     selected: boolean;
-    image: string;  // Image est maintenant obligatoire
+    image: string;
 }
 
 const EquipementBox: React.FC<EquipementBoxProps> = ({
