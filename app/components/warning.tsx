@@ -13,7 +13,7 @@ const Warning: React.FC<WarningProps> = ({ onDismiss }) => {
       </span>
       <button
         onClick={onDismiss}
-        className="text-black font-bold font-bold hover:underline focus:outline-none"
+        className="text-black font-bold hover:underline focus:outline-none"
       >
         &emsp;Ignorer
       </button>
