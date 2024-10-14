@@ -27,7 +27,7 @@ export async function GET(request: Request) {
 
         return NextResponse.json(orders, { status: 200 });
     } catch (error) {
-        console.error("Erreur lors de la récupération des commandes :", error);
+        console.error("Erreur lors de la récupération de la liste des commandes :", error);
         return NextResponse.json({ message: "Erreur lors de la récupération des commandes" }, { status: 500 });
     }
 }
