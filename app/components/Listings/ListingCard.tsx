@@ -82,7 +82,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'PP')} - ${format(end, 'PP')}`;
     }, [reservation]);
 
-    const mainImageSrc = data.imageSrc && data.imageSrc.length > 0 ? data.imageSrc[0] : "/placeholder.jpg"; // Placeholder au cas où il n'y a pas d'image
+    const mainImageSrc = data.imageSrc && data.imageSrc.length > 0 ? data.imageSrc[0] : "/placeholder.jpg";
 
     return (
         <div
