@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     const {
         title,
         description,
-        imageSrc, // Tableau d'URLs des images
+        imageSrc,
         category,
         roomCount,
         bathroomCount,
@@ -23,24 +23,22 @@ export async function POST(request: Request) {
         equipment
     } = body;
 
-    // Vérification des champs requis
     Object.keys(body).forEach((value: any) => {
         if (!body[value]) {
             return NextResponse.error();
         }
     });
 
-    // Création du listing avec Prisma
     const listing = await prisma.listing.create({
         data: {
             title,
             description,
-            imageSrc, // Stocker les images en tant que tableau de chaînes
+            imageSrc,
             category,
             roomCount,
             bathroomCount,
             guestCount,
-            equipment: { set: equipment }, // Gestion des équipements avec Prisma
+            equipment: { set: equipment },
             locationvalue: location.value,
             price: parseInt(price, 10),
             userId: currentUser.id,

@@ -65,8 +65,8 @@ export async function PUT(
             guestCount: body.guestCount,
             roomCount: body.roomCount,
             bathroomCount: body.bathroomCount,
-            imageSrc: body.imageSrc, // tableau d'URLs d'images
-            equipment: body.equipment, // tableau d'équipements
+            imageSrc: body.imageSrc,
+            equipment: body.equipment,
         },
     });
 
